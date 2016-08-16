@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  ios.iGitHub
+//
+//  Created by yangc on 16/6/23.
+//  Copyright © 2016年 yangc. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#define YC_COLOR(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
+
+#define YC_ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#define YC_HTMLString(HTMLString) [[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markdown.html" ofType:nil] encoding:NSUTF8StringEncoding error:NULL] stringByReplacingOccurrencesOfString:@"###" withString:[[[(HTMLString) stringByReplacingOccurrencesOfString:@"\"" withString:@"'"] stringByReplacingOccurrencesOfString:@">\n<" withString:@"><"] stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"]]
+
+#define YC_OAuth @{@"client_id" : @"1b11aefcd2c9620683da", @"client_secret" : @"0f59520f1bb2474128640a9c075cb4a16e79501f"}
+
+#define YC_PerPage 50
+
+#endif
+
+#endif /* PrefixHeader_pch */

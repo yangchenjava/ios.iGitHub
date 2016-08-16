@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="YCCommitBodyTableViewCell" id="KGk-i7-Jjw" customClass="YCCommitBodyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKZ-3x-K1C" userLabel="Deletions">
+                        <rect key="frame" x="239" y="12" width="43" height="20"/>
+                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="5RE-T8-msB"/>
+                            <constraint firstAttribute="height" constant="20" id="if4-jz-FnS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" red="0.88235294117647056" green="0.44705882352941173" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-kQ-KHi" userLabel="Additions">
+                        <rect key="frame" x="191" y="12" width="43" height="20"/>
+                        <color key="backgroundColor" red="0.78823529411764703" green="1" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <color key="textColor" red="0.27843137254901962" green="0.65490196078431373" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoq-7U-1bg" userLabel="FileName">
+                        <rect key="frame" x="10" y="0.0" width="171" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="mVW-Ar-0Eb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhi-dW-Mc1" userLabel="Status">
+                        <rect key="frame" x="10" y="28" width="171" height="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bKZ-3x-K1C" firstAttribute="height" secondItem="VAK-kQ-KHi" secondAttribute="height" id="0d8-jd-Yop"/>
+                    <constraint firstItem="bKZ-3x-K1C" firstAttribute="width" secondItem="VAK-kQ-KHi" secondAttribute="width" id="7Ld-YU-dL1"/>
+                    <constraint firstItem="VAK-kQ-KHi" firstAttribute="leading" secondItem="bhi-dW-Mc1" secondAttribute="trailing" constant="10" id="7TP-z2-Bqh"/>
+                    <constraint firstItem="VAK-kQ-KHi" firstAttribute="leading" secondItem="Hoq-7U-1bg" secondAttribute="trailing" constant="10" id="Cd5-UN-nHI"/>
+                    <constraint firstAttribute="trailing" secondItem="bhi-dW-Mc1" secondAttribute="trailing" constant="10" id="ESO-NJ-QTn"/>
+                    <constraint firstItem="Hoq-7U-1bg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KXe-qH-Z3q"/>
+                    <constraint firstItem="bhi-dW-Mc1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NTn-5k-Jmm"/>
+                    <constraint firstItem="bKZ-3x-K1C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qhw-1G-Foi"/>
+                    <constraint firstItem="bKZ-3x-K1C" firstAttribute="leading" secondItem="VAK-kQ-KHi" secondAttribute="trailing" constant="5" id="ao3-0A-ogn"/>
+                    <constraint firstItem="Hoq-7U-1bg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fxi-Hu-ec4"/>
+                    <constraint firstAttribute="trailing" secondItem="bKZ-3x-K1C" secondAttribute="trailing" constant="5" id="h84-a9-itM"/>
+                    <constraint firstItem="VAK-kQ-KHi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kz3-yy-Yhx"/>
+                    <constraint firstItem="bhi-dW-Mc1" firstAttribute="top" secondItem="Hoq-7U-1bg" secondAttribute="bottom" id="qpn-sS-SEq"/>
+                    <constraint firstAttribute="bottom" secondItem="bhi-dW-Mc1" secondAttribute="bottom" constant="5" id="yaq-h6-6ox"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ESO-NJ-QTn"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="additionsLabel" destination="VAK-kQ-KHi" id="sa6-po-tc9"/>
+                <outlet property="deletionsLabel" destination="bKZ-3x-K1C" id="rzG-O6-z2O"/>
+                <outlet property="fileNameLabel" destination="Hoq-7U-1bg" id="fXQ-9M-NFZ"/>
+                <outlet property="statueLabel" destination="bhi-dW-Mc1" id="iqV-Ao-SYV"/>
+            </connections>
+            <point key="canvasLocation" x="391" y="405"/>
+        </tableViewCell>
+    </objects>
+</document>

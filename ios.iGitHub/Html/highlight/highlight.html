@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="xcode.css">
+        <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="highlight.pack.js"></script>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        pre {
+            margin: 0;
+        }
+        .hljs {
+            overflow-x: visible;
+            padding: 0;
+            background: transparent;
+        }
+        .lineNumber {
+            color: #999;
+            background-color: #ededed;
+            width: 50px;
+            display: inline-block;
+            text-align: right;
+            padding-right: 2px;
+            font-size: 20px;
+        }
+        .lineNumber .hljs-number {
+            color: #999;
+        }
+        .lineNumber-background {
+            background-color: #ededed;
+            width: 53px;
+            position: absolute;
+            z-index: -1;
+            border-right: 1px solid #ccc;
+        }
+        </style>
+        <script type="text/javascript">
+        function spanLineNumber(num) {
+            return "<span class='lineNumber'>" + num + "</span> ";
+        }
+        
+        function drawLineNumber(){
+            var code = $("code").text().replace(/</g, "&lt;");
+            var start = 1;
+            code = spanLineNumber(start) + code;
+            var numCode = code.replace(/\n/g, function () {
+                start++;
+                return "\n" + spanLineNumber(start);
+            });
+            $("code").html(numCode);
+        }
+        </script>
+    </head>
+    <body>
+        <div class="lineNumber-background"></div>
+        <pre><code class=""></code></pre>
+    </body>
+</html>
