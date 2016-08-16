@@ -9,6 +9,7 @@
 #import <WebKit/WebKit.h>
 
 #import "UIView+Category.h"
+#import "UIViewController+Category.h"
 #import "YCReadmeViewController.h"
 #import "YCReposBiz.h"
 
@@ -52,6 +53,7 @@
         decisionHandler(WKNavigationActionPolicyAllow);
     } else {
         decisionHandler(WKNavigationActionPolicyCancel);
+        [self presentWebViewControllerWithURL:navigationAction.request.URL animated:YES completion:nil];
     }
 }
 

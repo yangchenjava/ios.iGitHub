@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Category.h"
+#import "UIViewController+Category.h"
 #import "YCReposBiz.h"
 #import "YCSourceViewController.h"
 
@@ -81,6 +82,9 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        [self presentWebViewControllerWithURL:request.URL animated:YES completion:nil];
+    }
     return navigationType != UIWebViewNavigationTypeLinkClicked;
 }
 

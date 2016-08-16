@@ -14,6 +14,7 @@
 
 @optional
 - (void)tableFooterViewDidChangeHeight:(YCCommentTableFooterView *)tableFooterView;
+- (void)tableFooterView:(YCCommentTableFooterView *)tableFooterView didActiveLinkWithURL:(NSURL *)URL;
 
 @end
 

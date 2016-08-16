@@ -20,6 +20,7 @@
 		0F09C04B1D48B1B700687BBA /* YCIssuesDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F09C0491D48B1B700687BBA /* YCIssuesDetailTableViewCell.xib */; };
 		0F09C0531D49DDC300687BBA /* YCBaseTableHeaderModelF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */; };
 		0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */; };
+		0F2679651D63119E0088F533 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2679641D63119E0088F533 /* UIViewController+Category.m */; };
 		0F5FD14B1D504B5300432131 /* YCIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD1491D504B5300432131 /* YCIssuesViewController.m */; };
 		0F5FD14C1D504B5300432131 /* YCIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */; };
 		0F5FD14F1D50743A00432131 /* YCReadmeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD14E1D50743A00432131 /* YCReadmeResult.m */; };
@@ -192,6 +193,9 @@
 		0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBaseTableHeaderModelF.m; sourceTree = "<group>"; };
 		0F09C0591D4B4E6000687BBA /* YCIssuesBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesBodyTableViewCell.h; sourceTree = "<group>"; };
 		0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesBodyTableViewCell.m; sourceTree = "<group>"; };
+		0F2679611D6310550088F533 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		0F2679631D63119E0088F533 /* UIViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
+		0F2679641D63119E0088F533 /* UIViewController+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
 		0F5FD1481D504B5300432131 /* YCIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesViewController.h; sourceTree = "<group>"; };
 		0F5FD1491D504B5300432131 /* YCIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesViewController.m; sourceTree = "<group>"; };
 		0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCIssuesViewController.xib; sourceTree = "<group>"; };
@@ -872,6 +876,8 @@
 				0FE3F4131D261A4C001E5D24 /* UITextViewWithPlaceholder.m */,
 				0FE3F4141D261A4C001E5D24 /* UIView+Category.h */,
 				0FE3F4151D261A4C001E5D24 /* UIView+Category.m */,
+				0F2679631D63119E0088F533 /* UIViewController+Category.h */,
+				0F2679641D63119E0088F533 /* UIViewController+Category.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1208,6 +1214,7 @@
 		4BDD2C61AE47880B1829BE84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F2679611D6310550088F533 /* SafariServices.framework */,
 				021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */,
 			);
 			name = Frameworks;
@@ -1479,6 +1486,7 @@
 				0FE3F4421D261A4C001E5D24 /* YCChineseCalendar.m in Sources */,
 				0FE3F4431D261A4C001E5D24 /* YCHttpUtils.m in Sources */,
 				0F68E3B21D34D3E900AD85EE /* NSString+Emojize.m in Sources */,
+				0F2679651D63119E0088F533 /* UIViewController+Category.m in Sources */,
 				0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */,
 				0F68E3A21D32362200AD85EE /* YCReposResult.m in Sources */,
 				0F09C0321D4745BD00687BBA /* YCIssuesResult.m in Sources */,

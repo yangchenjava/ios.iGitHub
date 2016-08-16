@@ -105,6 +105,9 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked && [self.delegate respondsToSelector:@selector(tableFooterView:didActiveLinkWithURL:)]) {
+        [self.delegate tableFooterView:self didActiveLinkWithURL:request.URL];
+    }
     return navigationType != UIWebViewNavigationTypeLinkClicked;
 }
 

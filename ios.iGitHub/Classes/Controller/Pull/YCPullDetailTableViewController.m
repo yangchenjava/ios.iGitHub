@@ -9,6 +9,7 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "UIView+Category.h"
+#import "UIViewController+Category.h"
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCBaseTableViewCellItem.h"
@@ -168,8 +169,16 @@
     }
 }
 
+- (void)tableViewCell:(YCPullBodyTableViewCell *)tableViewCell didActiveLinkWithURL:(NSURL *)URL {
+    [self presentWebViewControllerWithURL:URL animated:YES completion:nil];
+}
+
 - (void)tableFooterViewDidChangeHeight:(YCCommentTableFooterView *)tableFooterView {
     self.tableView.tableFooterView = self.tableFooterView;
+}
+
+- (void)tableFooterView:(YCCommentTableFooterView *)tableFooterView didActiveLinkWithURL:(NSURL *)URL {
+    [self presentWebViewControllerWithURL:URL animated:YES completion:nil];
 }
 
 @end

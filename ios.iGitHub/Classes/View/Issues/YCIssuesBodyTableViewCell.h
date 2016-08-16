@@ -16,6 +16,7 @@
 
 @optional
 - (void)tableViewCellDidChangeHeight:(YCIssuesBodyTableViewCell *)tableViewCell;
+- (void)tableViewCell:(YCIssuesBodyTableViewCell *)tableViewCell didActiveLinkWithURL:(NSURL *)URL;
 
 @end
 
