@@ -14,9 +14,10 @@
 
 #ifdef __OBJC__
 
-#define YC_COLOR(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
-
 #define YC_ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define YC_ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define YC_COLOR(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
 
 #define YC_HTMLString(HTMLString) [[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markdown.html" ofType:nil] encoding:NSUTF8StringEncoding error:NULL] stringByReplacingOccurrencesOfString:@"###" withString:[[[(HTMLString) stringByReplacingOccurrencesOfString:@"\"" withString:@"'"] stringByReplacingOccurrencesOfString:@">\n<" withString:@"><"] stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"]]
 
