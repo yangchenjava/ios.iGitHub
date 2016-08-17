@@ -11,19 +11,28 @@
 #import "SVModalWebViewController.h"
 #import "UIViewController+Category.h"
 
+#define iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+
 static const void *key_statusBarStyle = &key_statusBarStyle;
 
 @implementation UIViewController (Category)
 
 - (void)presentWebViewControllerWithURL:(NSURL *)URL animated:(BOOL)animated completion:(void (^)())completion {
+    UIViewController *vc;
+    if (iOS9) {
+        self.statusBarStyle = @([UIApplication sharedApplication].statusBarStyle);
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 #ifdef __IPHONE_9_0
-    self.statusBarStyle = @([UIApplication sharedApplication].statusBarStyle);
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:URL];
-    vc.delegate = self;
-#else
-    SVModalWebViewController *vc = [[SVModalWebViewController alloc] initWithURL:URL];
+        SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:URL];
+        safariViewController.delegate = self;
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:safariViewController];
+        navi.navigationBarHidden = YES;
+        vc = navi;
 #endif
+    } else {
+        SVModalWebViewController *modalWebViewController = [[SVModalWebViewController alloc] initWithURL:URL];
+        vc = modalWebViewController;
+    }
     [self presentViewController:vc animated:animated completion:completion];
 }
 
