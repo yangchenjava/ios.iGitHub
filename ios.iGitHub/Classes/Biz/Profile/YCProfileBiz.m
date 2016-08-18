@@ -6,7 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "YCHttpUtils.h"
+#import <Mantle/Mantle.h>
+#import <YCHelpKit/YCHttpUtils.h>
+
 #import "YCProfileBiz.h"
 
 @implementation YCProfileBiz

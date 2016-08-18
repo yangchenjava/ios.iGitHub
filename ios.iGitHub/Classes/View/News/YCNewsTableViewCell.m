@@ -7,11 +7,11 @@
 //
 
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import <YCHelpKit/UIImage+Category.h>
+#import <YCHelpKit/UIImageView+SDWebImageCategory.h>
+#import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
-#import "UIImage+Category.h"
-#import "UIImageView+SDWebImageCategory.h"
-#import "UIView+Category.h"
 #import "YCGitHubUtils.h"
 #import "YCNewsTableViewCell.h"
 

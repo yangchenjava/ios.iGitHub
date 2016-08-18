@@ -6,8 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "UIView+Category.h"
-#import "UIViewController+Category.h"
+#import <YCHelpKit/UIView+Category.h>
+#import <YCHelpKit/UIViewController+Category.h>
+
 #import "YCReposBiz.h"
 #import "YCSourceViewController.h"
 

@@ -6,7 +6,8 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "NSString+Category.h"
+#import <YCHelpKit/NSString+Category.h>
+
 #import "YCCommentResultF.h"
 #import "YCGitHubUtils.h"
 
@@ -24,7 +25,7 @@
     CGFloat nameX = CGRectGetMaxX(_avatarF) + kMargin;
     CGFloat nameY = kMargin;
     CGFloat nameW = viewWidth - nameX - kMargin;
-    
+
     CGFloat nameH = [self.comment.user.login sizeWithFont:kFontName size:CGSizeMake(nameW, MAXFLOAT)].height;
     _nameF = CGRectMake(nameX, nameY, nameW, nameH);
 

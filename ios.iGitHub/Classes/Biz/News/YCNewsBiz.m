@@ -7,8 +7,8 @@
 //
 
 #import <Mantle/Mantle.h>
+#import <YCHelpKit/YCHttpUtils.h>
 
-#import "YCHttpUtils.h"
 #import "YCNewsBiz.h"
 #import "YCNewsResult.h"
 

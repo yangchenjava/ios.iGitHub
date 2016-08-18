@@ -7,10 +7,10 @@
 //
 
 #import <Mantle/Mantle.h>
+#import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCEventsBiz.h"
 #import "YCEventsResult.h"
-#import "YCHttpUtils.h"
 
 @implementation YCEventsBiz
 

@@ -6,7 +6,8 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "NSString+Category.h"
+#import <YCHelpKit/NSString+Category.h>
+
 #import "YCEventsResultF.h"
 
 #define kMargin 8

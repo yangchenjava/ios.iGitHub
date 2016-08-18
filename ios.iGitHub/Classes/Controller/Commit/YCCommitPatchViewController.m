@@ -6,7 +6,8 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "UIView+Category.h"
+#import <YCHelpKit/UIView+Category.h>
+
 #import "YCCommitPatchViewController.h"
 
 @interface YCCommitPatchViewController () <UIWebViewDelegate>

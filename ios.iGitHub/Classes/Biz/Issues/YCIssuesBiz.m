@@ -7,9 +7,9 @@
 //
 
 #import <Mantle/Mantle.h>
+#import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCCommentResult.h"
-#import "YCHttpUtils.h"
 #import "YCIssuesBiz.h"
 
 @implementation YCIssuesBiz

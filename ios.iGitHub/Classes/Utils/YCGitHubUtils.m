@@ -64,7 +64,7 @@
         if (days > 30) {
             return [date formattedDateWithFormat:@"'on' d MMM" locale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
         } else if (days == 0) {
-            return [NSString stringWithFormat:@"%f hours ago", [currentDate hoursLaterThan:date]];
+            return [NSString stringWithFormat:@"%d hours ago", (int) round([currentDate hoursLaterThan:date])];
         } else {
             return [NSString stringWithFormat:@"%ld %@ ago", days, days == 1 ? @"day" : @"days"];
         }

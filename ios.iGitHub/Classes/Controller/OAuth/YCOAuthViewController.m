@@ -6,8 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "MBProgressHUD+Category.h"
-#import "UIView+Category.h"
+#import <YCHelpKit/MBProgressHUD+Category.h>
+#import <YCHelpKit/UIView+Category.h>
+
 #import "YCGitHubUtils.h"
 #import "YCOAuthBiz.h"
 #import "YCOAuthParam.h"

@@ -7,9 +7,9 @@
 //
 
 #import <WebKit/WebKit.h>
+#import <YCHelpKit/UIView+Category.h>
+#import <YCHelpKit/UIViewController+Category.h>
 
-#import "UIView+Category.h"
-#import "UIViewController+Category.h"
 #import "YCReadmeViewController.h"
 #import "YCReposBiz.h"
 

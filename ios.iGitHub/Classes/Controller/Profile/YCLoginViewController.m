@@ -6,8 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "UIImage+Category.h"
-#import "UIImageView+SDWebImageCategory.h"
+#import <YCHelpKit/UIImage+Category.h>
+#import <YCHelpKit/UIImageView+SDWebImageCategory.h>
+
 #import "YCGitHubUtils.h"
 #import "YCLoginViewController.h"
 #import "YCProfileBiz.h"

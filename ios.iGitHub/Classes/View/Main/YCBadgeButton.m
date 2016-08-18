@@ -6,8 +6,9 @@
 //  Copyright (c) 2016年 yangc. All rights reserved.
 //
 
-#import "NSString+Category.h"
-#import "UIImage+Category.h"
+#import <YCHelpKit/NSString+Category.h>
+#import <YCHelpKit/UIImage+Category.h>
+
 #import "YCBadgeButton.h"
 
 @implementation YCBadgeButton

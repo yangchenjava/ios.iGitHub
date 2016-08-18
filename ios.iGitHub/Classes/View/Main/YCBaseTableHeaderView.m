@@ -6,10 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "NSString+Emojize.h"
-#import "UIImage+Category.h"
-#import "UIImageView+SDWebImageCategory.h"
-#import "UIView+Category.h"
+#import <YCHelpKit/NSString+Emojize.h>
+#import <YCHelpKit/UIImage+Category.h>
+#import <YCHelpKit/UIImageView+SDWebImageCategory.h>
+#import <YCHelpKit/UIView+Category.h>
+
 #import "YCBaseTableHeaderView.h"
 
 @interface YCBaseTableHeaderView ()
