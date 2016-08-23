@@ -38,7 +38,7 @@
         self.nameLabel = nameLabel;
 
         UILabel *descLabel = [[UILabel alloc] init];
-        descLabel.textColor = YC_COLOR(205, 205, 205);
+        descLabel.textColor = YC_Color_RGB(205, 205, 205);
         descLabel.font = kFontDesc;
         descLabel.textAlignment = NSTextAlignmentCenter;
         descLabel.numberOfLines = 0;

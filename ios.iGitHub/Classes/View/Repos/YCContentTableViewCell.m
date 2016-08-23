@@ -24,7 +24,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.textLabel.textColor = YC_COLOR(50, 50, 50);
+        self.textLabel.textColor = YC_Color_RGB(50, 50, 50);
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return self;
@@ -39,7 +39,7 @@
     } else {
         icon = [FAKOcticons fileCodeIconWithSize:25];
     }
-    [icon addAttribute:NSForegroundColorAttributeName value:YC_COLOR(91, 97, 101)];
+    [icon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(91, 97, 101)];
     self.imageView.image = [icon imageWithSize:CGSizeMake(25, 25)];
     self.textLabel.text = self.content.name;
 }

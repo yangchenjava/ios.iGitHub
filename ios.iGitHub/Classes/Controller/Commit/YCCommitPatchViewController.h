@@ -10,6 +10,7 @@
 
 @interface YCCommitPatchViewController : UIViewController
 
+@property (nonatomic, copy) NSString *rawURL;
 @property (nonatomic, copy) NSString *patch;
 
 @end

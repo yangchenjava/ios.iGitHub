@@ -25,8 +25,8 @@
         self.imageView.contentMode = UIViewContentModeCenter;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:11];
-        [self setTitleColor:YC_COLOR(130, 130, 130) forState:UIControlStateNormal];
-        [self setTitleColor:YC_COLOR(50, 50, 50) forState:UIControlStateSelected];
+        [self setTitleColor:YC_Color_RGB(130, 130, 130) forState:UIControlStateNormal];
+        [self setTitleColor:YC_Color_RGB(50, 50, 50) forState:UIControlStateSelected];
 
         YCBadgeButton *badgeButton = [YCBadgeButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:badgeButton];

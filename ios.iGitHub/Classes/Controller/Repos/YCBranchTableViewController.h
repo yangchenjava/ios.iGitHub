@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *reposname;
+@property (nonatomic, copy) NSString *state;
 
 @end

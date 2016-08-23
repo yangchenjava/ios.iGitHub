@@ -23,7 +23,7 @@
     [UIApplication sharedApplication].statusBarHidden = NO;
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = YC_COLOR(87, 87, 87);
+    self.window.backgroundColor = YC_Color_RGB(87, 87, 87);
     [self.window makeKeyAndVisible];
     [YCGitHubUtils setupRootViewController];
 

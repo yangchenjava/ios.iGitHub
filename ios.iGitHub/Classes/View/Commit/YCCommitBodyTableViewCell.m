@@ -38,14 +38,14 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     [super setHighlighted:highlighted animated:animated];
-    self.additionsLabel.backgroundColor = YC_COLOR(201, 255, 208);
-    self.deletionsLabel.backgroundColor = YC_COLOR(255, 221, 221);
+    self.additionsLabel.backgroundColor = YC_Color_RGB(201, 255, 208);
+    self.deletionsLabel.backgroundColor = YC_Color_RGB(255, 221, 221);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    self.additionsLabel.backgroundColor = YC_COLOR(201, 255, 208);
-    self.deletionsLabel.backgroundColor = YC_COLOR(255, 221, 221);
+    self.additionsLabel.backgroundColor = YC_Color_RGB(201, 255, 208);
+    self.deletionsLabel.backgroundColor = YC_Color_RGB(255, 221, 221);
 }
 
 - (void)setItem:(YCCommitTableViewCellItem *)item {

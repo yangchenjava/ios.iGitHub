@@ -6,14 +6,16 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
 #import "YCGitHubUtils.h"
+#import "YCIssuesDetailTableViewController.h"
 #import "YCNewsTableViewCell.h"
+#import "YCProfileTableViewController.h"
+#import "YCReposDetailTableViewController.h"
 
 #define kUsername @"kUsername"
 #define kReposname @"kReposname"
@@ -46,9 +48,9 @@
 
     self.contentLabel.delegate = self;
     self.contentLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
-    self.contentLabel.linkAttributes = @{(NSString *) kCTForegroundColorAttributeName : (id) YC_COLOR(65, 132, 192).CGColor};
+    self.contentLabel.linkAttributes = @{(NSString *) kCTForegroundColorAttributeName : (id) YC_Color_RGB(65, 132, 192).CGColor};
     self.contentLabel.activeLinkAttributes =
-        @{(NSString *) kCTForegroundColorAttributeName : (id) YC_COLOR(65, 132, 192).CGColor, (NSString *) kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
+        @{(NSString *) kCTForegroundColorAttributeName : (id) YC_Color_RGB(65, 132, 192).CGColor, (NSString *) kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
     self.contentLabel.numberOfLines = 0;
 }
 
@@ -64,6 +66,8 @@
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:self.news.actor.login]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:self.news.repo.name]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kForkeeReposname] withRange:[content rangeOfString:self.news.payload.forkee.full_name]];
+
+            self.news.attrURL = [NSURL URLWithString:kForkeeReposname];
             break;
         }
         case NewsTypeIssuesEvent: {
@@ -83,6 +87,8 @@
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:self.news.actor.login]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kIssueNumber] withRange:[content rangeOfString:[NSString stringWithFormat:@"#%ld", self.news.payload.issue.number]]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:self.news.repo.name]];
+
+            self.news.attrURL = [NSURL URLWithString:kIssueNumber];
             break;
         }
         case NewsTypeWatchEvent: {
@@ -91,6 +97,8 @@
             self.contentLabel.text = content;
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:self.news.actor.login]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:self.news.repo.name]];
+
+            self.news.attrURL = [NSURL URLWithString:kReposname];
             break;
         }
     }
@@ -106,20 +114,35 @@
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
     NSString *URLString = url.absoluteString;
-    if ([URLString isEqualToString:kUsername] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:)]) {
-        [self.delegate tableViewCell:self didClickUsername:self.news.actor.login];
-    } else if ([URLString isEqualToString:kReposname] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:)]) {
+    if ([URLString isEqualToString:kUsername]) {
+        YCProfileTableViewController *vc = [[YCProfileTableViewController alloc] init];
+        vc.username = self.news.actor.login;
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kReposname]) {
         NSString *fullName = self.news.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1]];
-    } else if ([URLString isEqualToString:kForkeeReposname] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:forkeeReposname:)]) {
+
+        YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kForkeeReposname]) {
         NSString *fullName = self.news.payload.forkee.full_name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] forkeeReposname:[fullName substringFromIndex:index + 1]];
-    } else if ([URLString isEqualToString:kIssueNumber] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:number:)]) {
+
+        YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kIssueNumber]) {
         NSString *fullName = self.news.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1] number:self.news.payload.issue.number];
+
+        YCIssuesDetailTableViewController *vc = [[YCIssuesDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.number = self.news.payload.issue.number;
+        [YCGitHubUtils pushViewController:vc];
     }
 }
 

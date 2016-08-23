@@ -48,6 +48,8 @@
                 content = [NSString stringWithFormat:@"%@ created repository %@", self.events.actor.login, self.events.repo.name];
             } else if (self.events.payload.ref_type == RefTypeBranch) {
                 content = [NSString stringWithFormat:@"%@ created branch %@ in %@", self.events.actor.login, self.events.payload.ref, self.events.repo.name];
+            } else if (self.events.payload.ref_type == RefTypeTag) {
+                content = [NSString stringWithFormat:@"%@ created tag %@ in %@", self.events.actor.login, self.events.payload.ref, self.events.repo.name];
             }
             desc = nil;
             break;
@@ -86,9 +88,18 @@
         case EventsTypePushEvent: {
             NSString *branch = [self.events.payload.ref substringFromIndex:@"refs/heads/".length];
             content = [NSString stringWithFormat:@"%@ pushed to %@ at %@", self.events.actor.login, branch, self.events.repo.name];
-            if (self.events.payload.commits.count) {
-                YCCommitResult *commitResult = self.events.payload.commits[0];
-                desc = [NSString stringWithFormat:@"%@ - %@", [commitResult.sha substringToIndex:6], commitResult.message];
+            NSArray *commits = self.events.payload.commits;
+            NSUInteger count = commits.count;
+            if (count) {
+                NSMutableString *str = [NSMutableString string];
+                for (int i = 0; i < count; i++) {
+                    YCCommitResult *commitResult = commits[i];
+                    [str appendFormat:@"%@ - %@", [commitResult.sha substringToIndex:6], commitResult.message];
+                    if (i != count - 1) {
+                        [str appendString:@"\n"];
+                    }
+                }
+                desc = [str copy];
             } else {
                 desc = nil;
             }

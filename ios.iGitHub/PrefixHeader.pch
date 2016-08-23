@@ -14,10 +14,26 @@
 
 #ifdef __OBJC__
 
+// 屏幕宽高
 #define YC_ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define YC_ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-#define YC_COLOR(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1]
+#define YC_Dict_Temp NSTemporaryDirectory()
+#define YC_Dict_Cache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
+#define YC_Dict_Document NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject
+
+// 颜色
+#define YC_Color_Random [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1.0]
+#define YC_Color_RGBA(R, G, B, A) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:(A)]
+#define YC_Color_RGB(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1.0]
+
+// 弱引用/强引用
+#define YCWeakSelf(type) __weak typeof(type) weak##type = type
+#define YCStrongSelf(type) __strong typeof(type) type = weak##type
+
+// 角度转弧度 弧度转角度
+#define YCDegreeToRadian(degree) ((degree) * M_PI / 180.0)
+#define YCRadianToDegree(radian) ((radian) * 180.0 / M_PI)
 
 #define YC_HTMLString(HTMLString) [[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markdown.html" ofType:nil] encoding:NSUTF8StringEncoding error:NULL] stringByReplacingOccurrencesOfString:@"###" withString:[[[(HTMLString) stringByReplacingOccurrencesOfString:@"\"" withString:@"'"] stringByReplacingOccurrencesOfString:@">\n<" withString:@"><"] stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"]]
 

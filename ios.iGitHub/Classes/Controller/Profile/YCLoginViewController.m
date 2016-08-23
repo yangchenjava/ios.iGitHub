@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.imageView.image = [[UIImage imageNamed:@"login_user_unknown"] imageWithTintColor:YC_COLOR(87, 87, 87)];
+    self.imageView.image = [[UIImage imageNamed:@"login_user_unknown"] imageWithTintColor:YC_Color_RGB(87, 87, 87)];
     YCProfileResult *profile = [YCGitHubUtils profile];
     if (profile) {
         self.label.hidden = NO;

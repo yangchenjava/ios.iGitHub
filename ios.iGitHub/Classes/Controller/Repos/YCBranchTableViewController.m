@@ -17,7 +17,6 @@
 
 @property (nonatomic, weak) UISegmentedControl *segmentedControl;
 
-@property (nonatomic, copy) NSString *state;
 @property (nonatomic, assign) int page;
 @property (nonatomic, strong) NSMutableArray *branchArray;
 
@@ -37,7 +36,7 @@
     NSArray *items = @[ @"Branches", @"Tags" ];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
     segmentedControl.frame = CGRectMake(0, 0, 100, 26);
-    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.selectedSegmentIndex = [self.state isEqualToString:@"tags"] ? 1 : 0;
     [segmentedControl addTarget:self action:@selector(ChangeSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segmentedControl;
     self.segmentedControl = segmentedControl;

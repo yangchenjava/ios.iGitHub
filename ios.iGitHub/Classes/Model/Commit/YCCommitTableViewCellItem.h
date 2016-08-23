@@ -12,6 +12,5 @@
 
 @property (nonatomic, assign) long additions;
 @property (nonatomic, assign) long deletions;
-@property (nonatomic, copy) NSString *patch;
 
 @end

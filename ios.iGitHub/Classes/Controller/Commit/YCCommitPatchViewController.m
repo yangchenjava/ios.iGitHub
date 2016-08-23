@@ -36,7 +36,12 @@
     [self.view addSubview:webView];
     self.webView = webView;
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"diffindex.html" withExtension:nil];
+    NSURL *url;
+    if (self.patch.length) {
+        url = [[NSBundle mainBundle] URLForResource:@"diffindex.html" withExtension:nil];
+    } else {
+        url = [NSURL URLWithString:self.rawURL];
+    }
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 

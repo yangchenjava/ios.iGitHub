@@ -40,7 +40,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    webView.backgroundColor = YC_COLOR(250, 250, 250);
+    webView.backgroundColor = YC_Color_RGB(250, 250, 250);
     self.backButton.enabled = webView.canGoBack;
     self.forwardButton.enabled = webView.canGoForward;
 }

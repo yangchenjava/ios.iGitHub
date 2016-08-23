@@ -34,7 +34,7 @@
     // title样式
     naviBar.titleTextAttributes = titleTextAttributes;
     // 背景色
-    naviBar.barTintColor = YC_COLOR(50, 50, 50);
+    naviBar.barTintColor = YC_Color_RGB(50, 50, 50);
     // 背景不透明
     naviBar.translucent = NO;
     // 去掉下边黑线

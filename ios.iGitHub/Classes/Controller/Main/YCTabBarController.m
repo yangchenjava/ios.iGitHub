@@ -75,11 +75,11 @@
     vc.tabBarItem.title = title;
 
     FAKOcticons *icon = [FAKOcticons iconWithIdentifier:imageName size:25 error:NULL];
-    [icon addAttribute:NSForegroundColorAttributeName value:YC_COLOR(130, 130, 130)];
+    [icon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(130, 130, 130)];
     vc.tabBarItem.image = [icon imageWithSize:CGSizeMake(25, 25)];
 
     FAKOcticons *selectedIcon = [FAKOcticons iconWithIdentifier:selectedImageName size:25 error:NULL];
-    [selectedIcon addAttribute:NSForegroundColorAttributeName value:YC_COLOR(50, 50, 50)];
+    [selectedIcon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(50, 50, 50)];
     vc.tabBarItem.selectedImage = [selectedIcon imageWithSize:CGSizeMake(25, 25)];
 
     vc.tabBarItem.badgeValue = badgeValue;

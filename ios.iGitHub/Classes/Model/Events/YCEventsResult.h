@@ -44,4 +44,6 @@ typedef enum {
 
 @property (nonatomic, strong) NSDate *created_at;
 
+@property (nonatomic, strong) NSURL *attrURL;
+
 @end

@@ -21,7 +21,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.textLabel.textColor = YC_COLOR(50, 50, 50);
+        self.textLabel.textColor = YC_Color_RGB(50, 50, 50);
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return self;

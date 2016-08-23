@@ -9,15 +9,12 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "YCGitHubUtils.h"
-#import "YCIssuesDetailTableViewController.h"
 #import "YCNewsBiz.h"
 #import "YCNewsResult.h"
 #import "YCNewsTableViewCell.h"
 #import "YCNewsTableViewController.h"
-#import "YCProfileTableViewController.h"
-#import "YCReposDetailTableViewController.h"
 
-@interface YCNewsTableViewController () <YCNewsTableViewCellDelegate>
+@interface YCNewsTableViewController ()
 
 @property (nonatomic, strong) NSArray *newsArray;
 
@@ -56,7 +53,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YCNewsTableViewCell *cell = [YCNewsTableViewCell cellWithTableView:tableView];
-    cell.delegate = self;
     cell.news = self.newsArray[indexPath.row];
     return cell;
 }
@@ -65,56 +61,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     YCNewsResult *news = self.newsArray[indexPath.row];
-    switch (news.type) {
-        case NewsTypeForkEvent: {
-            NSString *fullName = news.payload.forkee.full_name;
-            NSUInteger index = [fullName rangeOfString:@"/"].location;
-            [self tableViewCell:nil didClickUsername:[fullName substringToIndex:index] forkeeReposname:[fullName substringFromIndex:index + 1]];
-            break;
-        }
-        case NewsTypeIssuesEvent: {
-            NSString *fullName = news.repo.name;
-            NSUInteger index = [fullName rangeOfString:@"/"].location;
-            [self tableViewCell:nil didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1] number:news.payload.issue.number];
-            break;
-        }
-        case NewsTypeWatchEvent: {
-            NSString *fullName = news.repo.name;
-            NSUInteger index = [fullName rangeOfString:@"/"].location;
-            [self tableViewCell:nil didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1]];
-            break;
-        }
-    }
-}
-
-#pragma mark - cell内连接代理
-
-- (void)tableViewCell:(YCNewsTableViewCell *)tableViewCell didClickUsername:(NSString *)username {
-    YCProfileTableViewController *vc = [[YCProfileTableViewController alloc] init];
-    vc.username = username;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCNewsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname {
-    YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCNewsTableViewCell *)tableViewCell didClickUsername:(NSString *)username forkeeReposname:(NSString *)forkeeReposname {
-    YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = forkeeReposname;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCNewsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname number:(long)number {
-    YCIssuesDetailTableViewController *vc = [[YCIssuesDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    vc.number = number;
-    [self.navigationController pushViewController:vc animated:YES];
+    YCNewsTableViewCell *cell = (YCNewsTableViewCell *) [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    [cell attributedLabel:nil didSelectLinkWithURL:news.attrURL];
 }
 
 @end

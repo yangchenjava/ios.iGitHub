@@ -6,23 +6,25 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "YCOAuthResult.h"
 #import "YCProfileResult.h"
 
 @interface YCGitHubUtils : NSObject
 
-+ (void)setOAuth:(YCOAuthResult *)oauth;
 + (YCOAuthResult *)oauth;
++ (void)setOAuth:(YCOAuthResult *)oauth;
 
-+ (void)setProfile:(YCProfileResult *)profile;
 + (YCProfileResult *)profile;
++ (void)setProfile:(YCProfileResult *)profile;
 
 + (NSDateFormatter *)dateFormatter;
 
 + (NSString *)dateStringWithDate:(NSDate *)date;
 
 + (void)setupRootViewController;
+
++ (void)pushViewController:(UIViewController *)vc;
 
 @end

@@ -37,7 +37,7 @@
     [dotcomButton setImage:[UIImage imageNamed:@"dotcom-mascot"] forState:UIControlStateNormal];
     [dotcomButton setTitle:@"GitHub.com" forState:UIControlStateNormal];
     [dotcomButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    dotcomButton.backgroundColor = YC_COLOR(240, 239, 245);
+    dotcomButton.backgroundColor = YC_Color_RGB(240, 239, 245);
     [dotcomButton addTarget:self action:@selector(clickDotcomButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:dotcomButton];
 
@@ -50,7 +50,7 @@
     [enterpriseButton setImage:[UIImage imageNamed:@"enterprise-mascot"] forState:UIControlStateNormal];
     [enterpriseButton setTitle:@"Enterprise" forState:UIControlStateNormal];
     [enterpriseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    enterpriseButton.backgroundColor = YC_COLOR(50, 50, 50);
+    enterpriseButton.backgroundColor = YC_Color_RGB(50, 50, 50);
     [self.view addSubview:enterpriseButton];
 }
 

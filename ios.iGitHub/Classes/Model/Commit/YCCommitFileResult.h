@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, assign) long additions;
 @property (nonatomic, assign) long deletions;
+@property (nonatomic, copy) NSString *raw_url;
 @property (nonatomic, copy) NSString *patch;
 
 @end

@@ -19,7 +19,7 @@
 }
 
 + (instancetype)itemWithTitle:(NSString *)title icon:(NSString *)icon subtitle:(NSString *)subtitle {
-    return [self itemWithTitle:title icon:icon subtitle:subtitle destClass:nil instanceVariables:nil];
+    return [self itemWithTitle:title icon:icon subtitle:subtitle destClass:Nil instanceVariables:nil];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title icon:(NSString *)icon subtitle:(NSString *)subtitle destClass:(Class)destClass instanceVariables:(NSDictionary *)instanceVariables {

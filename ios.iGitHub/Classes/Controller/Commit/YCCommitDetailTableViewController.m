@@ -78,11 +78,11 @@
                                                                           subtitle:commitFile.status
                                                                          destClass:[YCCommitPatchViewController class]
                                                                  instanceVariables:@{
-                                                                     @"_patch" : commitFile.patch
+                                                                     @"_rawURL" : commitFile.raw_url.length ? commitFile.raw_url : [NSNull null],
+                                                                     @"_patch" : commitFile.patch.length ? commitFile.patch : [NSNull null]
                                                                  }];
         item.additions = commitFile.additions;
         item.deletions = commitFile.deletions;
-        item.patch = commitFile.patch;
 
         NSString *key = [NSString stringWithFormat:@"/%@", commitFile.filename.stringByDeletingLastPathComponent.uppercaseString];
         NSMutableArray *value = [dict valueForKey:key];

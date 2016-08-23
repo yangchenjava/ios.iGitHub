@@ -6,21 +6,30 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
+#import "YCBranchTableViewController.h"
+#import "YCCommitDetailTableViewController.h"
+#import "YCCommitTableViewController.h"
 #import "YCEventsTableViewCell.h"
 #import "YCGitHubUtils.h"
+#import "YCIssuesDetailTableViewController.h"
+#import "YCProfileTableViewController.h"
+#import "YCPullDetailTableViewController.h"
+#import "YCReposDetailTableViewController.h"
 
 #define kUsername @"kUsername"
 #define kReposname @"kReposname"
 #define kForkeeReposname @"kForkeeReposname"
 #define kIssueNumber @"kIssueNumber"
 #define kPullRequestNumber @"kPullRequestNumber"
+#define kCommit @"kCommit"
 #define kBranch @"kBranch"
+#define kTag @"kTag"
+#define kComment @"kComment"
 #define kSha @"kSha"
 
 @interface YCEventsTableViewCell () <TTTAttributedLabelDelegate>
@@ -60,9 +69,9 @@
         [self addSubview:dateLabel];
         self.dateLabel = dateLabel;
 
-        NSDictionary *linkAttributes = @{(NSString *) kCTForegroundColorAttributeName : (id) YC_COLOR(65, 132, 192).CGColor};
+        NSDictionary *linkAttributes = @{(NSString *) kCTForegroundColorAttributeName : (id) YC_Color_RGB(65, 132, 192).CGColor};
         NSDictionary *activeLinkAttributes =
-            @{(NSString *) kCTForegroundColorAttributeName : (id) YC_COLOR(65, 132, 192).CGColor, (NSString *) kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
+            @{(NSString *) kCTForegroundColorAttributeName : (id) YC_Color_RGB(65, 132, 192).CGColor, (NSString *) kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
 
         TTTAttributedLabel *contentLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
         contentLabel.textColor = [UIColor blackColor];
@@ -109,11 +118,13 @@
             NSString *content = [NSString stringWithFormat:@"%@ commented on commit %@ in %@", events.actor.login, sha, events.repo.name];
             self.contentLabel.text = content;
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
-            [self.contentLabel addLinkToURL:[NSURL URLWithString:kSha] withRange:[content rangeOfString:sha]];
+            [self.contentLabel addLinkToURL:[NSURL URLWithString:kComment] withRange:[content rangeOfString:sha]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
 
             self.descLabel.hidden = NO;
             self.descLabel.text = events.payload.comment.body;
+
+            events.attrURL = [NSURL URLWithString:kComment];
             break;
         }
         case EventsTypeCreateEvent: {
@@ -123,6 +134,8 @@
                 self.contentLabel.text = content;
                 [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
                 [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
+
+                events.attrURL = [NSURL URLWithString:kReposname];
             } else if (events.payload.ref_type == RefTypeBranch) {
                 identifier = @"octicon-git-branch";
                 NSString *content = [NSString stringWithFormat:@"%@ created branch %@ in %@", events.actor.login, events.payload.ref, events.repo.name];
@@ -130,6 +143,17 @@
                 [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
                 [self.contentLabel addLinkToURL:[NSURL URLWithString:kBranch] withRange:[content rangeOfString:events.payload.ref]];
                 [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
+
+                events.attrURL = [NSURL URLWithString:kBranch];
+            } else if (events.payload.ref_type == RefTypeTag) {
+                identifier = @"octicon-tag";
+                NSString *content = [NSString stringWithFormat:@"%@ created tag %@ in %@", events.actor.login, events.payload.ref, events.repo.name];
+                self.contentLabel.text = content;
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kTag] withRange:[content rangeOfString:events.payload.ref]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
+
+                events.attrURL = [NSURL URLWithString:kTag];
             }
 
             self.descLabel.hidden = YES;
@@ -138,17 +162,23 @@
         }
         case EventsTypeDeleteEvent: {
             identifier = @"octicon-trashcan";
-            NSString *refType;
             if (events.payload.ref_type == RefTypeBranch) {
-                refType = @"branch";
+                NSString *content = [NSString stringWithFormat:@"%@ deleted branch %@ in %@", events.actor.login, events.payload.ref, events.repo.name];
+                self.contentLabel.text = content;
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kBranch] withRange:[content rangeOfString:events.payload.ref]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
+
+                events.attrURL = [NSURL URLWithString:kBranch];
             } else if (events.payload.ref_type == RefTypeTag) {
-                refType = @"tag";
+                NSString *content = [NSString stringWithFormat:@"%@ deleted tag %@ in %@", events.actor.login, events.payload.ref, events.repo.name];
+                self.contentLabel.text = content;
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kTag] withRange:[content rangeOfString:events.payload.ref]];
+                [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
+
+                events.attrURL = [NSURL URLWithString:kTag];
             }
-            NSString *content = [NSString stringWithFormat:@"%@ deleted %@ %@ in %@", events.actor.login, refType, events.payload.ref, events.repo.name];
-            self.contentLabel.text = content;
-            [self.contentLabel addLinkToURL:[NSURL URLWithString:kUsername] withRange:[content rangeOfString:events.actor.login]];
-            [self.contentLabel addLinkToURL:[NSURL URLWithString:kBranch] withRange:[content rangeOfString:events.payload.ref]];
-            [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
 
             self.descLabel.hidden = YES;
             self.descLabel.text = nil;
@@ -164,6 +194,8 @@
 
             self.descLabel.hidden = YES;
             self.descLabel.text = nil;
+
+            events.attrURL = [NSURL URLWithString:kForkeeReposname];
             break;
         }
         case EventsTypeIssueCommentEvent: {
@@ -176,6 +208,8 @@
 
             self.descLabel.hidden = NO;
             self.descLabel.text = events.payload.comment.body;
+
+            events.attrURL = [NSURL URLWithString:kIssueNumber];
             break;
         }
         case EventsTypeIssuesEvent: {
@@ -188,6 +222,8 @@
 
             self.descLabel.hidden = NO;
             self.descLabel.text = events.payload.issue.title;
+
+            events.attrURL = [NSURL URLWithString:kIssueNumber];
             break;
         }
         case EventsTypePullRequestEvent: {
@@ -200,6 +236,8 @@
 
             self.descLabel.hidden = NO;
             self.descLabel.text = events.payload.pull_request.title;
+
+            events.attrURL = [NSURL URLWithString:kPullRequestNumber];
             break;
         }
         case EventsTypePushEvent: {
@@ -211,16 +249,32 @@
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kBranch] withRange:[content rangeOfString:branch]];
             [self.contentLabel addLinkToURL:[NSURL URLWithString:kReposname] withRange:[content rangeOfString:events.repo.name]];
 
-            if (events.payload.commits.count) {
+            NSArray *commits = events.payload.commits;
+            NSUInteger count = commits.count;
+            if (count) {
                 self.descLabel.hidden = NO;
-                NSString *sha = [events.payload.head substringToIndex:6];
-                NSString *desc = [NSString stringWithFormat:@"%@ - %@", sha, [events.payload.commits[0] message]];
+
+                NSMutableString *str = [NSMutableString string];
+                for (int i = 0; i < count; i++) {
+                    YCCommitResult *commitResult = commits[i];
+                    [str appendFormat:@"%@ - %@", [commitResult.sha substringToIndex:6], commitResult.message];
+                    if (i != count - 1) {
+                        [str appendString:@"\n"];
+                    }
+                }
+                NSString *desc = [str copy];
                 self.descLabel.text = desc;
-                [self.descLabel addLinkToURL:[NSURL URLWithString:kSha] withRange:[desc rangeOfString:sha]];
+
+                for (int i = 0; i < count; i++) {
+                    NSString *sha = [commits[i] sha];
+                    [self.descLabel addLinkToURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kSha, sha]] withRange:[desc rangeOfString:[sha substringToIndex:6]]];
+                }
             } else {
                 self.descLabel.hidden = YES;
                 self.descLabel.text = nil;
             }
+
+            events.attrURL = [NSURL URLWithString:kCommit];
             break;
         }
         case EventsTypeWatchEvent: {
@@ -232,6 +286,8 @@
 
             self.descLabel.hidden = YES;
             self.descLabel.text = nil;
+
+            events.attrURL = [NSURL URLWithString:kReposname];
             break;
         }
     }
@@ -250,38 +306,88 @@
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
     NSString *URLString = url.absoluteString;
-    if ([URLString isEqualToString:kUsername] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:)]) {
-        [self.delegate tableViewCell:self didClickUsername:self.eventsF.events.actor.login];
-    } else if ([URLString isEqualToString:kReposname] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:)]) {
+    if ([URLString isEqualToString:kUsername]) {
+        YCProfileTableViewController *vc = [[YCProfileTableViewController alloc] init];
+        vc.username = self.eventsF.events.actor.login;
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kReposname]) {
         NSString *fullName = self.eventsF.events.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1]];
-    } else if ([URLString isEqualToString:kForkeeReposname] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:forkeeReposname:)]) {
+
+        YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kForkeeReposname]) {
         NSString *fullName = self.eventsF.events.payload.forkee.full_name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] forkeeReposname:[fullName substringFromIndex:index + 1]];
-    } else if ([URLString isEqualToString:kIssueNumber] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:issueNumber:)]) {
+
+        YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kIssueNumber]) {
         NSString *fullName = self.eventsF.events.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1] issueNumber:self.eventsF.events.payload.issue.number];
-    } else if ([URLString isEqualToString:kPullRequestNumber] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:pullRequestNumber:)]) {
+
+        YCIssuesDetailTableViewController *vc = [[YCIssuesDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.number = self.eventsF.events.payload.issue.number;
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kPullRequestNumber]) {
         NSString *fullName = self.eventsF.events.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self
-                    didClickUsername:[fullName substringToIndex:index]
-                           reposname:[fullName substringFromIndex:index + 1]
-                   pullRequestNumber:self.eventsF.events.payload.pull_request.number];
-    } else if ([URLString isEqualToString:kBranch] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:branch:)]) {
+
+        YCPullDetailTableViewController *vc = [[YCPullDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.number = self.eventsF.events.payload.pull_request.number;
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kCommit]) {
         NSString *fullName = self.eventsF.events.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self
-                    didClickUsername:[fullName substringToIndex:index]
-                           reposname:[fullName substringFromIndex:index + 1]
-                              branch:[self.eventsF.events.payload.ref substringFromIndex:@"refs/heads/".length]];
-    } else if ([URLString isEqualToString:kSha] && [self.delegate respondsToSelector:@selector(tableViewCell:didClickUsername:reposname:sha:)]) {
+
+        YCCommitTableViewController *vc = [[YCCommitTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kBranch]) {
         NSString *fullName = self.eventsF.events.repo.name;
         NSUInteger index = [fullName rangeOfString:@"/"].location;
-        [self.delegate tableViewCell:self didClickUsername:[fullName substringToIndex:index] reposname:[fullName substringFromIndex:index + 1] sha:self.eventsF.events.payload.head];
+
+        YCBranchTableViewController *vc = [[YCBranchTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.state = @"branches";
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kTag]) {
+        NSString *fullName = self.eventsF.events.repo.name;
+        NSUInteger index = [fullName rangeOfString:@"/"].location;
+
+        YCBranchTableViewController *vc = [[YCBranchTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.state = @"tags";
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString isEqualToString:kComment]) {
+        NSString *fullName = self.eventsF.events.repo.name;
+        NSUInteger index = [fullName rangeOfString:@"/"].location;
+
+        YCCommitDetailTableViewController *vc = [[YCCommitDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.sha = self.eventsF.events.payload.comment.commit_id;
+        [YCGitHubUtils pushViewController:vc];
+    } else if ([URLString hasPrefix:kSha]) {
+        NSString *fullName = self.eventsF.events.repo.name;
+        NSUInteger index = [fullName rangeOfString:@"/"].location;
+
+        YCCommitDetailTableViewController *vc = [[YCCommitDetailTableViewController alloc] init];
+        vc.username = [fullName substringToIndex:index];
+        vc.reposname = [fullName substringFromIndex:index + 1];
+        vc.sha = [URLString substringFromIndex:kSha.length];
+        [YCGitHubUtils pushViewController:vc];
     }
 }
 

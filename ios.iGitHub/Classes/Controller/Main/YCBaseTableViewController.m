@@ -45,9 +45,9 @@
 }
 
 - (void)setupBackground {
-    self.tableView.backgroundColor = YC_COLOR(50, 50, 50);
+    self.tableView.backgroundColor = YC_Color_RGB(50, 50, 50);
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 120, self.tableView.width, self.tableView.height)];
-    backgroundView.backgroundColor = YC_COLOR(239, 239, 244);
+    backgroundView.backgroundColor = YC_Color_RGB(239, 239, 244);
     [self.tableView addSubview:backgroundView];
     [self.tableView sendSubviewToBack:backgroundView];
     self.backgroundView = backgroundView;

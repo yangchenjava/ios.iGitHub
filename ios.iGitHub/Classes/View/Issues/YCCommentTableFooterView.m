@@ -45,7 +45,7 @@
         [view addSubview:avatarImageView];
 
         UILabel *nameLabel = [[UILabel alloc] initWithFrame:commentF.nameF];
-        nameLabel.textColor = YC_COLOR(65, 132, 192);
+        nameLabel.textColor = YC_Color_RGB(65, 132, 192);
         nameLabel.font = kFontName;
         nameLabel.text = commentF.comment.user.login;
         [view addSubview:nameLabel];
@@ -65,7 +65,7 @@
         [view addSubview:contentWebView];
 
         UIView *separatorView = [[UIView alloc] initWithFrame:commentF.separatorF];
-        separatorView.backgroundColor = YC_COLOR(224, 223, 226);
+        separatorView.backgroundColor = YC_Color_RGB(224, 223, 226);
         [view addSubview:separatorView];
 
         [self addSubview:view];

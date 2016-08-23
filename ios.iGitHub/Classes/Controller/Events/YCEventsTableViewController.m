@@ -8,18 +8,12 @@
 
 #import <MJRefresh/MJRefresh.h>
 
-#import "YCBranchTableViewController.h"
-#import "YCCommitDetailTableViewController.h"
 #import "YCEventsBiz.h"
 #import "YCEventsTableViewCell.h"
 #import "YCEventsTableViewController.h"
 #import "YCGitHubUtils.h"
-#import "YCIssuesDetailTableViewController.h"
-#import "YCProfileTableViewController.h"
-#import "YCPullDetailTableViewController.h"
-#import "YCReposDetailTableViewController.h"
 
-@interface YCEventsTableViewController () <YCEventsTableViewCellDelegate>
+@interface YCEventsTableViewController ()
 
 @property (nonatomic, assign) int page;
 @property (nonatomic, strong) NSMutableArray *eventsFArray;
@@ -99,7 +93,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YCEventsTableViewCell *cell = [YCEventsTableViewCell cellWithTableView:tableView];
-    cell.delegate = self;
     cell.eventsF = self.eventsFArray[indexPath.row];
     return cell;
 }
@@ -111,59 +104,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
 
-#pragma mark - cell内连接代理
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username {
-    YCProfileTableViewController *vc = [[YCProfileTableViewController alloc] init];
-    vc.username = username;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname {
-    YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username forkeeReposname:(NSString *)forkeeReposname {
-    YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = forkeeReposname;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname issueNumber:(long)issueNumber {
-    YCIssuesDetailTableViewController *vc = [[YCIssuesDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    vc.number = issueNumber;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname pullRequestNumber:(long)pullRequestNumber {
-    YCPullDetailTableViewController *vc = [[YCPullDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    vc.number = pullRequestNumber;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname branch:(NSString *)branch {
-    YCBranchTableViewController *vc = [[YCBranchTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)tableViewCell:(YCEventsTableViewCell *)tableViewCell didClickUsername:(NSString *)username reposname:(NSString *)reposname sha:(NSString *)sha {
-    YCCommitDetailTableViewController *vc = [[YCCommitDetailTableViewController alloc] init];
-    vc.username = username;
-    vc.reposname = reposname;
-    vc.sha = sha;
-    [self.navigationController pushViewController:vc animated:YES];
+    YCEventsResultF *eventsF = self.eventsFArray[indexPath.row];
+    YCEventsTableViewCell *cell = (YCEventsTableViewCell *) [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    [cell attributedLabel:nil didSelectLinkWithURL:eventsF.events.attrURL];
 }
 
 @end

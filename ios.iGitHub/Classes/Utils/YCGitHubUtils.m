@@ -16,6 +16,14 @@
 
 @implementation YCGitHubUtils
 
++ (YCOAuthResult *)oauth {
+    static NSString *path;
+    if (!path) {
+        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+    }
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+}
+
 + (void)setOAuth:(YCOAuthResult *)oauth {
     static NSString *path;
     if (!path) {
@@ -24,10 +32,10 @@
     [NSKeyedArchiver archiveRootObject:oauth toFile:path];
 }
 
-+ (YCOAuthResult *)oauth {
++ (YCProfileResult *)profile {
     static NSString *path;
     if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
     }
     return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
@@ -38,14 +46,6 @@
         path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
     }
     [NSKeyedArchiver archiveRootObject:profile toFile:path];
-}
-
-+ (YCProfileResult *)profile {
-    static NSString *path;
-    if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
-    }
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 
 + (NSDateFormatter *)dateFormatter {
@@ -84,6 +84,12 @@
         rootViewController = [[YCNavigationController alloc] initWithRootViewController:[[YCUserAccessViewController alloc] init]];
     }
     [UIApplication sharedApplication].keyWindow.rootViewController = rootViewController;
+}
+
++ (void)pushViewController:(UIViewController *)vc {
+    YCTabBarController *tabBarController = (YCTabBarController *) [UIApplication sharedApplication].keyWindow.rootViewController;
+    YCNavigationController *navigationController = tabBarController.selectedViewController;
+    [navigationController pushViewController:vc animated:YES];
 }
 
 @end
