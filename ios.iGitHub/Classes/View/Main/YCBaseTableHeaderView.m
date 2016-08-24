@@ -55,10 +55,16 @@
 
     self.avatarImageView.frame = self.tableHeaderModelF.avatarF;
     UIImage *image = [UIImage imageNamed:@"avatar"];
+    image = [image imageWithCircle:image.size borderWidth:image.size.width * 0.05];
     if (tableHeaderModel.avatar.length) {
-        [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:tableHeaderModel.avatar] placeholderImage:[image imageWithCircle:image.size]];
+        YCWeakSelf(self);
+        [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:tableHeaderModel.avatar]
+                                      placeholderImage:image
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                                 weakself.avatarImageView.image = [image imageWithCircle:image.size borderWidth:image.size.width * 0.05];
+                                             }];
     } else {
-        self.avatarImageView.image = [image imageWithCircle:image.size];
+        self.avatarImageView.image = image;
     }
 
     self.nameLabel.frame = self.tableHeaderModelF.nameF;

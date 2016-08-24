@@ -6,14 +6,16 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <MJRefresh/MJRefresh.h>
 
+#import "FontAwesomeKit.h"
 #import "YCPullBiz.h"
 #import "YCPullDetailTableViewController.h"
 #import "YCPullTableViewCell.h"
 #import "YCPullViewController.h"
 
-@interface YCPullViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface YCPullViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -33,6 +35,8 @@
     self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
 
     [self.segmentedControl addTarget:self action:@selector(ChangeSegmentedControl:) forControlEvents:UIControlEventValueChanged];
 
@@ -91,6 +95,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    tableView.separatorStyle = self.pullArray.count ? UITableViewCellSeparatorStyleSingleLine : UITableViewCellSeparatorStyleNone;
     return self.pullArray.count;
 }
 
@@ -110,6 +115,22 @@
     vc.reposname = self.reposname;
     vc.number = pull.number;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    FAKOcticons *gitPullRequestIcon = [FAKOcticons gitPullRequestIconWithSize:60];
+    [gitPullRequestIcon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(50, 50, 50)];
+    return [gitPullRequestIcon imageWithSize:CGSizeMake(60, 60)];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *title = @"There are no pull requests.";
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:15], NSForegroundColorAttributeName : YC_Color_RGB(50, 50, 50)};
+    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView {
+    return YES;
 }
 
 @end

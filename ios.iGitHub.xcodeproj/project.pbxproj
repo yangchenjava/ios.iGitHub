@@ -91,6 +91,8 @@
 		0FD96A401D3C9C08001E66BA /* YCNewsBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD96A3F1D3C9C08001E66BA /* YCNewsBiz.m */; };
 		0FD96A471D3CAF0D001E66BA /* YCNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD96A451D3CAF0D001E66BA /* YCNewsTableViewCell.m */; };
 		0FD96A481D3CAF0D001E66BA /* YCNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD96A461D3CAF0D001E66BA /* YCNewsTableViewCell.xib */; };
+		0FDAACC11D6D40EA007FE68C /* YCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDAACBF1D6D40EA007FE68C /* YCLoginViewController.m */; };
+		0FDAACC21D6D40EA007FE68C /* YCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDAACC01D6D40EA007FE68C /* YCLoginViewController.xib */; };
 		0FE3F3D61D261832001E5D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F3D51D261832001E5D24 /* Assets.xcassets */; };
 		0FE3F3E41D261832001E5D24 /* ios_iGitHubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F3E31D261832001E5D24 /* ios_iGitHubTests.m */; };
 		0FE3F3EF1D261832001E5D24 /* ios_iGitHubUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F3EE1D261832001E5D24 /* ios_iGitHubUITests.m */; };
@@ -110,8 +112,6 @@
 		0FE3F4841D2D12EB001E5D24 /* YCOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4821D2D12EB001E5D24 /* YCOAuthViewController.m */; };
 		0FE3F4851D2D12EB001E5D24 /* YCOAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4831D2D12EB001E5D24 /* YCOAuthViewController.xib */; };
 		0FE3F4881D2DF06E001E5D24 /* YCGitHubUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4871D2DF06E001E5D24 /* YCGitHubUtils.m */; };
-		0FE3F4941D2E3916001E5D24 /* YCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4921D2E3916001E5D24 /* YCLoginViewController.m */; };
-		0FE3F4951D2E3916001E5D24 /* YCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4931D2E3916001E5D24 /* YCLoginViewController.xib */; };
 		0FE3F49C1D2E3CA6001E5D24 /* YCProfileResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F49B1D2E3CA6001E5D24 /* YCProfileResult.m */; };
 		0FE3F49F1D2E4EED001E5D24 /* YCProfileBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F49E1D2E4EED001E5D24 /* YCProfileBiz.m */; };
 		0FE3F4A21D30AE98001E5D24 /* YCReposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4A11D30AE98001E5D24 /* YCReposTableViewController.m */; };
@@ -295,6 +295,9 @@
 		0FD96A441D3CAF0D001E66BA /* YCNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCNewsTableViewCell.h; sourceTree = "<group>"; };
 		0FD96A451D3CAF0D001E66BA /* YCNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCNewsTableViewCell.m; sourceTree = "<group>"; };
 		0FD96A461D3CAF0D001E66BA /* YCNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCNewsTableViewCell.xib; sourceTree = "<group>"; };
+		0FDAACBE1D6D40EA007FE68C /* YCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLoginViewController.h; sourceTree = "<group>"; };
+		0FDAACBF1D6D40EA007FE68C /* YCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLoginViewController.m; sourceTree = "<group>"; };
+		0FDAACC01D6D40EA007FE68C /* YCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCLoginViewController.xib; sourceTree = "<group>"; };
 		0FE3F3C61D261832001E5D24 /* ios.iGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.iGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE3F3D51D261832001E5D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE3F3DA1D261832001E5D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -334,9 +337,6 @@
 		0FE3F4831D2D12EB001E5D24 /* YCOAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCOAuthViewController.xib; sourceTree = "<group>"; };
 		0FE3F4861D2DF06E001E5D24 /* YCGitHubUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCGitHubUtils.h; sourceTree = "<group>"; };
 		0FE3F4871D2DF06E001E5D24 /* YCGitHubUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCGitHubUtils.m; sourceTree = "<group>"; };
-		0FE3F4911D2E3916001E5D24 /* YCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLoginViewController.h; sourceTree = "<group>"; };
-		0FE3F4921D2E3916001E5D24 /* YCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLoginViewController.m; sourceTree = "<group>"; };
-		0FE3F4931D2E3916001E5D24 /* YCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCLoginViewController.xib; sourceTree = "<group>"; };
 		0FE3F49A1D2E3CA6001E5D24 /* YCProfileResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileResult.h; sourceTree = "<group>"; };
 		0FE3F49B1D2E3CA6001E5D24 /* YCProfileResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCProfileResult.m; sourceTree = "<group>"; };
 		0FE3F49D1D2E4EED001E5D24 /* YCProfileBiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileBiz.h; sourceTree = "<group>"; };
@@ -858,6 +858,9 @@
 				0FE3F4811D2D12EB001E5D24 /* YCOAuthViewController.h */,
 				0FE3F4821D2D12EB001E5D24 /* YCOAuthViewController.m */,
 				0FE3F4831D2D12EB001E5D24 /* YCOAuthViewController.xib */,
+				0FDAACBE1D6D40EA007FE68C /* YCLoginViewController.h */,
+				0FDAACBF1D6D40EA007FE68C /* YCLoginViewController.m */,
+				0FDAACC01D6D40EA007FE68C /* YCLoginViewController.xib */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -939,9 +942,6 @@
 		0FE3F48F1D2E33BF001E5D24 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0FE3F4911D2E3916001E5D24 /* YCLoginViewController.h */,
-				0FE3F4921D2E3916001E5D24 /* YCLoginViewController.m */,
-				0FE3F4931D2E3916001E5D24 /* YCLoginViewController.xib */,
 				0FE3F4A91D30B0D0001E5D24 /* YCProfileTableViewController.h */,
 				0FE3F4AA1D30B0D0001E5D24 /* YCProfileTableViewController.m */,
 			);
@@ -1196,7 +1196,7 @@
 				0FE3F4CB1D30D2E2001E5D24 /* ionicons.ttf in Resources */,
 				0FD55B9A1D388B5C00091D37 /* YCReposDetailTableViewCell.xib in Resources */,
 				0F5FD1BF1D56393900432131 /* jquery-2.2.4.min.js in Resources */,
-				0FE3F4951D2E3916001E5D24 /* YCLoginViewController.xib in Resources */,
+				0FDAACC21D6D40EA007FE68C /* YCLoginViewController.xib in Resources */,
 				0FCE45BD1D41A53E003BAF87 /* YCProfileTableViewCell.xib in Resources */,
 				0F5FD1A01D54721300432131 /* YCCommitBodyTableViewCell.xib in Resources */,
 				0F5FD1D81D5B17B500432131 /* highlight.html in Resources */,
@@ -1311,7 +1311,6 @@
 				0FE3F4A21D30AE98001E5D24 /* YCReposTableViewController.m in Sources */,
 				0F5FD1521D50826D00432131 /* YCReadmeViewController.m in Sources */,
 				0FCE45B81D40A7E5003BAF87 /* YCEventsResultF.m in Sources */,
-				0FE3F4941D2E3916001E5D24 /* YCLoginViewController.m in Sources */,
 				0FD96A3A1D3C895E001E66BA /* YCPayloadResult.m in Sources */,
 				0FE3F4AB1D30B0D0001E5D24 /* YCProfileTableViewController.m in Sources */,
 				0FD96A471D3CAF0D001E66BA /* YCNewsTableViewCell.m in Sources */,
@@ -1335,6 +1334,7 @@
 				0F5FD1CB1D59B3FE00432131 /* YCBranchTableViewController.m in Sources */,
 				0FE3F4731D2C9A9A001E5D24 /* YCOAuthBiz.m in Sources */,
 				0F09C0461D48A7AB00687BBA /* YCCommentResult.m in Sources */,
+				0FDAACC11D6D40EA007FE68C /* YCLoginViewController.m in Sources */,
 				0FD55B991D388B5C00091D37 /* YCReposDetailTableViewCell.m in Sources */,
 				0F5FD1871D532E7B00432131 /* YCPullTableViewCell.m in Sources */,
 				0F5FD1821D5324E000432131 /* YCPullViewController.m in Sources */,
