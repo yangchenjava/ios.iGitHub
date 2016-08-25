@@ -17,6 +17,7 @@
 
 @interface YCBaseTableViewController ()
 
+@property (nonatomic, weak) UIButton *titleButton;
 @property (nonatomic, weak) UIView *backgroundView;
 @property (nonatomic, weak) YCBaseTableHeaderView *tableHeaderView;
 
@@ -34,6 +35,8 @@
     UINavigationBar *naviBar = self.navigationController.navigationBar;
     [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [naviBar setShadowImage:[[UIImage alloc] init]];
+    // 设置titleView
+    [self setupNavigationTitleView];
     // 动态控制cell高度
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -42,6 +45,18 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     // 设置背景
     [self setupBackground];
+}
+
+- (void)setupNavigationTitleView {
+    UINavigationBar *naviBar = self.navigationController.navigationBar;
+    UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    titleButton.userInteractionEnabled = NO;
+    titleButton.frame = CGRectMake(0, 0, naviBar.width - 160, naviBar.height);
+    titleButton.hidden = YES;
+    [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    self.navigationItem.titleView = titleButton;
+    self.titleButton = titleButton;
 }
 
 - (void)setupBackground {
@@ -71,10 +86,34 @@
     self.tableHeaderView.tableHeaderModelF = tableHeaderModelF;
     self.tableView.tableHeaderView = self.tableHeaderView;
     self.backgroundView.y = self.tableHeaderView.height;
+
+    [self.titleButton setTitle:self.tableHeaderModel.name forState:UIControlStateNormal];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.backgroundView.height = self.tableView.height + scrollView.contentOffset.y;
+
+    CGFloat position = 105;
+    YCWeakSelf(self);
+    if (scrollView.contentOffset.y >= position) {
+        CGFloat top = self.titleButton.height - (scrollView.contentOffset.y - position);
+        self.titleButton.hidden = NO;
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             weakself.titleButton.alpha = 1;
+                             weakself.titleButton.contentEdgeInsets = UIEdgeInsetsMake(top > 0 ? top : 0, 0, 0, 0);
+                         }];
+    } else {
+        [UIView animateWithDuration:0.5
+            animations:^{
+                weakself.titleButton.alpha = 0;
+            }
+            completion:^(BOOL finished) {
+                if (finished) {
+                    weakself.titleButton.hidden = YES;
+                }
+            }];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

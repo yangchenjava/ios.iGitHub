@@ -15,9 +15,13 @@
 #ifdef __OBJC__
 
 // 屏幕宽高
-#define YC_ScreenWidth [UIScreen mainScreen].bounds.size.width
-#define YC_ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define YC_ScreenWidth \
+([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.width / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.width)
 
+#define YC_ScreenHeight \
+([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.height / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.height)
+
+// 目录
 #define YC_Dict_Temp NSTemporaryDirectory()
 #define YC_Dict_Cache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
 #define YC_Dict_Document NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject
