@@ -17,35 +17,35 @@
 @implementation YCGitHubUtils
 
 + (YCOAuthResult *)oauth {
-    static NSString *path;
-    if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+    static NSString *oauthPath;
+    if (!oauthPath) {
+        oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
     }
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:oauthPath];
 }
 
 + (void)setOAuth:(YCOAuthResult *)oauth {
-    static NSString *path;
-    if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+    static NSString *oauthPath;
+    if (!oauthPath) {
+        oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
     }
-    [NSKeyedArchiver archiveRootObject:oauth toFile:path];
+    [NSKeyedArchiver archiveRootObject:oauth toFile:oauthPath];
 }
 
 + (YCProfileResult *)profile {
-    static NSString *path;
-    if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
+    static NSString *profilePath;
+    if (!profilePath) {
+        profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
     }
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:profilePath];
 }
 
 + (void)setProfile:(YCProfileResult *)profile {
-    static NSString *path;
-    if (!path) {
-        path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
+    static NSString *profilePath;
+    if (!profilePath) {
+        profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
     }
-    [NSKeyedArchiver archiveRootObject:profile toFile:path];
+    [NSKeyedArchiver archiveRootObject:profile toFile:profilePath];
 }
 
 + (NSDateFormatter *)dateFormatter {

@@ -94,7 +94,7 @@
                                                          subtitle:self.repos.owner.login
                                                         destClass:[YCProfileTableViewController class]
                                                 instanceVariables:@{
-                                                    @"_username" : self.repos.owner.login
+                                                    @"username" : self.repos.owner.login
                                                 }]];
     if (self.repos.parent) {
         [itemArray_0 addObject:[YCBaseTableViewCellItem itemWithTitle:@"Forked From"
@@ -102,8 +102,8 @@
                                                              subtitle:nil
                                                             destClass:[YCReposDetailTableViewController class]
                                                     instanceVariables:@{
-                                                        @"_username" : self.repos.parent.owner.login,
-                                                        @"_reposname" : self.repos.parent.name
+                                                        @"username" : self.repos.parent.owner.login,
+                                                        @"reposname" : self.repos.parent.name
                                                     }]];
     }
     YCBaseTableViewCellGroup *group_0 = [[YCBaseTableViewCellGroup alloc] init];
@@ -115,21 +115,21 @@
                                                          subtitle:nil
                                                         destClass:[YCEventsTableViewController class]
                                                 instanceVariables:@{
-                                                    @"_username" : self.repos.owner.login,
-                                                    @"_reposname" : self.repos.name
+                                                    @"username" : self.repos.owner.login,
+                                                    @"reposname" : self.repos.name
                                                 }]];
     [itemArray_1 addObject:[YCBaseTableViewCellItem itemWithTitle:@"Issues"
                                                              icon:@"octicon-issue-opened"
                                                          subtitle:nil
                                                         destClass:[YCIssuesViewController class]
                                                 instanceVariables:@{
-                                                    @"_username" : self.repos.owner.login,
-                                                    @"_reposname" : self.repos.name
+                                                    @"username" : self.repos.owner.login,
+                                                    @"reposname" : self.repos.name
                                                 }]];
     if (self.readme) {
         [itemArray_1
             addObject:[YCBaseTableViewCellItem itemWithTitle:@"Readme" icon:@"octicon-book" subtitle:nil destClass:[YCReadmeViewController class] instanceVariables:@{
-                @"_readme" : self.readme
+                @"readme" : self.readme
             }]];
     }
     YCBaseTableViewCellGroup *group_1 = [[YCBaseTableViewCellGroup alloc] init];
@@ -140,24 +140,24 @@
                                                                       subtitle:nil
                                                                      destClass:[YCCommitTableViewController class]
                                                              instanceVariables:@{
-                                                                 @"_username" : self.repos.owner.login,
-                                                                 @"_reposname" : self.repos.name
+                                                                 @"username" : self.repos.owner.login,
+                                                                 @"reposname" : self.repos.name
                                                              }];
     YCBaseTableViewCellItem *item_2_1 = [YCBaseTableViewCellItem itemWithTitle:@"Pull Requests"
                                                                           icon:@"octicon-git-pull-request"
                                                                       subtitle:nil
                                                                      destClass:[YCPullViewController class]
                                                              instanceVariables:@{
-                                                                 @"_username" : self.repos.owner.login,
-                                                                 @"_reposname" : self.repos.name
+                                                                 @"username" : self.repos.owner.login,
+                                                                 @"reposname" : self.repos.name
                                                              }];
     YCBaseTableViewCellItem *item_2_2 = [YCBaseTableViewCellItem itemWithTitle:@"Source"
                                                                           icon:@"octicon-code"
                                                                       subtitle:nil
                                                                      destClass:[YCBranchTableViewController class]
                                                              instanceVariables:@{
-                                                                 @"_username" : self.repos.owner.login,
-                                                                 @"_reposname" : self.repos.name
+                                                                 @"username" : self.repos.owner.login,
+                                                                 @"reposname" : self.repos.name
                                                              }];
     YCBaseTableViewCellGroup *group_2 = [[YCBaseTableViewCellGroup alloc] init];
     group_2.itemArray = @[ item_2_0, item_2_1, item_2_2 ];

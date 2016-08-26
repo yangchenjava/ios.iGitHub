@@ -131,7 +131,7 @@
         Ivar *ivars = class_copyIvarList(item.destClass, &count);
         for (int i = 0; i < count; i++) {
             Ivar ivar = ivars[i];
-            NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+            NSString *key = [[NSString stringWithUTF8String:ivar_getName(ivar)] substringFromIndex:1];
             id value = [item.instanceVariables valueForKey:key];
             if (value && ![value isEqual:[NSNull null]]) {
                 [destViewController setValue:value forKey:key];

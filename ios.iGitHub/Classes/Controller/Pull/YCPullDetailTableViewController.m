@@ -120,9 +120,9 @@
                                                                       subtitle:nil
                                                                      destClass:[YCCommitTableViewController class]
                                                              instanceVariables:@{
-                                                                 @"_username" : self.username,
-                                                                 @"_reposname" : self.reposname,
-                                                                 @"_number" : @(self.number)
+                                                                 @"username" : self.username,
+                                                                 @"reposname" : self.reposname,
+                                                                 @"number" : @(self.number)
                                                              }];
     YCBaseTableViewCellGroup *group_1 = [[YCBaseTableViewCellGroup alloc] init];
     group_1.itemArray = @[ item_1_0 ];

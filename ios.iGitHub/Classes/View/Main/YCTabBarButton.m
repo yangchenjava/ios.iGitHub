@@ -69,10 +69,10 @@
 
 // 记得移除KVO
 - (void)dealloc {
-    [self.badgeButton removeObserver:self forKeyPath:@"title"];
-    [self.badgeButton removeObserver:self forKeyPath:@"image"];
-    [self.badgeButton removeObserver:self forKeyPath:@"selectedImage"];
-    [self.badgeButton removeObserver:self forKeyPath:@"badgeValue"];
+    [self.tabBarItem removeObserver:self forKeyPath:@"title"];
+    [self.tabBarItem removeObserver:self forKeyPath:@"image"];
+    [self.tabBarItem removeObserver:self forKeyPath:@"selectedImage"];
+    [self.tabBarItem removeObserver:self forKeyPath:@"badgeValue"];
 }
 
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem {

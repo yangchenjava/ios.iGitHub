@@ -8,6 +8,8 @@
 
 #import <DateTools/DateTools.h>
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/UIImage+Category.h>
+#import <YCHelpKit/UIView+Category.h>
 
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
@@ -21,6 +23,8 @@
 
 @interface YCProfileTableViewController ()
 
+@property (nonatomic, weak) UIView *tableFooterView;
+
 @property (nonatomic, strong) YCProfileResult *profile;
 
 @end
@@ -29,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
+    self.tableView.tableFooterView = self.tableFooterView;
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupProfile)];
     [self.tableView.mj_header beginRefreshing];
@@ -44,11 +50,57 @@
     }
 }
 
+- (UIView *)tableFooterView {
+    if (_tableFooterView == nil) {
+        CGRect frame = CGRectMake(0, 0, self.tableView.width, self.tableView.estimatedRowHeight);
+
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = frame;
+        button.titleLabel.font = [UIFont systemFontOfSize:17];
+        [button setTitle:@"Sign Out" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageWithColor:YC_Color_RGB(217, 217, 217)] forState:UIControlStateHighlighted];
+        [button addTarget:self action:@selector(signout) forControlEvents:UIControlEventTouchUpInside];
+
+        UIView *tableFooterView = [[UIView alloc] initWithFrame:frame];
+        tableFooterView.hidden = YES;
+        [tableFooterView addSubview:button];
+        self.tableView.tableFooterView = tableFooterView;
+        _tableFooterView = tableFooterView;
+    } else {
+        _tableFooterView.hidden = NO;
+    }
+    return _tableFooterView;
+}
+
 - (NSString *)username {
     if (_username == nil) {
         _username = [YCGitHubUtils profile].login;
     }
     return _username;
+}
+
+- (void)signout {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"sure to sign out?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+#warning AttributedTitle is a private API
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:@"sure to sign out?"];
+    [attributedTitle addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, attributedTitle.length)];
+    [attributedTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:22] range:NSMakeRange(0, attributedTitle.length)];
+    [alertController setValue:attributedTitle forKey:@"attributedTitle"];
+
+    UIAlertAction *signout = [UIAlertAction actionWithTitle:@"Sign Out"
+                                                      style:UIAlertActionStyleDestructive
+                                                    handler:^(UIAlertAction *action) {
+                                                        [YCGitHubUtils setOAuth:nil];
+                                                        [YCGitHubUtils setProfile:nil];
+                                                        [YCGitHubUtils setupRootViewController];
+                                                    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:signout];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)setupProfile {
@@ -66,6 +118,7 @@
             [this setupGroupArray];
 
             [this.tableView reloadData];
+            this.tableView.tableFooterView = this.tableFooterView;
             [this.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
@@ -97,11 +150,11 @@
 
     YCBaseTableViewCellItem *item_2_0 =
         [YCBaseTableViewCellItem itemWithTitle:@"Repos" icon:@"octicon-repo" subtitle:nil destClass:[YCReposTableViewController class] instanceVariables:@{
-            @"_username" : self.username
+            @"username" : self.username
         }];
     YCBaseTableViewCellItem *item_2_1 =
         [YCBaseTableViewCellItem itemWithTitle:@"Events" icon:@"octicon-rss" subtitle:nil destClass:[YCEventsTableViewController class] instanceVariables:@{
-            @"_username" : self.username
+            @"username" : self.username
         }];
     YCBaseTableViewCellGroup *group_2 = [[YCBaseTableViewCellGroup alloc] init];
     group_2.itemArray = @[ item_2_0, item_2_1 ];

@@ -78,8 +78,8 @@
                                                                           subtitle:commitFile.status
                                                                          destClass:[YCCommitPatchViewController class]
                                                                  instanceVariables:@{
-                                                                     @"_rawURL" : commitFile.raw_url.length ? commitFile.raw_url : [NSNull null],
-                                                                     @"_patch" : commitFile.patch.length ? commitFile.patch : [NSNull null]
+                                                                     @"rawURL" : commitFile.raw_url.length ? commitFile.raw_url : [NSNull null],
+                                                                     @"patch" : commitFile.patch.length ? commitFile.patch : [NSNull null]
                                                                  }];
         item.additions = commitFile.additions;
         item.deletions = commitFile.deletions;

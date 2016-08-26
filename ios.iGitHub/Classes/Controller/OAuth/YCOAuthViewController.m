@@ -8,6 +8,7 @@
 
 #import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIView+Category.h>
+#import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCGitHubUtils.h"
 #import "YCOAuthBiz.h"
@@ -28,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Login";
+
+    // 清除cookie和cache，防止remember me登录
+    [YCHttpUtils clearWebViewCookieAndCache];
 
     self.webView.delegate = self;
     self.webView.opaque = NO;
