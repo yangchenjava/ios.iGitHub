@@ -50,36 +50,34 @@
 }
 
 - (void)setupReadme {
-    __weak typeof(self) this = self;
     [YCReposBiz reposReadmeWithUsername:self.username
         reposname:self.reposname
         success:^(YCReadmeResult *result) {
-            this.readme = result;
-            [this setupRepos];
+            self.readme = result;
+            [self setupRepos];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
-            [this setupRepos];
+            [self setupRepos];
         }];
 }
 
 - (void)setupRepos {
-    __weak typeof(self) this = self;
     [YCReposBiz reposWithUsername:self.username
         reposname:self.reposname
         success:^(YCReposResult *result) {
-            this.repos = result;
+            self.repos = result;
 
             YCBaseTableHeaderModel *tableHeaderModel = [[YCBaseTableHeaderModel alloc] init];
-            tableHeaderModel.avatar = this.repos.owner.avatar_url;
-            tableHeaderModel.name = this.repos.name;
-            tableHeaderModel.desc = this.repos.desc;
-            this.tableHeaderModel = tableHeaderModel;
+            tableHeaderModel.avatar = self.repos.owner.avatar_url;
+            tableHeaderModel.name = self.repos.name;
+            tableHeaderModel.desc = self.repos.desc;
+            self.tableHeaderModel = tableHeaderModel;
 
-            [this setupGroupArray];
+            [self setupGroupArray];
 
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

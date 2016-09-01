@@ -41,7 +41,6 @@
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreEvents)];
     }
 
-    __weak typeof(self) this = self;
     [YCEventsBiz eventsWithUsername:self.username
         reposname:self.reposname
         page:self.page
@@ -52,9 +51,9 @@
                 eventsF.events = result;
                 [eventsFArray addObject:eventsF];
             }
-            this.eventsFArray = eventsFArray;
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            self.eventsFArray = eventsFArray;
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -62,7 +61,6 @@
 }
 
 - (void)setupMoreEvents {
-    __weak typeof(self) this = self;
     [YCEventsBiz eventsWithUsername:self.username
         reposname:self.reposname
         page:++self.page
@@ -73,11 +71,11 @@
                 eventsF.events = result;
                 [eventsFArray addObject:eventsF];
             }
-            [this.eventsFArray addObjectsFromArray:eventsFArray];
-            [this.tableView reloadData];
-            [this.tableView.mj_footer endRefreshing];
+            [self.eventsFArray addObjectsFromArray:eventsFArray];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
             if (results.count < YC_PerPage) {
-                this.tableView.mj_footer = nil;
+                self.tableView.mj_footer = nil;
             }
         }
         failure:^(NSError *error) {

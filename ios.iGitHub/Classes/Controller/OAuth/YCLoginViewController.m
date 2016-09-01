@@ -41,16 +41,15 @@
 }
 
 - (void)setupProfile {
-    __weak typeof(self) this = self;
     [YCProfileBiz profileWithAccessToken:[YCGitHubUtils oauth].access_token
         success:^(YCProfileResult *result) {
-            if (this.label.isHidden) {
-                this.label.hidden = NO;
-                this.aiv.hidden = NO;
-                this.label.text = [NSString stringWithFormat:@"Logging in as %@", result.login];
+            if (self.label.isHidden) {
+                self.label.hidden = NO;
+                self.aiv.hidden = NO;
+                self.label.text = [NSString stringWithFormat:@"Logging in as %@", result.login];
             }
-            [this.imageView sd_setImageCircleWithURL:[NSURL URLWithString:result.avatar_url]
-                                    placeholderImage:this.imageView.image
+            [self.imageView sd_setImageCircleWithURL:[NSURL URLWithString:result.avatar_url]
+                                    placeholderImage:self.imageView.image
                                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                [YCGitHubUtils setProfile:result];
                                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -52,16 +52,15 @@
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreIssues)];
     }
 
-    __weak typeof(self) this = self;
     [YCIssuesBiz issuesWithUsername:self.username
         reposname:self.reposname
         state:self.state
         page:self.page
         success:^(NSArray *results) {
-            this.issuesArray = [NSMutableArray arrayWithArray:results];
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
-            this.segmentedControl.enabled = YES;
+            self.issuesArray = [NSMutableArray arrayWithArray:results];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
+            self.segmentedControl.enabled = YES;
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -71,18 +70,17 @@
 - (void)setupMoreIssues {
     self.segmentedControl.enabled = NO;
 
-    __weak typeof(self) this = self;
     [YCIssuesBiz issuesWithUsername:self.username
         reposname:self.reposname
         state:self.state
         page:++self.page
         success:^(NSArray *results) {
-            [this.issuesArray addObjectsFromArray:results];
-            [this.tableView reloadData];
-            [this.tableView.mj_footer endRefreshing];
-            this.segmentedControl.enabled = YES;
+            [self.issuesArray addObjectsFromArray:results];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+            self.segmentedControl.enabled = YES;
             if (results.count < YC_PerPage) {
-                this.tableView.mj_footer = nil;
+                self.tableView.mj_footer = nil;
             }
         }
         failure:^(NSError *error) {

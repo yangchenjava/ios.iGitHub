@@ -62,23 +62,22 @@
 }
 
 - (void)setupIssues {
-    __weak typeof(self) this = self;
     [YCIssuesBiz issuesWithUsername:self.username
         reposname:self.reposname
         number:self.number
         success:^(YCIssuesResult *result) {
-            this.issues = result;
+            self.issues = result;
 
             YCBaseTableHeaderModel *tableHeaderModel = [[YCBaseTableHeaderModel alloc] init];
-            tableHeaderModel.avatar = this.issues.user.avatar_url;
-            tableHeaderModel.name = this.issues.title;
-            tableHeaderModel.desc = [NSString stringWithFormat:@"updated %@", [YCGitHubUtils dateStringWithDate:this.issues.updated_at]];
-            this.tableHeaderModel = tableHeaderModel;
+            tableHeaderModel.avatar = self.issues.user.avatar_url;
+            tableHeaderModel.name = self.issues.title;
+            tableHeaderModel.desc = [NSString stringWithFormat:@"updated %@", [YCGitHubUtils dateStringWithDate:self.issues.updated_at]];
+            self.tableHeaderModel = tableHeaderModel;
 
-            [this setupGroupArray];
+            [self setupGroupArray];
 
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -94,7 +93,7 @@
                     commentF.comment = result;
                     [commentFArray addObject:commentF];
                 }
-                this.tableFooterView.commentFArray = commentFArray;
+                self.tableFooterView.commentFArray = commentFArray;
             }
         }
         failure:^(NSError *error) {

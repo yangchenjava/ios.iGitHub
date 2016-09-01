@@ -104,22 +104,21 @@
 }
 
 - (void)setupProfile {
-    __weak typeof(self) this = self;
     [YCProfileBiz profileWithUserName:self.username
         success:^(YCProfileResult *result) {
-            this.profile = result;
+            self.profile = result;
 
             YCBaseTableHeaderModel *tableHeaderModel = [[YCBaseTableHeaderModel alloc] init];
-            tableHeaderModel.avatar = this.profile.avatar_url;
-            tableHeaderModel.name = this.profile.login;
-            tableHeaderModel.desc = this.profile.name;
-            this.tableHeaderModel = tableHeaderModel;
+            tableHeaderModel.avatar = self.profile.avatar_url;
+            tableHeaderModel.name = self.profile.login;
+            tableHeaderModel.desc = self.profile.name;
+            self.tableHeaderModel = tableHeaderModel;
 
-            [this setupGroupArray];
+            [self setupGroupArray];
 
-            [this.tableView reloadData];
-            this.tableView.tableFooterView = this.tableFooterView;
-            [this.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+            self.tableView.tableFooterView = self.tableFooterView;
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

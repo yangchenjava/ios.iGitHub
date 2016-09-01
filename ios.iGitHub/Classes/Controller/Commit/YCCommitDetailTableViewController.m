@@ -44,23 +44,22 @@
 }
 
 - (void)setupCommit {
-    __weak typeof(self) this = self;
     [YCCommitBiz commitWithUsername:self.username
         reposname:self.reposname
         sha:self.sha
         success:^(YCCommitResult *result) {
-            this.commit = result;
+            self.commit = result;
 
             YCBaseTableHeaderModel *tableHeaderModel = [[YCBaseTableHeaderModel alloc] init];
-            tableHeaderModel.avatar = this.commit.committer.avatar_url;
-            tableHeaderModel.name = this.commit.commit.message;
-            tableHeaderModel.desc = [NSString stringWithFormat:@"Commited %@", [YCGitHubUtils dateStringWithDate:this.commit.commit.committer.date]];
-            this.tableHeaderModel = tableHeaderModel;
+            tableHeaderModel.avatar = self.commit.committer.avatar_url;
+            tableHeaderModel.name = self.commit.commit.message;
+            tableHeaderModel.desc = [NSString stringWithFormat:@"Commited %@", [YCGitHubUtils dateStringWithDate:self.commit.commit.committer.date]];
+            self.tableHeaderModel = tableHeaderModel;
 
-            [this setupGroupArray];
+            [self setupGroupArray];
 
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

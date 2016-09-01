@@ -38,16 +38,15 @@
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreCommit)];
     }
 
-    __weak typeof(self) this = self;
     if (self.number) {
         [YCCommitBiz commitWithUsername:self.username
             reposname:self.reposname
             number:self.number.longValue
             page:self.page
             success:^(NSArray *results) {
-                this.commitArray = [NSMutableArray arrayWithArray:results];
-                [this.tableView reloadData];
-                [this.tableView.mj_header endRefreshing];
+                self.commitArray = [NSMutableArray arrayWithArray:results];
+                [self.tableView reloadData];
+                [self.tableView.mj_header endRefreshing];
             }
             failure:^(NSError *error) {
                 NSLog(@"%@", error.localizedDescription);
@@ -57,9 +56,9 @@
             reposname:self.reposname
             page:self.page
             success:^(NSArray *results) {
-                this.commitArray = [NSMutableArray arrayWithArray:results];
-                [this.tableView reloadData];
-                [this.tableView.mj_header endRefreshing];
+                self.commitArray = [NSMutableArray arrayWithArray:results];
+                [self.tableView reloadData];
+                [self.tableView.mj_header endRefreshing];
             }
             failure:^(NSError *error) {
                 NSLog(@"%@", error.localizedDescription);
@@ -68,18 +67,17 @@
 }
 
 - (void)setupMoreCommit {
-    __weak typeof(self) this = self;
     if (self.number) {
         [YCCommitBiz commitWithUsername:self.username
             reposname:self.reposname
             number:self.number.longValue
             page:++self.page
             success:^(NSArray *results) {
-                [this.commitArray addObjectsFromArray:results];
-                [this.tableView reloadData];
-                [this.tableView.mj_footer endRefreshing];
+                [self.commitArray addObjectsFromArray:results];
+                [self.tableView reloadData];
+                [self.tableView.mj_footer endRefreshing];
                 if (results.count < YC_PerPage) {
-                    this.tableView.mj_footer = nil;
+                    self.tableView.mj_footer = nil;
                 }
             }
             failure:^(NSError *error) {
@@ -90,11 +88,11 @@
             reposname:self.reposname
             page:++self.page
             success:^(NSArray *results) {
-                [this.commitArray addObjectsFromArray:results];
-                [this.tableView reloadData];
-                [this.tableView.mj_footer endRefreshing];
+                [self.commitArray addObjectsFromArray:results];
+                [self.tableView reloadData];
+                [self.tableView.mj_footer endRefreshing];
                 if (results.count < YC_PerPage) {
-                    this.tableView.mj_footer = nil;
+                    self.tableView.mj_footer = nil;
                 }
             }
             failure:^(NSError *error) {

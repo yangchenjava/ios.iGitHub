@@ -40,17 +40,16 @@
     [self.view addSubview:webView];
     self.webView = webView;
 
-    __weak typeof(self) this = self;
     [YCReposBiz reposContentWithUsername:self.username
         reposname:self.reposname
         path:self.path
         ref:self.ref
         page:1
         success:^(id result) {
-            this.content = result;
+            self.content = result;
 
             NSURL *url = [[NSBundle mainBundle] URLForResource:@"highlight.html" withExtension:nil];
-            [this.webView loadRequest:[NSURLRequest requestWithURL:url]];
+            [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

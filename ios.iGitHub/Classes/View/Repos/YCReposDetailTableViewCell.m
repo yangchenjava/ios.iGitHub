@@ -78,13 +78,12 @@
     [gitBranchIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor]];
     self.branchImageView.image = [gitBranchIcon imageWithSize:self.branchImageView.size];
 
-    __weak typeof(self) this = self;
     [YCReposBiz reposBranchOrTagWithUsername:self.repos.owner.login
         reposname:self.repos.name
         state:nil
         page:1
         success:^(NSArray *results) {
-            this.branchLabel.text = [NSString stringWithFormat:@"%ld Branches", results.count];
+            self.branchLabel.text = [NSString stringWithFormat:@"%ld Branches", results.count];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

@@ -33,12 +33,11 @@
 }
 
 - (void)setupNews {
-    __weak typeof(self) this = self;
     [YCNewsBiz newsWithUsername:[YCGitHubUtils profile].login
         success:^(NSArray *results) {
-            this.newsArray = results;
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            self.newsArray = results;
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);

@@ -35,7 +35,6 @@
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreContent)];
     }
 
-    __weak typeof(self) this = self;
     [YCReposBiz reposContentWithUsername:self.username
         reposname:self.reposname
         path:self.path
@@ -43,9 +42,9 @@
         page:self.page
         success:^(id result) {
             NSArray *array = result;
-            this.contentArray = [NSMutableArray arrayWithArray:array];
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
+            self.contentArray = [NSMutableArray arrayWithArray:array];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -53,7 +52,6 @@
 }
 
 - (void)setupMoreContent {
-    __weak typeof(self) this = self;
     [YCReposBiz reposContentWithUsername:self.username
         reposname:self.reposname
         path:self.path
@@ -61,9 +59,9 @@
         page:++self.page
         success:^(id result) {
             NSArray *array = result;
-            [this.contentArray addObjectsFromArray:array];
-            [this.tableView reloadData];
-            [this.tableView.mj_footer endRefreshing];
+            [self.contentArray addObjectsFromArray:array];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
             if (array.count < YC_PerPage) {
                 self.tableView.mj_footer = nil;
             }

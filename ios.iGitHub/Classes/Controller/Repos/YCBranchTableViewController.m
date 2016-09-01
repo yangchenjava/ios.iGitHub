@@ -54,16 +54,15 @@
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreBranch)];
     }
 
-    __weak typeof(self) this = self;
     [YCReposBiz reposBranchOrTagWithUsername:self.username
         reposname:self.reposname
         state:self.state
         page:self.page
         success:^(NSArray *results) {
-            this.branchArray = [NSMutableArray arrayWithArray:results];
-            [this.tableView reloadData];
-            [this.tableView.mj_header endRefreshing];
-            this.segmentedControl.enabled = YES;
+            self.branchArray = [NSMutableArray arrayWithArray:results];
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
+            self.segmentedControl.enabled = YES;
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -73,18 +72,17 @@
 - (void)setupMoreBranch {
     self.segmentedControl.enabled = NO;
 
-    __weak typeof(self) this = self;
     [YCReposBiz reposBranchOrTagWithUsername:self.username
         reposname:self.reposname
         state:self.state
         page:++self.page
         success:^(NSArray *results) {
-            [this.branchArray addObjectsFromArray:results];
-            [this.tableView reloadData];
-            [this.tableView.mj_footer endRefreshing];
-            this.segmentedControl.enabled = YES;
+            [self.branchArray addObjectsFromArray:results];
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+            self.segmentedControl.enabled = YES;
             if (results.count < YC_PerPage) {
-                this.tableView.mj_footer = nil;
+                self.tableView.mj_footer = nil;
             }
         }
         failure:^(NSError *error) {
