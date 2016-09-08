@@ -85,15 +85,9 @@
         }];
 }
 
-+ (void)reposContentWithUsername:(NSString *)username
-                       reposname:(NSString *)reposname
-                            path:(NSString *)path
-                             ref:(NSString *)ref
-                            page:(int)page
-                         success:(void (^)(id))success
-                         failure:(void (^)(NSError *))failure {
++ (void)reposContentWithUsername:(NSString *)username reposname:(NSString *)reposname path:(NSString *)path ref:(NSString *)ref success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     path = path.length ? [NSString stringWithFormat:@"/%@", path] : @"";
-    [YCHttpUtils sendGet:[NSString stringWithFormat:@"https://api.github.com/repos/%@/%@/contents%@?ref=%@&page=%d&per_page=%d", username, reposname, path, ref, page, YC_PerPage]
+    [YCHttpUtils sendGet:[NSString stringWithFormat:@"https://api.github.com/repos/%@/%@/contents%@?ref=%@", username, reposname, path, ref]
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {

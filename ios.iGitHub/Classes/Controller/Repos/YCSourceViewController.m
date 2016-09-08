@@ -17,6 +17,7 @@
 @property (nonatomic, weak) UIWebView *webView;
 
 @property (nonatomic, strong) YCContentResult *content;
+@property (nonatomic, assign, getter=isRaw) BOOL raw;
 
 @end
 
@@ -40,45 +41,63 @@
     [self.view addSubview:webView];
     self.webView = webView;
 
-    [YCReposBiz reposContentWithUsername:self.username
-        reposname:self.reposname
-        path:self.path
-        ref:self.ref
-        page:1
-        success:^(id result) {
-            self.content = result;
+    NSString *extension = self.path.pathExtension.lowercaseString;
+    if ([@[ @"jpg", @"jpeg", @"png", @"gif", @"bmp", @"doc", @"docx", @"xls", @"xlsx", @"pdf" ] containsObject:extension]) {
+        self.raw = YES;
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.download_url]]];
+    } else if ([extension isEqualToString:@"mp4"]) {
+        self.raw = YES;
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"highlight.html" withExtension:nil];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+    } else {
+        [YCReposBiz reposContentWithUsername:self.username
+            reposname:self.reposname
+            path:self.path
+            ref:self.ref
+            success:^(id result) {
+                self.content = result;
 
-            NSURL *url = [[NSBundle mainBundle] URLForResource:@"highlight.html" withExtension:nil];
-            [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
-        }
-        failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
-        }];
+                NSURL *url = [[NSBundle mainBundle] URLForResource:@"highlight.html" withExtension:nil];
+                [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+            }
+            failure:^(NSError *error) {
+                NSLog(@"%@", error.localizedDescription);
+            }];
+    }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    // 根据扩展名定义样式
-    NSString *extension = self.content.name.pathExtension;
-    if ([extension isEqualToString:@"m"]) {
-        extension = @"objectivec";
+    NSString *extension = self.path.pathExtension.lowercaseString;
+    if (self.isRaw) {
+        if ([extension isEqualToString:@"mp4"]) {
+            webView.backgroundColor = YC_Color_RGB(38, 38, 38);
+            [webView stringByEvaluatingJavaScriptFromString:@"$(\"body\").css(\"background-color\", \"#262626\");"];
+            [webView stringByEvaluatingJavaScriptFromString:
+                         [NSString stringWithFormat:@"$(\"body\").html($(\"<video src='%@' controls autobuffer width='100%%' height='100%%' style='margin: 45%% 0'></video>\"));", self.download_url]];
+        }
+    } else {
+        // 根据扩展名定义样式
+        if ([extension isEqualToString:@"m"]) {
+            extension = @"objectivec";
+        }
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"$(\"code\").addClass(\"%@\");", extension]];
+        // 解析内容
+        NSString *content = self.content.content;
+        content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"\\\n"];
+        content = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"decodeURIComponent(escape(atob(\"%@\")));", content]];
+        // 转义字符
+        content = [content stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+        content = [content stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+        content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+        content = [content stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
+        // 填充内容
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"$(\"code\").text(\"%@\");", content]];
+        // 绘制行号，设置样式
+        [webView stringByEvaluatingJavaScriptFromString:@"drawLineNumber();"];
+        [webView stringByEvaluatingJavaScriptFromString:@"$(\".lineNumber-background\").height(document.body.scrollHeight);"];
+        // 设置高亮样式
+        [webView stringByEvaluatingJavaScriptFromString:@"$(\"code\").each(function(i, block){ hljs.highlightBlock(block); });"];
     }
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"$(\"code\").addClass(\"%@\");", extension]];
-    // 解析内容
-    NSString *content = self.content.content;
-    content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"\\\n"];
-    content = [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"decodeURIComponent(escape(atob(\"%@\")));", content]];
-    // 转义字符
-    content = [content stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
-    content = [content stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
-    content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
-    content = [content stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
-    // 填充内容
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"$(\"code\").text(\"%@\");", content]];
-    // 绘制行号，设置样式
-    [webView stringByEvaluatingJavaScriptFromString:@"drawLineNumber();"];
-    [webView stringByEvaluatingJavaScriptFromString:@"$(\".lineNumber-background\").height(document.body.scrollHeight);"];
-    // 设置高亮样式
-    [webView stringByEvaluatingJavaScriptFromString:@"$(\"code\").each(function(i, block){ hljs.highlightBlock(block); });"];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

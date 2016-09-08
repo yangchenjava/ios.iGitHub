@@ -15,8 +15,7 @@
 
 @interface YCContentTableViewController ()
 
-@property (nonatomic, assign) int page;
-@property (nonatomic, strong) NSMutableArray *contentArray;
+@property (nonatomic, strong) NSArray *contentArray;
 
 @end
 
@@ -30,41 +29,14 @@
 }
 
 - (void)setupContent {
-    self.page = 1;
-    if (self.tableView.mj_footer == nil) {
-        self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreContent)];
-    }
-
     [YCReposBiz reposContentWithUsername:self.username
         reposname:self.reposname
         path:self.path
         ref:self.ref
-        page:self.page
         success:^(id result) {
-            NSArray *array = result;
-            self.contentArray = [NSMutableArray arrayWithArray:array];
+            self.contentArray = result;
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
-        }
-        failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
-        }];
-}
-
-- (void)setupMoreContent {
-    [YCReposBiz reposContentWithUsername:self.username
-        reposname:self.reposname
-        path:self.path
-        ref:self.ref
-        page:++self.page
-        success:^(id result) {
-            NSArray *array = result;
-            [self.contentArray addObjectsFromArray:array];
-            [self.tableView reloadData];
-            [self.tableView.mj_footer endRefreshing];
-            if (array.count < YC_PerPage) {
-                self.tableView.mj_footer = nil;
-            }
         }
         failure:^(NSError *error) {
             NSLog(@"%@", error.localizedDescription);
@@ -98,6 +70,7 @@
         vc.username = self.username;
         vc.reposname = self.reposname;
         vc.path = content.path;
+        vc.download_url = content.download_url;
         vc.ref = self.ref;
         vc.navigationItem.title = content.name;
         [self.navigationController pushViewController:vc animated:YES];

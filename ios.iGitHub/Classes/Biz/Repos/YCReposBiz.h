@@ -32,7 +32,6 @@
                        reposname:(NSString *)reposname
                             path:(NSString *)path
                              ref:(NSString *)ref
-                            page:(int)page
                          success:(void (^)(id result))success
                          failure:(void (^)(NSError *error))failure;
 

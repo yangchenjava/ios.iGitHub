@@ -11,7 +11,17 @@
 @implementation YCContentResult
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"type" : @"type", @"encoding" : @"encoding", @"size" : @"size", @"name" : @"name", @"path" : @"path", @"content" : @"content", @"sha" : @"sha", @"url" : @"url" };
+    return @{
+        @"type" : @"type",
+        @"encoding" : @"encoding",
+        @"size" : @"size",
+        @"name" : @"name",
+        @"path" : @"path",
+        @"content" : @"content",
+        @"sha" : @"sha",
+        @"url" : @"url",
+        @"download_url" : @"download_url"
+    };
 }
 
 + (NSValueTransformer *)typeJSONTransformer {

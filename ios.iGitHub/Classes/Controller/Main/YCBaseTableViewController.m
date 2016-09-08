@@ -58,6 +58,10 @@
     titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [naviBar addSubview:titleButton];
     self.titleButton = titleButton;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self scrollViewDidScroll:self.tableView];
 }
 
@@ -100,6 +104,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.backgroundView.height = self.tableView.height + scrollView.contentOffset.y;
 
+    // title所在位置的Y值
     CGFloat position = 105;
     if (scrollView.contentOffset.y >= position) {
         CGFloat top = self.titleButton.height - (scrollView.contentOffset.y - position);
@@ -143,7 +148,10 @@
                 [destViewController setValue:value forKey:key];
             }
         }
-        destViewController.navigationItem.title = item.title;
+        // 如果目标vc不继承自YCBaseTableViewController，则主动设置navi的title
+        if (![destViewController isKindOfClass:[YCBaseTableViewController class]]) {
+            destViewController.navigationItem.title = item.title;
+        }
         [self.navigationController pushViewController:destViewController animated:YES];
     }
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <SDWebImage/SDImageCache.h>
 
 #import "AppDelegate.h"
@@ -19,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 发起网络请求时状态栏菊花提示
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     // 显示状态栏
     [UIApplication sharedApplication].statusBarHidden = NO;
 

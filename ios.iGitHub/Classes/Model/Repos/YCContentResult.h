@@ -20,5 +20,6 @@ typedef enum { ContentTypeDir, ContentTypeFile } ContentType;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, copy) NSString *sha;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *download_url;
 
 @end
