@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCBaseTableHeaderModel.h"
+@class YCBaseTableHeaderModel;
 
 @interface YCBaseTableViewController : UITableViewController
 

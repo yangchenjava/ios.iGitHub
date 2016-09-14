@@ -9,7 +9,7 @@
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <UIKit/UIKit.h>
 
-#import "YCNewsResult.h"
+@class YCNewsResult;
 
 @interface YCNewsTableViewCell : UITableViewCell
 

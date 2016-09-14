@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCCommitTableViewCellItem.h"
+@class YCCommitTableViewCellItem;
 
 @interface YCCommitBodyTableViewCell : UITableViewCell
 

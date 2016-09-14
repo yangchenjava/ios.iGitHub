@@ -10,6 +10,7 @@
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCProfileBiz.h"
+#import "YCProfileResult.h"
 
 @implementation YCProfileBiz
 

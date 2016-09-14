@@ -10,6 +10,7 @@
 
 #import "YCCommitBiz.h"
 #import "YCCommitDetailTableViewController.h"
+#import "YCCommitResult.h"
 #import "YCCommitTableViewCell.h"
 #import "YCCommitTableViewController.h"
 

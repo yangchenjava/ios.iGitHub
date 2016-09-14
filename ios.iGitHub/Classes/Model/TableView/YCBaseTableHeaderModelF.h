@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCBaseTableHeaderModel.h"
-
 #define kFontName [UIFont boldSystemFontOfSize:17]
 #define kFontDesc [UIFont systemFontOfSize:15]
+
+@class YCBaseTableHeaderModel;
 
 @interface YCBaseTableHeaderModelF : NSObject
 

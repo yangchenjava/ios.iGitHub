@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCCommitResult.h"
+@class YCCommitResult;
 
 @interface YCCommitBiz : NSObject
 

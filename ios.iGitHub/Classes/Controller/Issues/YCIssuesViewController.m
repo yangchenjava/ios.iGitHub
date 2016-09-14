@@ -10,6 +10,7 @@
 
 #import "YCIssuesBiz.h"
 #import "YCIssuesDetailTableViewController.h"
+#import "YCIssuesResult.h"
 #import "YCIssuesTableViewCell.h"
 #import "YCIssuesViewController.h"
 

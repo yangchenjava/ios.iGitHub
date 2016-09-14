@@ -9,6 +9,7 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
+#import "YCContentResult.h"
 #import "YCContentTableViewCell.h"
 
 @implementation YCContentTableViewCell

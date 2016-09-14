@@ -8,8 +8,10 @@
 
 #import <YCHelpKit/NSString+Category.h>
 
+#import "YCCommentResult.h"
 #import "YCCommentResultF.h"
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 
 @implementation YCCommentResultF
 

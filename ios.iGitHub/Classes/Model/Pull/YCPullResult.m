@@ -7,6 +7,7 @@
 //
 
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 #import "YCPullResult.h"
 
 @implementation YCPullResult

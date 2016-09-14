@@ -10,6 +10,7 @@
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCBaseTableViewCellItem.h"
@@ -18,10 +19,12 @@
 #import "YCCommitTableViewController.h"
 #import "YCGitHubUtils.h"
 #import "YCIssuesBiz.h"
+#import "YCProfileResult.h"
 #import "YCPullBiz.h"
 #import "YCPullBodyTableViewCell.h"
 #import "YCPullDetailTableViewCell.h"
 #import "YCPullDetailTableViewController.h"
+#import "YCPullResult.h"
 
 @interface YCPullDetailTableViewController () <YCPullBodyTableViewCellDelegate, YCCommentTableFooterViewDelegate>
 

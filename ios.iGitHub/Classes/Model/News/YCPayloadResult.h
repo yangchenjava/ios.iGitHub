@@ -8,10 +8,9 @@
 
 #import <Mantle/Mantle.h>
 
-#import "YCCommentResult.h"
-#import "YCCommitResult.h"
-#import "YCIssuesResult.h"
-#import "YCReposResult.h"
+@class YCReposResult;
+@class YCIssuesResult;
+@class YCCommentResult;
 
 typedef enum { RefTypeRepository, RefTypeBranch, RefTypeTag } RefType;
 

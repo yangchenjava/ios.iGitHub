@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "YCEventsResult.h"
-
 #define kFontDate [UIFont systemFontOfSize:13]
 #define kFontContent [UIFont systemFontOfSize:17]
 #define kFontDesc [UIFont systemFontOfSize:15]
+
+@class YCEventsResult;
 
 @interface YCEventsResultF : NSObject
 

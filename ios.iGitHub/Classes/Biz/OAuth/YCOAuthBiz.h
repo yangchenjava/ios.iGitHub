@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCOAuthParam.h"
-#import "YCOAuthResult.h"
+@class YCOAuthParam;
+@class YCOAuthResult;
 
 @interface YCOAuthBiz : NSObject
 

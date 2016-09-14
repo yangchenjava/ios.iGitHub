@@ -8,7 +8,14 @@
 
 #import <YCHelpKit/NSString+Category.h>
 
+#import "YCCommentResult.h"
+#import "YCCommitResult.h"
+#import "YCEventsResult.h"
 #import "YCEventsResultF.h"
+#import "YCIssuesResult.h"
+#import "YCPayloadResult.h"
+#import "YCProfileResult.h"
+#import "YCReposResult.h"
 
 #define kMargin 8
 #define kMarginContent 5

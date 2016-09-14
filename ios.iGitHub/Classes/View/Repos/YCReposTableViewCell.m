@@ -12,6 +12,8 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
+#import "YCProfileResult.h"
+#import "YCReposResult.h"
 #import "YCReposTableViewCell.h"
 
 @interface YCReposTableViewCell ()

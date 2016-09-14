@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCPullResult.h"
+@class YCPullResult;
 
 @interface YCPullDetailTableViewCell : UITableViewCell
 

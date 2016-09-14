@@ -8,7 +8,7 @@
 
 #import <Mantle/Mantle.h>
 
-#import "YCProfileResult.h"
+@class YCProfileResult;
 
 @interface YCPullResult : MTLModel <MTLJSONSerializing>
 

@@ -6,7 +6,10 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import "YCCommitDetailResult.h"
 #import "YCCommitDetailTableViewCell.h"
+#import "YCCommitResult.h"
+#import "YCProfileResult.h"
 
 @interface YCCommitDetailTableViewCell ()
 

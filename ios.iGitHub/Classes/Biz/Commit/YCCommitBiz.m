@@ -10,6 +10,7 @@
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCCommitBiz.h"
+#import "YCCommitResult.h"
 
 @implementation YCCommitBiz
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCIssuesResult.h"
+@class YCIssuesResult;
 
 @interface YCIssuesBiz : NSObject
 

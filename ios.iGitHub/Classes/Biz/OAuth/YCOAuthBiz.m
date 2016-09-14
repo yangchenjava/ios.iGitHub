@@ -10,6 +10,8 @@
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCOAuthBiz.h"
+#import "YCOAuthParam.h"
+#import "YCOAuthResult.h"
 
 @implementation YCOAuthBiz
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCBranchResult.h"
+@class YCBranchResult;
 
 @interface YCBranchTableViewCell : UITableViewCell
 

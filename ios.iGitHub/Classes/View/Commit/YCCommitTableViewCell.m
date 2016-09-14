@@ -10,8 +10,11 @@
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
+#import "YCCommitDetailResult.h"
+#import "YCCommitResult.h"
 #import "YCCommitTableViewCell.h"
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 
 @interface YCCommitTableViewCell ()
 

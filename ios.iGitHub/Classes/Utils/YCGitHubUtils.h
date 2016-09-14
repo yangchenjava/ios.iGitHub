@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCOAuthResult.h"
-#import "YCProfileResult.h"
+@class YCOAuthResult;
+@class YCProfileResult;
 
 @interface YCGitHubUtils : NSObject
 

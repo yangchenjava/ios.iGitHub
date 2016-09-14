@@ -11,8 +11,10 @@
 #import <YCHelpKit/YCNumberUtils.h>
 
 #import "FontAwesomeKit.h"
+#import "YCProfileResult.h"
 #import "YCReposBiz.h"
 #import "YCReposDetailTableViewCell.h"
+#import "YCReposResult.h"
 
 @interface YCReposDetailTableViewCell ()
 

@@ -9,7 +9,7 @@
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <UIKit/UIKit.h>
 
-#import "YCEventsResultF.h"
+@class YCEventsResultF;
 
 @interface YCEventsTableViewCell : UITableViewCell
 

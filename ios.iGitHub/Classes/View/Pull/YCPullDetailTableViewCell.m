@@ -9,7 +9,9 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "FontAwesomeKit.h"
+#import "YCProfileResult.h"
 #import "YCPullDetailTableViewCell.h"
+#import "YCPullResult.h"
 
 @interface YCPullDetailTableViewCell () <UIWebViewDelegate>
 

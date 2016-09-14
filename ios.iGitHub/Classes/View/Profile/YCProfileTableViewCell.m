@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import "YCProfileResult.h"
 #import "YCProfileTableViewCell.h"
 
 @interface YCProfileTableViewCell ()

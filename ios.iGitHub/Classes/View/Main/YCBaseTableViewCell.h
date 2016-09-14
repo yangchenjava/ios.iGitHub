@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCBaseTableViewCellItem.h"
+@class YCBaseTableViewCellItem;
 
 @interface YCBaseTableViewCell : UITableViewCell
 

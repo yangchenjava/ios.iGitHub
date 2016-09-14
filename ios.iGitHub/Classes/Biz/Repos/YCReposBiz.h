@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCBranchResult.h"
-#import "YCContentResult.h"
-#import "YCReadmeResult.h"
-#import "YCReposResult.h"
+@class YCReposResult;
+@class YCReadmeResult;
 
 @interface YCReposBiz : NSObject
 

@@ -7,6 +7,7 @@
 //
 
 #import "YCIssuesDetailTableViewCell.h"
+#import "YCIssuesResult.h"
 
 @interface YCIssuesDetailTableViewCell ()
 

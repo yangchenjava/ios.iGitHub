@@ -9,6 +9,7 @@
 #import <YCHelpKit/UIView+Category.h>
 #import <objc/runtime.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableHeaderModelF.h"
 #import "YCBaseTableHeaderView.h"
 #import "YCBaseTableViewCellGroup.h"

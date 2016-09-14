@@ -11,12 +11,14 @@
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCBaseTableViewCellItem.h"
 #import "YCEventsTableViewController.h"
 #import "YCGitHubUtils.h"
 #import "YCProfileBiz.h"
+#import "YCProfileResult.h"
 #import "YCProfileTableViewCell.h"
 #import "YCProfileTableViewController.h"
 #import "YCReposTableViewController.h"

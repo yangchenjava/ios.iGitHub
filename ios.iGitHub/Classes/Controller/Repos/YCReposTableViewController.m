@@ -9,8 +9,10 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 #import "YCReposBiz.h"
 #import "YCReposDetailTableViewController.h"
+#import "YCReposResult.h"
 #import "YCReposTableViewCell.h"
 #import "YCReposTableViewController.h"
 

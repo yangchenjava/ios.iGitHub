@@ -10,6 +10,7 @@
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
+#import "YCReadmeResult.h"
 #import "YCReadmeViewController.h"
 #import "YCReposBiz.h"
 

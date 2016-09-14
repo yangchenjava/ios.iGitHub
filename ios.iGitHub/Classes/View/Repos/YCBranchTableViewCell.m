@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import "YCBranchResult.h"
 #import "YCBranchTableViewCell.h"
 
 @implementation YCBranchTableViewCell

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCProfileResult.h"
+@class YCProfileResult;
 
 @interface YCProfileTableViewCell : UITableViewCell
 

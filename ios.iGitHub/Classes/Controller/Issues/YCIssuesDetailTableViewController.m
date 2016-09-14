@@ -10,6 +10,7 @@
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCBaseTableViewCellItem.h"
@@ -21,6 +22,7 @@
 #import "YCIssuesDetailTableViewCell.h"
 #import "YCIssuesDetailTableViewController.h"
 #import "YCIssuesResult.h"
+#import "YCProfileResult.h"
 
 @interface YCIssuesDetailTableViewController () <YCIssuesBodyTableViewCellDelegate, YCCommentTableFooterViewDelegate>
 

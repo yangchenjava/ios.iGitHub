@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCReposResult.h"
+@class YCReposResult;
 
 @interface YCReposDetailTableViewCell : UITableViewCell
 

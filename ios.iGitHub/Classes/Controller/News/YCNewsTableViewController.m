@@ -13,6 +13,7 @@
 #import "YCNewsResult.h"
 #import "YCNewsTableViewCell.h"
 #import "YCNewsTableViewController.h"
+#import "YCProfileResult.h"
 
 @interface YCNewsTableViewController ()
 

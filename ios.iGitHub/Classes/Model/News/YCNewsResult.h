@@ -8,8 +8,9 @@
 
 #import <Mantle/Mantle.h>
 
-#import "YCPayloadResult.h"
-#import "YCReposResult.h"
+@class YCProfileResult;
+@class YCReposResult;
+@class YCPayloadResult;
 
 typedef enum { NewsTypeForkEvent, NewsTypeIssuesEvent, NewsTypeWatchEvent } NewsType;
 

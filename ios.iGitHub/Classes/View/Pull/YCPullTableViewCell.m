@@ -11,6 +11,8 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
+#import "YCPullResult.h"
 #import "YCPullTableViewCell.h"
 
 @interface YCPullTableViewCell ()

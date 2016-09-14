@@ -9,9 +9,12 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "YCEventsBiz.h"
+#import "YCEventsResult.h"
+#import "YCEventsResultF.h"
 #import "YCEventsTableViewCell.h"
 #import "YCEventsTableViewController.h"
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 
 @interface YCEventsTableViewController ()
 

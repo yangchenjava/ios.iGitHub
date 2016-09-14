@@ -12,6 +12,7 @@
 #import "FontAwesomeKit.h"
 #import "YCPullBiz.h"
 #import "YCPullDetailTableViewController.h"
+#import "YCPullResult.h"
 #import "YCPullTableViewCell.h"
 #import "YCPullViewController.h"
 

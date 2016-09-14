@@ -7,6 +7,7 @@
 //
 
 #import "YCTabBar.h"
+#import "YCTabBarButton.h"
 
 @interface YCTabBar ()
 

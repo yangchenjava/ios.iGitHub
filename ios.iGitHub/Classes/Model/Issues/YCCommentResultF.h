@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "YCCommentResult.h"
-
 #define kMargin 10
 #define kFontName [UIFont systemFontOfSize:16 weight:UIFontWeightMedium]
 #define kFontDate [UIFont systemFontOfSize:13 weight:UIFontWeightLight]
+
+@class YCCommentResult;
 
 @interface YCCommentResultF : NSObject
 

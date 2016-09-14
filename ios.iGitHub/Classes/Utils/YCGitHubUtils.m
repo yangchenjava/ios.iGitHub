@@ -11,6 +11,8 @@
 #import "YCGitHubUtils.h"
 #import "YCLoginViewController.h"
 #import "YCNavigationController.h"
+#import "YCOAuthResult.h"
+#import "YCProfileResult.h"
 #import "YCTabBarController.h"
 #import "YCUserAccessViewController.h"
 

@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCIssuesResult.h"
-
 @class YCIssuesBodyTableViewCell;
+@class YCIssuesResult;
 
 @protocol YCIssuesBodyTableViewCellDelegate <NSObject>
 

@@ -11,9 +11,11 @@
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
+#import "YCCommentResult.h"
 #import "YCCommentResultF.h"
 #import "YCCommentTableFooterView.h"
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 
 @interface YCCommentTableFooterView () <UIWebViewDelegate>
 

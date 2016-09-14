@@ -8,6 +8,7 @@
 
 #import "YCGitHubUtils.h"
 #import "YCIssuesResult.h"
+#import "YCProfileResult.h"
 
 @implementation YCIssuesResult
 

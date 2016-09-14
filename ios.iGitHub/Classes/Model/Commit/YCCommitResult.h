@@ -8,9 +8,8 @@
 
 #import <Mantle/Mantle.h>
 
-#import "YCCommitDetailResult.h"
-#import "YCCommitFileResult.h"
-#import "YCProfileResult.h"
+@class YCCommitDetailResult;
+@class YCProfileResult;
 
 @interface YCCommitResult : MTLModel <MTLJSONSerializing>
 

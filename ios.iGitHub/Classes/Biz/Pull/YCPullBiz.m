@@ -10,6 +10,7 @@
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCPullBiz.h"
+#import "YCPullResult.h"
 
 @implementation YCPullBiz
 

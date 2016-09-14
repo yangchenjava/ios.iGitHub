@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCIssuesResult.h"
+@class YCIssuesResult;
 
 @interface YCIssuesDetailTableViewCell : UITableViewCell
 

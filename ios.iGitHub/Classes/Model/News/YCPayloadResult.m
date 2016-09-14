@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import "YCCommitResult.h"
 #import "YCPayloadResult.h"
 
 @implementation YCPayloadResult

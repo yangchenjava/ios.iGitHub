@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCPullResult.h"
+@class YCPullResult;
 
 @interface YCPullBiz : NSObject
 

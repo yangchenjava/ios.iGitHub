@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCProfileResult.h"
+@class YCProfileResult;
 
 @interface YCProfileBiz : NSObject
 

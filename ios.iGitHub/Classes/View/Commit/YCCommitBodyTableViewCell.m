@@ -7,6 +7,7 @@
 //
 
 #import "YCCommitBodyTableViewCell.h"
+#import "YCCommitTableViewCellItem.h"
 
 @interface YCCommitBodyTableViewCell ()
 

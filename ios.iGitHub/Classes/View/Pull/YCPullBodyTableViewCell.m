@@ -10,6 +10,7 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "YCPullBodyTableViewCell.h"
+#import "YCPullResult.h"
 
 #define kMarginVertical 10
 #define kMarginHorizontal 16

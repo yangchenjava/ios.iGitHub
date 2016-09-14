@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCReadmeResult.h"
+@class YCReadmeResult;
 
 @interface YCReadmeViewController : UIViewController
 

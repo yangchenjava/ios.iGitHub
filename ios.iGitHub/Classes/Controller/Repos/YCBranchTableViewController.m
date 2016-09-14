@@ -8,6 +8,7 @@
 
 #import <MJRefresh/MJRefresh.h>
 
+#import "YCBranchResult.h"
 #import "YCBranchTableViewCell.h"
 #import "YCBranchTableViewController.h"
 #import "YCContentTableViewController.h"

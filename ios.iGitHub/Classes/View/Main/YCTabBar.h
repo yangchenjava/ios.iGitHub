@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YCTabBarButton.h"
-
 @class YCTabBar;
 
 @protocol YCTabBarDelegate <NSObject>

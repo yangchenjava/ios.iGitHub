@@ -11,6 +11,8 @@
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
+#import "YCBaseTableHeaderModelF.h"
 #import "YCBaseTableHeaderView.h"
 
 @interface YCBaseTableHeaderView ()

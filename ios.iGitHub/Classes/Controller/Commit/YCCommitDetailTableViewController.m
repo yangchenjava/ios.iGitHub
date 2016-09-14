@@ -8,14 +8,19 @@
 
 #import <MJRefresh/MJRefresh.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCCommitBiz.h"
 #import "YCCommitBodyTableViewCell.h"
+#import "YCCommitDetailResult.h"
 #import "YCCommitDetailTableViewCell.h"
 #import "YCCommitDetailTableViewController.h"
+#import "YCCommitFileResult.h"
 #import "YCCommitPatchViewController.h"
+#import "YCCommitResult.h"
 #import "YCCommitTableViewCellItem.h"
 #import "YCGitHubUtils.h"
+#import "YCProfileResult.h"
 
 @interface YCCommitDetailTableViewController ()
 

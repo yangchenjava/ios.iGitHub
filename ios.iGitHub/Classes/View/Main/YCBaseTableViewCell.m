@@ -8,6 +8,7 @@
 
 #import "FontAwesomeKit.h"
 #import "YCBaseTableViewCell.h"
+#import "YCBaseTableViewCellItem.h"
 
 #define kIconSize 20
 

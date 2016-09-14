@@ -8,6 +8,7 @@
 
 #import <MJRefresh/MJRefresh.h>
 
+#import "YCContentResult.h"
 #import "YCContentTableViewCell.h"
 #import "YCContentTableViewController.h"
 #import "YCReposBiz.h"

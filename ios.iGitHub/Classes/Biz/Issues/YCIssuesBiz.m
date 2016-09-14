@@ -11,6 +11,7 @@
 
 #import "YCCommentResult.h"
 #import "YCIssuesBiz.h"
+#import "YCIssuesResult.h"
 
 @implementation YCIssuesBiz
 

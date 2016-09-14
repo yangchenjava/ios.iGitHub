@@ -8,6 +8,7 @@
 
 #import <YCHelpKit/NSString+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableHeaderModelF.h"
 
 #define kMargin 10

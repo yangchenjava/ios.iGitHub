@@ -10,7 +10,9 @@
 
 #import "FontAwesomeKit.h"
 #import "YCGitHubUtils.h"
+#import "YCIssuesResult.h"
 #import "YCIssuesTableViewCell.h"
+#import "YCProfileResult.h"
 
 @interface YCIssuesTableViewCell ()
 

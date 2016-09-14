@@ -9,6 +9,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <YCHelpKit/UIView+Category.h>
 
+#import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
 #import "YCBaseTableViewCellGroup.h"
 #import "YCBaseTableViewCellItem.h"
@@ -16,12 +17,14 @@
 #import "YCCommitTableViewController.h"
 #import "YCEventsTableViewController.h"
 #import "YCIssuesViewController.h"
+#import "YCProfileResult.h"
 #import "YCProfileTableViewController.h"
 #import "YCPullViewController.h"
 #import "YCReadmeViewController.h"
 #import "YCReposBiz.h"
 #import "YCReposDetailTableViewCell.h"
 #import "YCReposDetailTableViewController.h"
+#import "YCReposResult.h"
 
 @interface YCReposDetailTableViewController ()
 

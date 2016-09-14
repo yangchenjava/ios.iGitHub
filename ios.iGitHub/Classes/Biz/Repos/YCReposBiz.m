@@ -9,7 +9,11 @@
 #import <Mantle/Mantle.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
+#import "YCBranchResult.h"
+#import "YCContentResult.h"
+#import "YCReadmeResult.h"
 #import "YCReposBiz.h"
+#import "YCReposResult.h"
 
 @implementation YCReposBiz
 
