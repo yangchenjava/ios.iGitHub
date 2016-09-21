@@ -7,6 +7,7 @@
 //
 
 #import "FontAwesomeKit.h"
+#import "YCBaseTableViewController.h"
 #import "YCEventsTableViewController.h"
 #import "YCNavigationController.h"
 #import "YCNewsTableViewController.h"
@@ -71,7 +72,7 @@
 }
 
 - (void)addChildVC:(UIViewController *)vc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName badgeValue:(NSString *)badgeValue {
-    vc.navigationItem.title = title;
+    if (![vc isKindOfClass:[YCBaseTableViewController class]]) vc.navigationItem.title = title;
     vc.tabBarItem.title = title;
 
     FAKOcticons *icon = [FAKOcticons iconWithIdentifier:imageName size:25 error:NULL];

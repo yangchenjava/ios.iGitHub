@@ -72,6 +72,8 @@
 		0F68E3A51D32597E00AD85EE /* YCReposBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F68E3A41D32597E00AD85EE /* YCReposBiz.m */; };
 		0F68E3AC1D334F1C00AD85EE /* YCReposTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F68E3AA1D334F1C00AD85EE /* YCReposTableViewCell.m */; };
 		0F68E3AD1D334F1C00AD85EE /* YCReposTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F68E3AB1D334F1C00AD85EE /* YCReposTableViewCell.xib */; };
+		0F9982CD1D927F1C000AE21C /* YCScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9982CC1D927F1C000AE21C /* YCScannerViewController.m */; };
+		0F9982D11D927F27000AE21C /* YCScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9982D01D927F27000AE21C /* YCScannerView.m */; };
 		0FCE45AA1D3E0DEA003BAF87 /* YCEventsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE45A91D3E0DEA003BAF87 /* YCEventsResult.m */; };
 		0FCE45B01D3E29A7003BAF87 /* YCEventsBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE45AF1D3E29A7003BAF87 /* YCEventsBiz.m */; };
 		0FCE45B41D3E6F3F003BAF87 /* YCEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE45B21D3E6F3F003BAF87 /* YCEventsTableViewCell.m */; };
@@ -260,6 +262,10 @@
 		0F68E3A91D334F1C00AD85EE /* YCReposTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCReposTableViewCell.h; sourceTree = "<group>"; };
 		0F68E3AA1D334F1C00AD85EE /* YCReposTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCReposTableViewCell.m; sourceTree = "<group>"; };
 		0F68E3AB1D334F1C00AD85EE /* YCReposTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCReposTableViewCell.xib; sourceTree = "<group>"; };
+		0F9982CB1D927F1C000AE21C /* YCScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCScannerViewController.h; sourceTree = "<group>"; };
+		0F9982CC1D927F1C000AE21C /* YCScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCScannerViewController.m; sourceTree = "<group>"; };
+		0F9982CF1D927F27000AE21C /* YCScannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCScannerView.h; sourceTree = "<group>"; };
+		0F9982D01D927F27000AE21C /* YCScannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCScannerView.m; sourceTree = "<group>"; };
 		0FCE45A81D3E0DEA003BAF87 /* YCEventsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEventsResult.h; sourceTree = "<group>"; };
 		0FCE45A91D3E0DEA003BAF87 /* YCEventsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEventsResult.m; sourceTree = "<group>"; };
 		0FCE45AE1D3E29A7003BAF87 /* YCEventsBiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEventsBiz.h; sourceTree = "<group>"; };
@@ -610,6 +616,24 @@
 			path = Repos;
 			sourceTree = "<group>";
 		};
+		0F9982CA1D927F1C000AE21C /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				0F9982CB1D927F1C000AE21C /* YCScannerViewController.h */,
+				0F9982CC1D927F1C000AE21C /* YCScannerViewController.m */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		0F9982CE1D927F27000AE21C /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				0F9982CF1D927F27000AE21C /* YCScannerView.h */,
+				0F9982D01D927F27000AE21C /* YCScannerView.m */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		0FD55B871D387CE700091D37 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +780,7 @@
 				0F09C02E1D473DB400687BBA /* Issues */,
 				0F5FD1591D51DEBF00432131 /* Commit */,
 				0F5FD1721D52FDC300432131 /* Pull */,
+				0F9982CA1D927F1C000AE21C /* Scanner */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -811,6 +836,7 @@
 				0F09C02D1D473D8D00687BBA /* Issues */,
 				0F5FD1581D51DEA000432131 /* Commit */,
 				0F5FD1711D52FDA800432131 /* Pull */,
+				0F9982CE1D927F27000AE21C /* Scanner */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1309,6 +1335,7 @@
 				0F5FD1CE1D59C72400432131 /* YCBranchTableViewCell.m in Sources */,
 				0FE3F4451D261A4C001E5D24 /* AppDelegate.m in Sources */,
 				0FE3F4A21D30AE98001E5D24 /* YCReposTableViewController.m in Sources */,
+				0F9982D11D927F27000AE21C /* YCScannerView.m in Sources */,
 				0F5FD1521D50826D00432131 /* YCReadmeViewController.m in Sources */,
 				0FCE45B81D40A7E5003BAF87 /* YCEventsResultF.m in Sources */,
 				0FD96A3A1D3C895E001E66BA /* YCPayloadResult.m in Sources */,
@@ -1353,6 +1380,7 @@
 				0FE3F4C51D30D2E2001E5D24 /* FAKIonIcons.m in Sources */,
 				0FE3F4461D261A4C001E5D24 /* main.m in Sources */,
 				0F09C0431D4865B900687BBA /* YCIssuesDetailTableViewController.m in Sources */,
+				0F9982CD1D927F1C000AE21C /* YCScannerViewController.m in Sources */,
 				0F5FD1D11D5A2B6D00432131 /* YCContentTableViewCell.m in Sources */,
 				0FE3F4701D2BDEB0001E5D24 /* YCOAuthResult.m in Sources */,
 				0F5FD1DD1D5B1FB500432131 /* YCSourceViewController.m in Sources */,

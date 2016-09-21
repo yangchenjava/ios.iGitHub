@@ -32,8 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 去掉下边黑线
+    // 设置不透明，去掉下边黑线
     UINavigationBar *naviBar = self.navigationController.navigationBar;
+    naviBar.barTintColor = YC_Color_RGB(50, 50, 50);
+    naviBar.translucent = NO;
     [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [naviBar setShadowImage:[[UIImage alloc] init]];
     // 动态控制cell高度

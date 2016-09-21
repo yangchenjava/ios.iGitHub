@@ -57,7 +57,7 @@
         CGRect frame = CGRectMake(0, 0, self.tableView.width, self.tableView.estimatedRowHeight);
 
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = frame;
+        button.frame = CGRectMake(frame.origin.x, frame.origin.y + 0.5, frame.size.width, frame.size.height - 1);
         button.titleLabel.font = [UIFont systemFontOfSize:17];
         [button setTitle:@"Sign Out" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -67,6 +67,7 @@
 
         UIView *tableFooterView = [[UIView alloc] initWithFrame:frame];
         tableFooterView.hidden = YES;
+        tableFooterView.backgroundColor = YC_Color_RGB(200, 199, 204);
         [tableFooterView addSubview:button];
         self.tableView.tableFooterView = tableFooterView;
         _tableFooterView = tableFooterView;

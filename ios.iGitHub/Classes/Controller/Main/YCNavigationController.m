@@ -34,9 +34,9 @@
     // title样式
     naviBar.titleTextAttributes = titleTextAttributes;
     // 背景色
-    naviBar.barTintColor = YC_Color_RGB(50, 50, 50);
+    naviBar.barTintColor = YC_Color_RGB(20, 20, 20);
     // 背景不透明
-    naviBar.translucent = NO;
+    // naviBar.translucent = NO;
     // 去掉下边黑线
     // [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     // [naviBar setShadowImage:[[UIImage alloc] init]];
