@@ -14,6 +14,11 @@
 
 #ifdef __OBJC__
 
+// 系统版本
+#define iOS10_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+#define iOS9_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+#define iOS8_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
 // 屏幕宽高
 #define YC_ScreenWidth \
 ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.width / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.width)
@@ -38,6 +43,8 @@
 // 角度转弧度 弧度转角度
 #define YCDegreeToRadian(degree) ((degree) * M_PI / 180.0)
 #define YCRadianToDegree(radian) ((radian) * 180.0 / M_PI)
+
+// ---------------------------------------------------- 分割线 -----------------------------------------------------
 
 #define YC_HTMLString(HTMLString) [[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markdown.html" ofType:nil] encoding:NSUTF8StringEncoding error:NULL] stringByReplacingOccurrencesOfString:@"###" withString:[[[(HTMLString) stringByReplacingOccurrencesOfString:@"\"" withString:@"'"] stringByReplacingOccurrencesOfString:@">\n<" withString:@"><"] stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"]]
 

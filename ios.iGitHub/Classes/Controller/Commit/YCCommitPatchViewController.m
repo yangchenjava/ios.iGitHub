@@ -47,12 +47,13 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString *URLString = request.URL.absoluteString;
-    NSLog(@"%@", URLString);
-    if ([URLString isEqualToString:@"app://ready"]) {
+    if ([URLString hasPrefix:@"app://ready"]) {
         self.patch = [self.patch stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
         self.patch = [self.patch stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
         self.patch = [self.patch stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
         [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"patch(\"%@\");", self.patch]];
+    } else if ([URLString hasPrefix:@"app://comment"]) {
+        NSLog(@"%@", URLString);
     }
     return YES;
 }

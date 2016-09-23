@@ -38,12 +38,11 @@ static NSString *const kShortcutItemType = @"ios.iGitHub.scan";
     [self.window makeKeyAndVisible];
     [YCGitHubUtils setupRootViewController];
 
-    //    float systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
-    //    if (systemVersion >= 8.0) {
-    //        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    //        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    //        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    //    }
+    if (iOS8_OR_Later) {
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
     return YES;
 }
 
@@ -77,8 +76,7 @@ static NSString *const kShortcutItemType = @"ios.iGitHub.scan";
 }
 
 - (void)setupShortcutItems {
-    float systemVersion = [UIDevice currentDevice].systemVersion.floatValue;
-    if (systemVersion >= 9.0) {
+    if (iOS9_OR_Later) {
         UIApplicationShortcutIcon *scanShortcutIcon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"3DTouch_scan"];
         UIApplicationShortcutItem *scanShortcutItem =
             [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemType localizedTitle:@"扫一扫" localizedSubtitle:nil icon:scanShortcutIcon userInfo:nil];

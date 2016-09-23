@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Used to scan barcodes</string>
+	<string>是否允许此App使用你的相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Used to scan barcodes</string>
+	<string>是否允许此App访问你的媒体资料库</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
@@ -31,7 +31,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
