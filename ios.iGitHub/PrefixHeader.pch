@@ -36,6 +36,9 @@
 #define YC_Color_RGBA(R, G, B, A) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:(A)]
 #define YC_Color_RGB(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1.0]
 
+// 自动提示宏，想输入对象的属性的时候有提示
+#define YCKeyPath(objc, keyPath) @(((void) objc.keyPath, #keyPath))
+
 // 弱引用/强引用
 #define YCWeakSelf(type) __weak typeof(type) weak##type = type
 #define YCStrongSelf(type) __strong typeof(type) type = weak##type

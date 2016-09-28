@@ -69,10 +69,10 @@
 
 // 记得移除KVO
 - (void)dealloc {
-    [self.tabBarItem removeObserver:self forKeyPath:@"title"];
-    [self.tabBarItem removeObserver:self forKeyPath:@"image"];
-    [self.tabBarItem removeObserver:self forKeyPath:@"selectedImage"];
-    [self.tabBarItem removeObserver:self forKeyPath:@"badgeValue"];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, title)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, image)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, selectedImage)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, badgeValue)];
 }
 
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem {
@@ -82,21 +82,21 @@
     [self setImage:self.tabBarItem.selectedImage forState:UIControlStateSelected];
     self.badgeButton.badgeValue = self.tabBarItem.badgeValue;
 
-    [self.tabBarItem addObserver:self forKeyPath:@"title" options:0 context:nil];
-    [self.tabBarItem addObserver:self forKeyPath:@"image" options:0 context:nil];
-    [self.tabBarItem addObserver:self forKeyPath:@"selectedImage" options:0 context:nil];
-    [self.tabBarItem addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
+    [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, title) options:0 context:nil];
+    [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, image) options:0 context:nil];
+    [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, selectedImage) options:0 context:nil];
+    [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, badgeValue) options:0 context:nil];
 }
 
 // KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"title"]) {
+    if ([keyPath isEqualToString:YCKeyPath(self.tabBarItem, title)]) {
         [self setTitle:self.tabBarItem.title forState:UIControlStateNormal];
-    } else if ([keyPath isEqualToString:@"image"]) {
+    } else if ([keyPath isEqualToString:YCKeyPath(self.tabBarItem, image)]) {
         [self setImage:self.tabBarItem.image forState:UIControlStateNormal];
-    } else if ([keyPath isEqualToString:@"selectedImage"]) {
+    } else if ([keyPath isEqualToString:YCKeyPath(self.tabBarItem, selectedImage)]) {
         [self setImage:self.tabBarItem.selectedImage forState:UIControlStateSelected];
-    } else if ([keyPath isEqualToString:@"badgeValue"]) {
+    } else if ([keyPath isEqualToString:YCKeyPath(self.tabBarItem, badgeValue)]) {
         self.badgeButton.badgeValue = self.tabBarItem.badgeValue;
     }
 }
