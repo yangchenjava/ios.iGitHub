@@ -27,14 +27,19 @@
 ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.height / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.height)
 
 // 目录
-#define YC_Dict_Temp NSTemporaryDirectory()
-#define YC_Dict_Cache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
-#define YC_Dict_Document NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject
+#define YC_Dir_Temp NSTemporaryDirectory()
+#define YC_Dir_Cache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
+#define YC_Dir_Document NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject
 
 // 颜色
 #define YC_Color_Random [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1.0]
 #define YC_Color_RGBA(R, G, B, A) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:(A)]
 #define YC_Color_RGB(R, G, B) [UIColor colorWithRed:(R) / 255.0 green:(G) / 255.0 blue:(B) / 255.0 alpha:1.0]
+
+// 加载图片
+#define YC_Image_PNG(name) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:@"png"]]
+#define YC_Image_JPG(name) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:@"jpg"]]
+#define YC_Image(name, ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(name) ofType:(ext)]]
 
 // 自动提示宏，想输入对象的属性的时候有提示
 #define YCKeyPath(objc, keyPath) @(((void) objc.keyPath, #keyPath))

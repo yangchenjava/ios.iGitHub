@@ -20,40 +20,48 @@
 
 + (YCOAuthResult *)oauth {
     static NSString *oauthPath;
-    if (!oauthPath) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
-    }
+    });
     return [NSKeyedUnarchiver unarchiveObjectWithFile:oauthPath];
 }
 
 + (void)setOAuth:(YCOAuthResult *)oauth {
     static NSString *oauthPath;
-    if (!oauthPath) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
-    }
+    });
     [NSKeyedArchiver archiveRootObject:oauth toFile:oauthPath];
 }
 
 + (YCProfileResult *)profile {
     static NSString *profilePath;
-    if (!profilePath) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
-    }
+    });
     return [NSKeyedUnarchiver unarchiveObjectWithFile:profilePath];
 }
 
 + (void)setProfile:(YCProfileResult *)profile {
     static NSString *profilePath;
-    if (!profilePath) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
-    }
+    });
     [NSKeyedArchiver archiveRootObject:profile toFile:profilePath];
 }
 
 + (NSDateFormatter *)dateFormatter {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    static NSDateFormatter *dateFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    });
     return dateFormatter;
 }
 
