@@ -22,7 +22,7 @@
     static NSString *oauthPath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+        oauthPath = [YC_Dir_Document stringByAppendingPathComponent:@"OAuth.data"];
     });
     return [NSKeyedUnarchiver unarchiveObjectWithFile:oauthPath];
 }
@@ -31,7 +31,7 @@
     static NSString *oauthPath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        oauthPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"OAuth.data"];
+        oauthPath = [YC_Dir_Document stringByAppendingPathComponent:@"OAuth.data"];
     });
     [NSKeyedArchiver archiveRootObject:oauth toFile:oauthPath];
 }
@@ -40,7 +40,7 @@
     static NSString *profilePath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
+        profilePath = [YC_Dir_Document stringByAppendingPathComponent:@"Profile.data"];
     });
     return [NSKeyedUnarchiver unarchiveObjectWithFile:profilePath];
 }
@@ -49,7 +49,7 @@
     static NSString *profilePath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        profilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Profile.data"];
+        profilePath = [YC_Dir_Document stringByAppendingPathComponent:@"Profile.data"];
     });
     [NSKeyedArchiver archiveRootObject:profile toFile:profilePath];
 }

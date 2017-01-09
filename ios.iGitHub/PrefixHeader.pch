@@ -26,6 +26,14 @@
 #define YC_ScreenHeight \
 ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.height / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.height)
 
+// 控件高度
+#define YC_StatusBarHeight 20.0
+#define YC_NavigationBarHeight 44.0
+#define YC_TabBarHeight 49.0
+#define YC_CellDefaultHeight 44.0
+#define YC_EnglishKeyboardHeight 216.0
+#define YC_ChineseKeyboardHeight 252.0
+
 // 目录
 #define YC_Dir_Temp NSTemporaryDirectory()
 #define YC_Dir_Cache NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject
@@ -51,6 +59,13 @@
 // 角度转弧度 弧度转角度
 #define YCDegreeToRadian(degree) ((degree) * M_PI / 180.0)
 #define YCRadianToDegree(radian) ((radian) * 180.0 / M_PI)
+
+// 控制台日志输出
+#ifdef DEBUG
+    #define YCLog(...) NSLog(__VA_ARGS__)
+#else
+    #define YCLog(...)
+#endif
 
 // ---------------------------------------------------- 分割线 -----------------------------------------------------
 
