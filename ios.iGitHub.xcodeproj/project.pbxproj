@@ -96,8 +96,6 @@
 		0FDAACC11D6D40EA007FE68C /* YCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDAACBF1D6D40EA007FE68C /* YCLoginViewController.m */; };
 		0FDAACC21D6D40EA007FE68C /* YCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDAACC01D6D40EA007FE68C /* YCLoginViewController.xib */; };
 		0FE3F3D61D261832001E5D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F3D51D261832001E5D24 /* Assets.xcassets */; };
-		0FE3F3E41D261832001E5D24 /* ios_iGitHubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F3E31D261832001E5D24 /* ios_iGitHubTests.m */; };
-		0FE3F3EF1D261832001E5D24 /* ios_iGitHubUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F3EE1D261832001E5D24 /* ios_iGitHubUITests.m */; };
 		0FE3F4351D261A4C001E5D24 /* YCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4011D261A4B001E5D24 /* YCNavigationController.m */; };
 		0FE3F4361D261A4C001E5D24 /* YCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4031D261A4C001E5D24 /* YCTabBarController.m */; };
 		0FE3F4451D261A4C001E5D24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F42B1D261A4C001E5D24 /* AppDelegate.m */; };
@@ -135,23 +133,6 @@
 		0FE3F4CE1D30D2E2001E5D24 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */; };
 		59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0FE3F3E01D261832001E5D24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FE3F3BE1D261832001E5D24 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0FE3F3C51D261832001E5D24;
-			remoteInfo = ios.iGitHub;
-		};
-		0FE3F3EB1D261832001E5D24 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FE3F3BE1D261832001E5D24 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0FE3F3C51D261832001E5D24;
-			remoteInfo = ios.iGitHub;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_iGitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,12 +288,6 @@
 		0FE3F3C61D261832001E5D24 /* ios.iGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.iGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE3F3D51D261832001E5D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE3F3DA1D261832001E5D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FE3F3DF1D261832001E5D24 /* ios.iGitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios.iGitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FE3F3E31D261832001E5D24 /* ios_iGitHubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_iGitHubTests.m; sourceTree = "<group>"; };
-		0FE3F3E51D261832001E5D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FE3F3EA1D261832001E5D24 /* ios.iGitHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios.iGitHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FE3F3EE1D261832001E5D24 /* ios_iGitHubUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_iGitHubUITests.m; sourceTree = "<group>"; };
-		0FE3F3F01D261832001E5D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE3F4001D261A4B001E5D24 /* YCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCNavigationController.h; sourceTree = "<group>"; };
 		0FE3F4011D261A4B001E5D24 /* YCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCNavigationController.m; sourceTree = "<group>"; };
 		0FE3F4021D261A4C001E5D24 /* YCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCTabBarController.h; sourceTree = "<group>"; };
@@ -386,20 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FE3F3DC1D261832001E5D24 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FE3F3E71D261832001E5D24 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,8 +643,6 @@
 			isa = PBXGroup;
 			children = (
 				0FE3F3C81D261832001E5D24 /* ios.iGitHub */,
-				0FE3F3E21D261832001E5D24 /* ios.iGitHubTests */,
-				0FE3F3ED1D261832001E5D24 /* ios.iGitHubUITests */,
 				0FE3F3C71D261832001E5D24 /* Products */,
 				15DB29FC6442F850A8ED3CEF /* Pods */,
 				4BDD2C61AE47880B1829BE84 /* Frameworks */,
@@ -694,8 +653,6 @@
 			isa = PBXGroup;
 			children = (
 				0FE3F3C61D261832001E5D24 /* ios.iGitHub.app */,
-				0FE3F3DF1D261832001E5D24 /* ios.iGitHubTests.xctest */,
-				0FE3F3EA1D261832001E5D24 /* ios.iGitHubUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -719,24 +676,6 @@
 				0FE3F44A1D261A8D001E5D24 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0FE3F3E21D261832001E5D24 /* ios.iGitHubTests */ = {
-			isa = PBXGroup;
-			children = (
-				0FE3F3E31D261832001E5D24 /* ios_iGitHubTests.m */,
-				0FE3F3E51D261832001E5D24 /* Info.plist */,
-			);
-			path = ios.iGitHubTests;
-			sourceTree = "<group>";
-		};
-		0FE3F3ED1D261832001E5D24 /* ios.iGitHubUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0FE3F3EE1D261832001E5D24 /* ios_iGitHubUITests.m */,
-				0FE3F3F01D261832001E5D24 /* Info.plist */,
-			);
-			path = ios.iGitHubUITests;
 			sourceTree = "<group>";
 		};
 		0FE3F3FC1D261A4B001E5D24 /* Classes */ = {
@@ -1107,42 +1046,6 @@
 			productReference = 0FE3F3C61D261832001E5D24 /* ios.iGitHub.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0FE3F3DE1D261832001E5D24 /* ios.iGitHubTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FE3F3F61D261832001E5D24 /* Build configuration list for PBXNativeTarget "ios.iGitHubTests" */;
-			buildPhases = (
-				0FE3F3DB1D261832001E5D24 /* Sources */,
-				0FE3F3DC1D261832001E5D24 /* Frameworks */,
-				0FE3F3DD1D261832001E5D24 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0FE3F3E11D261832001E5D24 /* PBXTargetDependency */,
-			);
-			name = ios.iGitHubTests;
-			productName = ios.iGitHubTests;
-			productReference = 0FE3F3DF1D261832001E5D24 /* ios.iGitHubTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0FE3F3E91D261832001E5D24 /* ios.iGitHubUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FE3F3F91D261832001E5D24 /* Build configuration list for PBXNativeTarget "ios.iGitHubUITests" */;
-			buildPhases = (
-				0FE3F3E61D261832001E5D24 /* Sources */,
-				0FE3F3E71D261832001E5D24 /* Frameworks */,
-				0FE3F3E81D261832001E5D24 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0FE3F3EC1D261832001E5D24 /* PBXTargetDependency */,
-			);
-			name = ios.iGitHubUITests;
-			productName = ios.iGitHubUITests;
-			productReference = 0FE3F3EA1D261832001E5D24 /* ios.iGitHubUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1156,14 +1059,6 @@
 					0FE3F3C51D261832001E5D24 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 53E348DHA3;
-					};
-					0FE3F3DE1D261832001E5D24 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 0FE3F3C51D261832001E5D24;
-					};
-					0FE3F3E91D261832001E5D24 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 0FE3F3C51D261832001E5D24;
 					};
 				};
 			};
@@ -1190,8 +1085,6 @@
 			projectRoot = "";
 			targets = (
 				0FE3F3C51D261832001E5D24 /* ios.iGitHub */,
-				0FE3F3DE1D261832001E5D24 /* ios.iGitHubTests */,
-				0FE3F3E91D261832001E5D24 /* ios.iGitHubUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1237,20 +1130,6 @@
 				0F5FD1B61D54A65000432131 /* difflib.js in Resources */,
 				0F5FD1D91D5B17B500432131 /* highlight.pack.js in Resources */,
 				0FE3F4CC1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FE3F3DD1D261832001E5D24 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FE3F3E81D261832001E5D24 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,36 +1279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0FE3F3DB1D261832001E5D24 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FE3F3E41D261832001E5D24 /* ios_iGitHubTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FE3F3E61D261832001E5D24 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FE3F3EF1D261832001E5D24 /* ios_iGitHubUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0FE3F3E11D261832001E5D24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0FE3F3C51D261832001E5D24 /* ios.iGitHub */;
-			targetProxy = 0FE3F3E01D261832001E5D24 /* PBXContainerItemProxy */;
-		};
-		0FE3F3EC1D261832001E5D24 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0FE3F3C51D261832001E5D24 /* ios.iGitHub */;
-			targetProxy = 0FE3F3EB1D261832001E5D24 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0FE3F4591D2B98E1001E5D24 /* LaunchScreen.storyboard */ = {
@@ -1571,52 +1421,6 @@
 			};
 			name = Release;
 		};
-		0FE3F3F71D261832001E5D24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ios.iGitHubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHubTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios.iGitHub.app/ios.iGitHub";
-			};
-			name = Debug;
-		};
-		0FE3F3F81D261832001E5D24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ios.iGitHubTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHubTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios.iGitHub.app/ios.iGitHub";
-			};
-			name = Release;
-		};
-		0FE3F3FA1D261832001E5D24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ios.iGitHubUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHubUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ios.iGitHub;
-			};
-			name = Debug;
-		};
-		0FE3F3FB1D261832001E5D24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ios.iGitHubUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHubUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ios.iGitHub;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1634,24 +1438,6 @@
 			buildConfigurations = (
 				0FE3F3F41D261832001E5D24 /* Debug */,
 				0FE3F3F51D261832001E5D24 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0FE3F3F61D261832001E5D24 /* Build configuration list for PBXNativeTarget "ios.iGitHubTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FE3F3F71D261832001E5D24 /* Debug */,
-				0FE3F3F81D261832001E5D24 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0FE3F3F91D261832001E5D24 /* Build configuration list for PBXNativeTarget "ios.iGitHubUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FE3F3FA1D261832001E5D24 /* Debug */,
-				0FE3F3FB1D261832001E5D24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

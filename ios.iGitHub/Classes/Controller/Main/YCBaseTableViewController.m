@@ -151,6 +151,8 @@
                 [destViewController setValue:value forKey:key];
             }
         }
+        // 释放
+        free(ivars);
         // 如果目标vc不继承自YCBaseTableViewController，则主动设置navi的title
         if (![destViewController isKindOfClass:[YCBaseTableViewController class]]) {
             destViewController.navigationItem.title = item.title;
