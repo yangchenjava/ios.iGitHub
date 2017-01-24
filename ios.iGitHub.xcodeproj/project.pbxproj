@@ -131,6 +131,7 @@
 		0FE3F4CC1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BF1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf */; };
 		0FE3F4CD1D30D2E2001E5D24 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C01D30D2E2001E5D24 /* octicons.ttf */; };
 		0FE3F4CE1D30D2E2001E5D24 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */; };
+		0FE3FA231E36FFC80046FE00 /* YCProfileTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */; };
 		59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */; };
 /* End PBXBuildFile section */
 
@@ -351,6 +352,8 @@
 		0FE3F4BF1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Material-Design-Iconic-Font.ttf"; sourceTree = "<group>"; };
 		0FE3F4C01D30D2E2001E5D24 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
 		0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
+		0FE3FA211E36FFC80046FE00 /* YCProfileTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileTableFooterView.h; sourceTree = "<group>"; };
+		0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCProfileTableFooterView.m; sourceTree = "<group>"; };
 		33A700BE0FC18F87531E83E1 /* Pods-ios.iGitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.release.xcconfig"; sourceTree = "<group>"; };
 		F4D1D231327DBD1DA0C60B13 /* Pods-ios.iGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -626,6 +629,8 @@
 				0FCE45B91D41A53E003BAF87 /* YCProfileTableViewCell.h */,
 				0FCE45BA1D41A53E003BAF87 /* YCProfileTableViewCell.m */,
 				0FCE45BB1D41A53E003BAF87 /* YCProfileTableViewCell.xib */,
+				0FE3FA211E36FFC80046FE00 /* YCProfileTableFooterView.h */,
+				0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1257,6 +1262,7 @@
 				0FE3F46D1D2BDA73001E5D24 /* YCOAuthParam.m in Sources */,
 				0FE3F49C1D2E3CA6001E5D24 /* YCProfileResult.m in Sources */,
 				0FE3F4A81D30AEC7001E5D24 /* YCEventsTableViewController.m in Sources */,
+				0FE3FA231E36FFC80046FE00 /* YCProfileTableFooterView.m in Sources */,
 				0FE3F4C51D30D2E2001E5D24 /* FAKIonIcons.m in Sources */,
 				0FE3F4461D261A4C001E5D24 /* main.m in Sources */,
 				0F09C0431D4865B900687BBA /* YCIssuesDetailTableViewController.m in Sources */,

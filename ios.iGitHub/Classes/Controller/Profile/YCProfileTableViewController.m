@@ -8,8 +8,7 @@
 
 #import <DateTools/DateTools.h>
 #import <MJRefresh/MJRefresh.h>
-#import <YCHelpKit/UIImage+Category.h>
-#import <YCHelpKit/UIView+Category.h>
+#import <YCHelpKit/UIAlertController+Category.h>
 
 #import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
@@ -19,13 +18,14 @@
 #import "YCGitHubUtils.h"
 #import "YCProfileBiz.h"
 #import "YCProfileResult.h"
+#import "YCProfileTableFooterView.h"
 #import "YCProfileTableViewCell.h"
 #import "YCProfileTableViewController.h"
 #import "YCReposTableViewController.h"
 
-@interface YCProfileTableViewController ()
+@interface YCProfileTableViewController () <YCProfileTableFooterViewDelegate>
 
-@property (nonatomic, weak) UIView *tableFooterView;
+@property (nonatomic, weak) YCProfileTableFooterView *tableFooterView;
 
 @property (nonatomic, strong) YCProfileResult *profile;
 
@@ -36,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
-    self.tableView.tableFooterView = self.tableFooterView;
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupProfile)];
     [self.tableView.mj_header beginRefreshing];
@@ -54,25 +53,11 @@
 
 - (UIView *)tableFooterView {
     if (_tableFooterView == nil) {
-        CGRect frame = CGRectMake(0, 0, self.tableView.width, self.tableView.estimatedRowHeight);
-
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(frame.origin.x, frame.origin.y + 0.5, frame.size.width, frame.size.height - 1);
-        button.titleLabel.font = [UIFont systemFontOfSize:17];
-        [button setTitle:@"Sign Out" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageWithColor:YC_Color_RGB(217, 217, 217)] forState:UIControlStateHighlighted];
-        [button addTarget:self action:@selector(signout) forControlEvents:UIControlEventTouchUpInside];
-
-        UIView *tableFooterView = [[UIView alloc] initWithFrame:frame];
-        tableFooterView.hidden = YES;
-        tableFooterView.backgroundColor = YC_Color_RGB(200, 199, 204);
-        [tableFooterView addSubview:button];
+        CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.estimatedRowHeight);
+        YCProfileTableFooterView *tableFooterView = [[YCProfileTableFooterView alloc] initWithFrame:frame];
+        tableFooterView.delegate = self;
         self.tableView.tableFooterView = tableFooterView;
         _tableFooterView = tableFooterView;
-    } else {
-        _tableFooterView.hidden = NO;
     }
     return _tableFooterView;
 }
@@ -82,28 +67,6 @@
         _username = [YCGitHubUtils profile].login;
     }
     return _username;
-}
-
-- (void)signout {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"sure to sign out?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-
-#warning AttributedTitle is a private API
-    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:@"sure to sign out?"];
-    [attributedTitle addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, attributedTitle.length)];
-    [attributedTitle addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:22] range:NSMakeRange(0, attributedTitle.length)];
-    [alertController setValue:attributedTitle forKey:@"attributedTitle"];
-
-    UIAlertAction *signout = [UIAlertAction actionWithTitle:@"Sign Out"
-                                                      style:UIAlertActionStyleDestructive
-                                                    handler:^(UIAlertAction *action) {
-                                                        [YCGitHubUtils setOAuth:nil];
-                                                        [YCGitHubUtils setProfile:nil];
-                                                        [YCGitHubUtils setupRootViewController];
-                                                    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:signout];
-    [alertController addAction:cancel];
-    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)setupProfile {
@@ -118,9 +81,11 @@
             self.tableHeaderModel = tableHeaderModel;
 
             [self setupGroupArray];
-
+            
+            if ([self.username isEqualToString:[YCGitHubUtils profile].login]) {
+                self.tableView.tableFooterView = self.tableFooterView;
+            }
             [self.tableView reloadData];
-            self.tableView.tableFooterView = self.tableFooterView;
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
@@ -143,9 +108,7 @@
         [itemArray addObject:[YCBaseTableViewCellItem itemWithTitle:self.profile.email icon:@"octicon-mail"]];
     }
     if (self.profile.created_at) {
-        [itemArray addObject:[YCBaseTableViewCellItem
-                                 itemWithTitle:[self.profile.created_at formattedDateWithFormat:@"'Joined on' d MMM yyyy" locale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]]
-                                          icon:@"octicon-clock"]];
+        [itemArray addObject:[YCBaseTableViewCellItem itemWithTitle:[self.profile.created_at formattedDateWithFormat:@"'Joined on' d MMM yyyy" locale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]] icon:@"octicon-clock"]];
     }
     YCBaseTableViewCellGroup *group_1 = [[YCBaseTableViewCellGroup alloc] init];
     group_1.itemArray = itemArray;
@@ -179,6 +142,18 @@
         cell = tableViewCell;
     }
     return cell;
+}
+
+- (void)tableFooterViewDidClick:(YCProfileTableFooterView *)tableFooterView {
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"注销" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [YCGitHubUtils setOAuth:nil];
+        [YCGitHubUtils setProfile:nil];
+        [YCGitHubUtils setupRootViewController];
+    }];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定注销吗？" message:nil preferredStyle:UIAlertControllerStyleActionSheet alertActions:@[ action ]];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

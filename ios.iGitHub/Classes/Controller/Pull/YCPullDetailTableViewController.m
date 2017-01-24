@@ -79,7 +79,7 @@
             self.tableHeaderModel = tableHeaderModel;
 
             [self setupGroupArray];
-
+            
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
         }
@@ -117,15 +117,7 @@
     YCBaseTableViewCellGroup *group_0 = [[YCBaseTableViewCellGroup alloc] init];
     group_0.itemArray = itemArray_0;
 
-    YCBaseTableViewCellItem *item_1_0 = [YCBaseTableViewCellItem itemWithTitle:@"Commits"
-                                                                          icon:@"octicon-git-commit"
-                                                                      subtitle:nil
-                                                                     destClass:[YCCommitTableViewController class]
-                                                             instanceVariables:@{
-                                                                 @"username" : self.username,
-                                                                 @"reposname" : self.reposname,
-                                                                 @"number" : @(self.number)
-                                                             }];
+    YCBaseTableViewCellItem *item_1_0 = [YCBaseTableViewCellItem itemWithTitle:@"Commits" icon:@"octicon-git-commit" subtitle:nil destClass:[YCCommitTableViewController class] instanceVariables:@{ @"username": self.username, @"reposname": self.reposname, @"number": @(self.number) }];
     YCBaseTableViewCellGroup *group_1 = [[YCBaseTableViewCellGroup alloc] init];
     group_1.itemArray = @[ item_1_0 ];
 
@@ -177,6 +169,7 @@
 
 - (void)tableFooterViewDidChangeHeight:(YCCommentTableFooterView *)tableFooterView {
     self.tableView.tableFooterView = self.tableFooterView;
+    [self.tableView reloadData];
 }
 
 - (void)tableFooterView:(YCCommentTableFooterView *)tableFooterView didActiveLinkWithURL:(NSURL *)URL {

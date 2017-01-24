@@ -69,7 +69,10 @@
 
 // 记得移除KVO
 - (void)dealloc {
-    [self tabBarItemRemoveObserver];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, title)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, image)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, selectedImage)];
+    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, badgeValue)];
 }
 
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem {
@@ -79,25 +82,13 @@
     [self setImage:self.tabBarItem.selectedImage forState:UIControlStateSelected];
     self.badgeButton.badgeValue = self.tabBarItem.badgeValue;
 
-    [self tabBarItemRemoveObserver];
-    [self tabBarItemAddObserver];
-}
-
-#pragma mark - KVO
-
-- (void)tabBarItemAddObserver {
     [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, title) options:0 context:nil];
     [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, image) options:0 context:nil];
     [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, selectedImage) options:0 context:nil];
     [self.tabBarItem addObserver:self forKeyPath:YCKeyPath(self.tabBarItem, badgeValue) options:0 context:nil];
 }
 
-- (void)tabBarItemRemoveObserver {
-    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, title)];
-    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, image)];
-    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, selectedImage)];
-    [self.tabBarItem removeObserver:self forKeyPath:YCKeyPath(self.tabBarItem, badgeValue)];
-}
+#pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:YCKeyPath(self.tabBarItem, title)]) {

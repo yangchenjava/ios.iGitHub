@@ -164,6 +164,7 @@
 
 - (void)tableFooterViewDidChangeHeight:(YCCommentTableFooterView *)tableFooterView {
     self.tableView.tableFooterView = self.tableFooterView;
+    [self.tableView reloadData];
 }
 
 - (void)tableFooterView:(YCCommentTableFooterView *)tableFooterView didActiveLinkWithURL:(NSURL *)URL {
