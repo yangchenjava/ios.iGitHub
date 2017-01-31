@@ -15,5 +15,5 @@ target "ios.iGitHub" do
     pod 'MMMarkdown', '0.5.5'
     pod 'SDWebImage', '3.8.2'
     pod 'TTTAttributedLabel', '2.0.0'
-    pod 'YCHelpKit', '~> 1.2.6'
+    pod 'YCHelpKit', '~> 1.2.8'
 end

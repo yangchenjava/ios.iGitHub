@@ -7,8 +7,8 @@
 //
 
 #import <DateTools/DateTools.h>
+#import <YCHelpKit/NSString+Category.h>
 #import <YCHelpKit/UIView+Category.h>
-#import <YCHelpKit/YCNumberUtils.h>
 
 #import "FontAwesomeKit.h"
 #import "YCProfileResult.h"
@@ -103,7 +103,7 @@
     [toolsIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor]];
     self.sizeImageView.image = [toolsIcon imageWithSize:self.sizeImageView.size];
 
-    self.sizeLabel.text = [YCNumberUtils size:@(self.repos.size * 1000)];
+    self.sizeLabel.text = [NSString fileSizeUnit:self.repos.size * 1000];
 }
 
 @end
