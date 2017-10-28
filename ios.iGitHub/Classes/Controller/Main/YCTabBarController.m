@@ -29,9 +29,20 @@
     [self setupTabBar];
     [self setupTabBarItem];
 }
+// ios10
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    // 清空原有TabBar
+//    for (UIView *view in self.tabBar.subviews) {
+//        if ([view isKindOfClass:[UIControl class]]) {
+//            [view removeFromSuperview];
+//        }
+//    }
+//}
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+// ios11
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     // 清空原有TabBar
     for (UIView *view in self.tabBar.subviews) {
         if ([view isKindOfClass:[UIControl class]]) {

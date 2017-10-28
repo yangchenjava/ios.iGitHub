@@ -54,7 +54,7 @@
     NSLog(@"%@", url);
     NSRange range = [url rangeOfString:@"code="];
     if (range.location != NSNotFound) {
-        [MBProgressHUD showMessage:@"后台小弟拼命加载中..."];
+        [MBProgressHUD showMessage:@"后台小弟拼命加载中..." mask:YES];
 
         YCOAuthParam *param = [[YCOAuthParam alloc] init];
         param.client_id = @"1b11aefcd2c9620683da";

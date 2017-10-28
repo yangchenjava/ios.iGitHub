@@ -15,6 +15,7 @@
 #ifdef __OBJC__
 
 // 系统版本
+#define iOS11_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
 #define iOS10_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
 #define iOS9_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
 #define iOS8_OR_Later ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)

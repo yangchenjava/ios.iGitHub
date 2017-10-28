@@ -73,6 +73,12 @@
     [self.titleButton removeFromSuperview];
 }
 
+// ios11 由于self-sizing导致tableviewcell最后加入问题
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self.tableView sendSubviewToBack:self.backgroundView];
+}
+
 - (void)setupBackground {
     self.tableView.backgroundColor = YC_Color_RGB(50, 50, 50);
     UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 120, self.tableView.width, self.tableView.height)];
