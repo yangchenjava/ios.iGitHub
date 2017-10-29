@@ -41,8 +41,8 @@
 //}
 
 // ios11
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     // 清空原有TabBar
     for (UIView *view in self.tabBar.subviews) {
         if ([view isKindOfClass:[UIControl class]]) {
