@@ -39,7 +39,7 @@
     [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [naviBar setShadowImage:[[UIImage alloc] init]];
     // 动态控制cell高度
-    self.tableView.estimatedRowHeight = 44;
+    self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.sectionFooterHeight = 20;
@@ -58,7 +58,7 @@
     titleButton.hidden = YES;
     [titleButton setTitle:self.tableHeaderModel.name forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    titleButton.titleLabel.font = kFontName;
     [naviBar addSubview:titleButton];
     self.titleButton = titleButton;
 }

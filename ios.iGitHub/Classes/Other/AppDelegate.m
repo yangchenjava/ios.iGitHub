@@ -106,6 +106,7 @@ static NSString *const kShortcutItemType = @"ios.iGitHub.scan";
 }
 
 - (YCScannerViewController *)scannerViewControllerWithNavigationController:(UINavigationController *)navigationController {
+    // 循环引用 window -> rootVC(tarbarVC -> naviVC, naviVC) -> scannerVC -> block(success) -> naviVC
     YCWeakSelf(navigationController);
     YCScannerViewController *scannerVC = [[YCScannerViewController alloc] init];
     scannerVC.success = ^(YCScannerViewController *scannerVC, NSString *result) {

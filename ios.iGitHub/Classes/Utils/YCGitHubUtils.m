@@ -16,10 +16,12 @@
 #import "YCTabBarController.h"
 #import "YCUserAccessViewController.h"
 
+static NSString *oauthPath;
+static NSString *profilePath;
+
 @implementation YCGitHubUtils
 
 + (YCOAuthResult *)oauth {
-    static NSString *oauthPath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         oauthPath = [YC_Dir_Document stringByAppendingPathComponent:@"OAuth.data"];
@@ -28,7 +30,6 @@
 }
 
 + (void)setOAuth:(YCOAuthResult *)oauth {
-    static NSString *oauthPath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         oauthPath = [YC_Dir_Document stringByAppendingPathComponent:@"OAuth.data"];
@@ -37,7 +38,6 @@
 }
 
 + (YCProfileResult *)profile {
-    static NSString *profilePath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         profilePath = [YC_Dir_Document stringByAppendingPathComponent:@"Profile.data"];
@@ -46,7 +46,6 @@
 }
 
 + (void)setProfile:(YCProfileResult *)profile {
-    static NSString *profilePath;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         profilePath = [YC_Dir_Document stringByAppendingPathComponent:@"Profile.data"];

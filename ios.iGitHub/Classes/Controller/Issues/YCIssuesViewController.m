@@ -32,7 +32,7 @@
     // 动态控制cell高度
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.estimatedRowHeight = 44;
+    self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     [self.segmentedControl addTarget:self action:@selector(ChangeSegmentedControl:) forControlEvents:UIControlEventValueChanged];

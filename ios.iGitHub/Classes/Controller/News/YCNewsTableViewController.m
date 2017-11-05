@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 动态控制cell高度
-    self.tableView.estimatedRowHeight = 44;
+    self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupNews)];
