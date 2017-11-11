@@ -27,10 +27,14 @@
 #define YC_ScreenHeight \
 ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)] ? [UIScreen mainScreen].nativeBounds.size.height / [UIScreen mainScreen].nativeScale : [UIScreen mainScreen].bounds.size.height)
 
+// IPhoneX
+#define YC_IPhoneX (YC_ScreenWidth == 375.0 && YC_ScreenHeight == 812.0 ? YES : NO)
+
 // 控件高度
-#define YC_StatusBarHeight 20.0
+#define YC_StatusBarHeight (YC_IPhoneX ? 44.0 : 20.0)
 #define YC_NavigationBarHeight 44.0
-#define YC_TabBarHeight 49.0
+#define YC_TabBarHeight (YC_IPhoneX ? (49.0 + 34.0) : 49.0)
+
 #define YC_CellDefaultHeight 44.0
 #define YC_EnglishKeyboardHeight 216.0
 #define YC_ChineseKeyboardHeight 252.0

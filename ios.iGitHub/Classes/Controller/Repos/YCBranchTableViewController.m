@@ -27,6 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (iOS11_OR_Later && self.navigationController.childViewControllers.count > 1) {
+        do {
+            _Pragma("clang diagnostic push")
+            _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+            if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {
+                [self.tableView performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@2];
+            }
+            _Pragma("clang diagnostic pop")
+        } while (0);
+    }
     [self setupSegmentedControl];
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupBranch)];

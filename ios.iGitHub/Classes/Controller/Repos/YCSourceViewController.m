@@ -35,7 +35,7 @@
     CGFloat navigationBarHeight = self.navigationController.navigationBar.height;
 
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    webView.height -= (statusBarHeight + navigationBarHeight);
+    webView.height -= (statusBarHeight + navigationBarHeight + 34);
     webView.delegate = self;
     webView.scalesPageToFit = YES;
     webView.backgroundColor = [UIColor whiteColor];
