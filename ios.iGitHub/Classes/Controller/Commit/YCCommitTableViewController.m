@@ -25,30 +25,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (iOS11_OR_Later) {
-        do {
-            _Pragma("clang diagnostic push")
-            _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
-            if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {
-                [self.tableView performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@2];
-            }
-            _Pragma("clang diagnostic pop")
-        } while (0);
-        // self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
     // 动态控制cell高度
     self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupCommit)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreCommit)];
     [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)setupCommit {
+    [self.tableView.mj_footer resetNoMoreData];
     self.page = 1;
-    if (self.tableView.mj_footer == nil) {
-        self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreCommit)];
-    }
 
     if (self.number) {
         [YCCommitBiz commitWithUsername:self.username
@@ -87,9 +75,10 @@
             success:^(NSArray *results) {
                 [self.commitArray addObjectsFromArray:results];
                 [self.tableView reloadData];
-                [self.tableView.mj_footer endRefreshing];
                 if (results.count < YC_PerPage) {
-                    self.tableView.mj_footer = nil;
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                } else {
+                    [self.tableView.mj_footer endRefreshing];
                 }
             }
             failure:^(NSError *error) {
@@ -102,9 +91,10 @@
             success:^(NSArray *results) {
                 [self.commitArray addObjectsFromArray:results];
                 [self.tableView reloadData];
-                [self.tableView.mj_footer endRefreshing];
                 if (results.count < YC_PerPage) {
-                    self.tableView.mj_footer = nil;
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                } else {
+                    [self.tableView.mj_footer endRefreshing];
                 }
             }
             failure:^(NSError *error) {

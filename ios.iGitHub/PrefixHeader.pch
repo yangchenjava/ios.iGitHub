@@ -34,7 +34,7 @@
 #define YC_StatusBarHeight (YC_IPhoneX ? 44.0 : 20.0)
 #define YC_NavigationBarHeight 44.0
 #define YC_TabBarHeight (YC_IPhoneX ? (49.0 + 34.0) : 49.0)
-
+#define YC_TabBarBottomSafeMargin (YC_IPhoneX ? 34.0 : 0.0)
 #define YC_CellDefaultHeight 44.0
 #define YC_EnglishKeyboardHeight 216.0
 #define YC_ChineseKeyboardHeight 252.0

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewBottomConstraint;
+
 @property (nonatomic, copy) NSString *state;
 @property (nonatomic, assign) int page;
 @property (nonatomic, strong) NSMutableArray *issuesArray;
@@ -38,7 +40,13 @@
     [self.segmentedControl addTarget:self action:@selector(ChangeSegmentedControl:) forControlEvents:UIControlEventValueChanged];
 
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupIssues)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreIssues)];
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)viewSafeAreaInsetsDidChange {
+    [super viewSafeAreaInsetsDidChange];
+    self.viewBottomConstraint.constant = YC_TabBarBottomSafeMargin;
 }
 
 - (void)ChangeSegmentedControl:(UISegmentedControl *)segmentedControl {
@@ -48,10 +56,8 @@
 
 - (void)setupIssues {
     self.segmentedControl.enabled = NO;
+    [self.tableView.mj_footer resetNoMoreData];
     self.page = 1;
-    if (self.tableView.mj_footer == nil) {
-        self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(setupMoreIssues)];
-    }
 
     [YCIssuesBiz issuesWithUsername:self.username
         reposname:self.reposname
@@ -78,10 +84,11 @@
         success:^(NSArray *results) {
             [self.issuesArray addObjectsFromArray:results];
             [self.tableView reloadData];
-            [self.tableView.mj_footer endRefreshing];
             self.segmentedControl.enabled = YES;
             if (results.count < YC_PerPage) {
-                self.tableView.mj_footer = nil;
+                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            } else {
+                [self.tableView.mj_footer endRefreshing];
             }
         }
         failure:^(NSError *error) {

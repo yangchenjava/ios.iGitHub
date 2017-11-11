@@ -133,6 +133,7 @@
 		0FE3F4CE1D30D2E2001E5D24 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */; };
 		0FE3FA231E36FFC80046FE00 /* YCProfileTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */; };
 		59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */; };
+		68F4BF6B1FB721CF00A18952 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -355,6 +356,8 @@
 		0FE3FA211E36FFC80046FE00 /* YCProfileTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileTableFooterView.h; sourceTree = "<group>"; };
 		0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCProfileTableFooterView.m; sourceTree = "<group>"; };
 		33A700BE0FC18F87531E83E1 /* Pods-ios.iGitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.release.xcconfig"; sourceTree = "<group>"; };
+		68F4BF691FB721CF00A18952 /* YCTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTableViewController.h; sourceTree = "<group>"; };
+		68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
 		F4D1D231327DBD1DA0C60B13 /* Pods-ios.iGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -736,6 +739,8 @@
 				0FE3F4011D261A4B001E5D24 /* YCNavigationController.m */,
 				0FE3F4021D261A4C001E5D24 /* YCTabBarController.h */,
 				0FE3F4031D261A4C001E5D24 /* YCTabBarController.m */,
+				68F4BF691FB721CF00A18952 /* YCTableViewController.h */,
+				68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */,
 				0FD55B841D387AB900091D37 /* YCBaseTableViewController.h */,
 				0FD55B851D387AB900091D37 /* YCBaseTableViewController.m */,
 			);
@@ -1316,6 +1321,7 @@
 				0FE3F4C81D30D2E2001E5D24 /* FAKZocial.m in Sources */,
 				0FE3F4791D2CCE88001E5D24 /* YCUserAccessViewController.m in Sources */,
 				0F5FD18F1D535C8D00432131 /* YCPullDetailTableViewCell.m in Sources */,
+				68F4BF6B1FB721CF00A18952 /* YCTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,7 +1386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1428,7 +1434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1446,7 +1452,7 @@
 				DEVELOPMENT_TEAM = 53E348DHA3;
 				GCC_PREFIX_HEADER = "${SRCROOT}/ios.iGitHub/PrefixHeader.pch";
 				INFOPLIST_FILE = ios.iGitHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1465,7 +1471,7 @@
 				DEVELOPMENT_TEAM = 53E348DHA3;
 				GCC_PREFIX_HEADER = "${SRCROOT}/ios.iGitHub/PrefixHeader.pch";
 				INFOPLIST_FILE = ios.iGitHub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yangc.ios-iGitHub";
 				PRODUCT_NAME = "$(TARGET_NAME)";

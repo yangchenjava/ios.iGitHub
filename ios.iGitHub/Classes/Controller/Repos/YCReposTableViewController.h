@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YCTableViewController.h"
 
-@interface YCReposTableViewController : UITableViewController
+@interface YCReposTableViewController : YCTableViewController
 
 @property (nonatomic, copy) NSString *username;
 

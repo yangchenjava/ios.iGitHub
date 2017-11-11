@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarBottomConstraint;
+
 @end
 
 @implementation YCOAuthViewController
@@ -41,6 +43,11 @@
 
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
+}
+
+- (void)viewSafeAreaInsetsDidChange {
+    [super viewSafeAreaInsetsDidChange];
+    self.toolbarBottomConstraint.constant = YC_TabBarBottomSafeMargin;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

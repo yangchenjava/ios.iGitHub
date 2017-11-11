@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YCTableViewController.h"
 
-@interface YCEventsTableViewController : UITableViewController
+@interface YCEventsTableViewController : YCTableViewController
 
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *reposname;

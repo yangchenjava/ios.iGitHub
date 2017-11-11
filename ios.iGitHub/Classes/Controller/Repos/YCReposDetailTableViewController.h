@@ -6,8 +6,6 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 #import "YCBaseTableViewController.h"
 
 @interface YCReposDetailTableViewController : YCBaseTableViewController

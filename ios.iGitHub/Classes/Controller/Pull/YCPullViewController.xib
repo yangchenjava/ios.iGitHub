@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YCPullViewController">
@@ -10,30 +14,31 @@
                 <outlet property="segmentedControl" destination="8J3-3K-QTe" id="LhH-An-zIn"/>
                 <outlet property="tableView" destination="aJY-S8-jdR" id="AVM-iH-f5m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewBottomConstraint" destination="3d3-2Y-Kk8" id="M1C-EU-fd6"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-S8-jdR">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDH-J4-7Sg">
-                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
                     <subviews>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8J3-3K-QTe">
-                            <rect key="frame" x="5" y="6" width="310" height="29"/>
+                            <rect key="frame" x="5" y="6" width="365" height="29"/>
                             <segments>
                                 <segment title="Open"/>
                                 <segment title="Closed"/>
                             </segments>
-                            <color key="tintColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </segmentedControl>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="8J3-3K-QTe" firstAttribute="centerY" secondItem="IDH-J4-7Sg" secondAttribute="centerY" id="G0N-Ud-fe6"/>
                         <constraint firstAttribute="trailing" secondItem="8J3-3K-QTe" secondAttribute="trailing" constant="5" id="nKZ-Wd-7XW"/>
@@ -42,20 +47,18 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="aJY-S8-jdR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2lC-WG-Xhm"/>
                 <constraint firstAttribute="bottom" secondItem="IDH-J4-7Sg" secondAttribute="bottom" id="3d3-2Y-Kk8"/>
                 <constraint firstAttribute="trailing" secondItem="IDH-J4-7Sg" secondAttribute="trailing" id="6Ia-Yi-gqe"/>
                 <constraint firstItem="IDH-J4-7Sg" firstAttribute="top" secondItem="aJY-S8-jdR" secondAttribute="bottom" id="6xm-cE-d6D"/>
-                <constraint firstItem="IDH-J4-7Sg" firstAttribute="top" secondItem="aJY-S8-jdR" secondAttribute="bottom" id="Egf-hl-sDN"/>
                 <constraint firstItem="IDH-J4-7Sg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T8c-yy-cru"/>
                 <constraint firstAttribute="trailing" secondItem="aJY-S8-jdR" secondAttribute="trailing" id="eF9-EH-oGK"/>
                 <constraint firstItem="aJY-S8-jdR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gW1-DE-OaI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="332" y="344"/>
+            <point key="canvasLocation" x="-133" y="13"/>
         </view>
     </objects>
 </document>

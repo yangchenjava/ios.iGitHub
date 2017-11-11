@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment version="2304" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,6 +13,7 @@
             <connections>
                 <outlet property="backButton" destination="DZe-DP-C14" id="jpT-Ho-mNH"/>
                 <outlet property="forwardButton" destination="4bU-KP-wK9" id="xAa-lL-gq3"/>
+                <outlet property="toolbarBottomConstraint" destination="t7V-mv-cxT" id="6bm-lI-Niv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="jw5-jf-ZJd" id="Zbs-WO-zg5"/>
             </connections>
@@ -48,15 +48,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="yts-eZ-Qvs" firstAttribute="top" secondItem="jw5-jf-ZJd" secondAttribute="bottom" id="8Ls-Pc-csg"/>
-                <constraint firstItem="jw5-jf-ZJd" firstAttribute="leading" secondItem="4ew-Am-uNn" secondAttribute="leading" id="Xhn-7c-BkW"/>
-                <constraint firstItem="jw5-jf-ZJd" firstAttribute="top" secondItem="4ew-Am-uNn" secondAttribute="top" constant="-20" id="chu-ip-BUB"/>
-                <constraint firstItem="4ew-Am-uNn" firstAttribute="trailing" secondItem="jw5-jf-ZJd" secondAttribute="trailing" id="csx-q1-jn5"/>
-                <constraint firstItem="yts-eZ-Qvs" firstAttribute="leading" secondItem="4ew-Am-uNn" secondAttribute="leading" id="qDq-KJ-xeK"/>
-                <constraint firstItem="4ew-Am-uNn" firstAttribute="trailing" secondItem="yts-eZ-Qvs" secondAttribute="trailing" id="qSE-Pn-XEy"/>
-                <constraint firstItem="4ew-Am-uNn" firstAttribute="bottom" secondItem="yts-eZ-Qvs" secondAttribute="bottom" id="t7V-mv-cxT"/>
+                <constraint firstItem="jw5-jf-ZJd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xhn-7c-BkW"/>
+                <constraint firstItem="jw5-jf-ZJd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="chu-ip-BUB"/>
+                <constraint firstAttribute="trailing" secondItem="jw5-jf-ZJd" secondAttribute="trailing" id="csx-q1-jn5"/>
+                <constraint firstItem="yts-eZ-Qvs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qDq-KJ-xeK"/>
+                <constraint firstAttribute="trailing" secondItem="yts-eZ-Qvs" secondAttribute="trailing" id="qSE-Pn-XEy"/>
+                <constraint firstAttribute="bottom" secondItem="yts-eZ-Qvs" secondAttribute="bottom" id="t7V-mv-cxT"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <viewLayoutGuide key="safeArea" id="4ew-Am-uNn"/>
         </view>
     </objects>
     <resources>

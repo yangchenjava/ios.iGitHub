@@ -6,8 +6,8 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YCTableViewController.h"
 
-@interface YCNewsTableViewController : UITableViewController
+@interface YCNewsTableViewController : YCTableViewController
 
 @end
