@@ -7,9 +7,9 @@
 //
 
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import <MJRefresh/MJRefresh.h>
 
-#import "FontAwesomeKit.h"
 #import "YCPullBiz.h"
 #import "YCPullDetailTableViewController.h"
 #import "YCPullResult.h"

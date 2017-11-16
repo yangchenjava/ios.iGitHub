@@ -6,7 +6,8 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import "FontAwesomeKit.h"
+#import <FontAwesomeKit/FontAwesomeKit.h>
+
 #import "YCBaseTableViewController.h"
 #import "YCEventsTableViewController.h"
 #import "YCNavigationController.h"

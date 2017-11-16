@@ -20,6 +20,7 @@
 		0F09C04B1D48B1B700687BBA /* YCIssuesDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F09C0491D48B1B700687BBA /* YCIssuesDetailTableViewCell.xib */; };
 		0F09C0531D49DDC300687BBA /* YCBaseTableHeaderModelF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */; };
 		0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */; };
+		0F4687111FBD87D00019E123 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687101FBD87D00019E123 /* octicons.ttf */; };
 		0F5FD14B1D504B5300432131 /* YCIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD1491D504B5300432131 /* YCIssuesViewController.m */; };
 		0F5FD14C1D504B5300432131 /* YCIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */; };
 		0F5FD14F1D50743A00432131 /* YCReadmeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD14E1D50743A00432131 /* YCReadmeResult.m */; };
@@ -118,19 +119,6 @@
 		0FE3F4A51D30AEB5001E5D24 /* YCNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4A41D30AEB5001E5D24 /* YCNewsTableViewController.m */; };
 		0FE3F4A81D30AEC7001E5D24 /* YCEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4A71D30AEC7001E5D24 /* YCEventsTableViewController.m */; };
 		0FE3F4AB1D30B0D0001E5D24 /* YCProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4AA1D30B0D0001E5D24 /* YCProfileTableViewController.m */; };
-		0FE3F4C21D30D2E2001E5D24 /* FAKFontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4AE1D30D2E2001E5D24 /* FAKFontAwesome.m */; };
-		0FE3F4C31D30D2E2001E5D24 /* FAKFoundationIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4B01D30D2E2001E5D24 /* FAKFoundationIcons.m */; };
-		0FE3F4C41D30D2E2001E5D24 /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4B21D30D2E2001E5D24 /* FAKIcon.m */; };
-		0FE3F4C51D30D2E2001E5D24 /* FAKIonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4B41D30D2E2001E5D24 /* FAKIonIcons.m */; };
-		0FE3F4C61D30D2E2001E5D24 /* FAKMaterialIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4B61D30D2E2001E5D24 /* FAKMaterialIcons.m */; };
-		0FE3F4C71D30D2E2001E5D24 /* FAKOcticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4B81D30D2E2001E5D24 /* FAKOcticons.m */; };
-		0FE3F4C81D30D2E2001E5D24 /* FAKZocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BA1D30D2E2001E5D24 /* FAKZocial.m */; };
-		0FE3F4C91D30D2E2001E5D24 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BB1D30D2E2001E5D24 /* FontAwesome.otf */; };
-		0FE3F4CA1D30D2E2001E5D24 /* foundation-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BD1D30D2E2001E5D24 /* foundation-icons.ttf */; };
-		0FE3F4CB1D30D2E2001E5D24 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BE1D30D2E2001E5D24 /* ionicons.ttf */; };
-		0FE3F4CC1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4BF1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf */; };
-		0FE3F4CD1D30D2E2001E5D24 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C01D30D2E2001E5D24 /* octicons.ttf */; };
-		0FE3F4CE1D30D2E2001E5D24 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */; };
 		0FE3FA231E36FFC80046FE00 /* YCProfileTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */; };
 		59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */; };
 		68F4BF6B1FB721CF00A18952 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */; };
@@ -162,6 +150,7 @@
 		0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBaseTableHeaderModelF.m; sourceTree = "<group>"; };
 		0F09C0591D4B4E6000687BBA /* YCIssuesBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesBodyTableViewCell.h; sourceTree = "<group>"; };
 		0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesBodyTableViewCell.m; sourceTree = "<group>"; };
+		0F4687101FBD87D00019E123 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
 		0F5FD1481D504B5300432131 /* YCIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesViewController.h; sourceTree = "<group>"; };
 		0F5FD1491D504B5300432131 /* YCIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesViewController.m; sourceTree = "<group>"; };
 		0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCIssuesViewController.xib; sourceTree = "<group>"; };
@@ -332,27 +321,6 @@
 		0FE3F4A71D30AEC7001E5D24 /* YCEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEventsTableViewController.m; sourceTree = "<group>"; };
 		0FE3F4A91D30B0D0001E5D24 /* YCProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileTableViewController.h; sourceTree = "<group>"; };
 		0FE3F4AA1D30B0D0001E5D24 /* YCProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCProfileTableViewController.m; sourceTree = "<group>"; };
-		0FE3F4AD1D30D2E2001E5D24 /* FAKFontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFontAwesome.h; sourceTree = "<group>"; };
-		0FE3F4AE1D30D2E2001E5D24 /* FAKFontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFontAwesome.m; sourceTree = "<group>"; };
-		0FE3F4AF1D30D2E2001E5D24 /* FAKFoundationIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKFoundationIcons.h; sourceTree = "<group>"; };
-		0FE3F4B01D30D2E2001E5D24 /* FAKFoundationIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKFoundationIcons.m; sourceTree = "<group>"; };
-		0FE3F4B11D30D2E2001E5D24 /* FAKIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKIcon.h; sourceTree = "<group>"; };
-		0FE3F4B21D30D2E2001E5D24 /* FAKIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKIcon.m; sourceTree = "<group>"; };
-		0FE3F4B31D30D2E2001E5D24 /* FAKIonIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKIonIcons.h; sourceTree = "<group>"; };
-		0FE3F4B41D30D2E2001E5D24 /* FAKIonIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKIonIcons.m; sourceTree = "<group>"; };
-		0FE3F4B51D30D2E2001E5D24 /* FAKMaterialIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKMaterialIcons.h; sourceTree = "<group>"; };
-		0FE3F4B61D30D2E2001E5D24 /* FAKMaterialIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKMaterialIcons.m; sourceTree = "<group>"; };
-		0FE3F4B71D30D2E2001E5D24 /* FAKOcticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKOcticons.h; sourceTree = "<group>"; };
-		0FE3F4B81D30D2E2001E5D24 /* FAKOcticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKOcticons.m; sourceTree = "<group>"; };
-		0FE3F4B91D30D2E2001E5D24 /* FAKZocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAKZocial.h; sourceTree = "<group>"; };
-		0FE3F4BA1D30D2E2001E5D24 /* FAKZocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAKZocial.m; sourceTree = "<group>"; };
-		0FE3F4BB1D30D2E2001E5D24 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
-		0FE3F4BC1D30D2E2001E5D24 /* FontAwesomeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesomeKit.h; sourceTree = "<group>"; };
-		0FE3F4BD1D30D2E2001E5D24 /* foundation-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "foundation-icons.ttf"; sourceTree = "<group>"; };
-		0FE3F4BE1D30D2E2001E5D24 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
-		0FE3F4BF1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Material-Design-Iconic-Font.ttf"; sourceTree = "<group>"; };
-		0FE3F4C01D30D2E2001E5D24 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
-		0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		0FE3FA211E36FFC80046FE00 /* YCProfileTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCProfileTableFooterView.h; sourceTree = "<group>"; };
 		0FE3FA221E36FFC80046FE00 /* YCProfileTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCProfileTableFooterView.m; sourceTree = "<group>"; };
 		33A700BE0FC18F87531E83E1 /* Pods-ios.iGitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.release.xcconfig"; sourceTree = "<group>"; };
@@ -678,6 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				0F09C0541D4A4A5C00687BBA /* Html */,
+				0F4687101FBD87D00019E123 /* octicons.ttf */,
 				0FE3F3D51D261832001E5D24 /* Assets.xcassets */,
 				0FE3F3DA1D261832001E5D24 /* Info.plist */,
 				0FE3F4591D2B98E1001E5D24 /* LaunchScreen.storyboard */,
@@ -693,7 +662,6 @@
 				0FE3F42D1D261A4C001E5D24 /* View */,
 				0FE3F3FE1D261A4B001E5D24 /* Controller */,
 				0FE3F3FD1D261A4B001E5D24 /* Biz */,
-				0FE3F4AC1D30D2E2001E5D24 /* FontAwesomeKit */,
 				0FE3F4611D2BB3C1001E5D24 /* Utils */,
 				0FE3F4291D261A4C001E5D24 /* Other */,
 			);
@@ -988,34 +956,6 @@
 			path = Repos;
 			sourceTree = "<group>";
 		};
-		0FE3F4AC1D30D2E2001E5D24 /* FontAwesomeKit */ = {
-			isa = PBXGroup;
-			children = (
-				0FE3F4AD1D30D2E2001E5D24 /* FAKFontAwesome.h */,
-				0FE3F4AE1D30D2E2001E5D24 /* FAKFontAwesome.m */,
-				0FE3F4AF1D30D2E2001E5D24 /* FAKFoundationIcons.h */,
-				0FE3F4B01D30D2E2001E5D24 /* FAKFoundationIcons.m */,
-				0FE3F4B11D30D2E2001E5D24 /* FAKIcon.h */,
-				0FE3F4B21D30D2E2001E5D24 /* FAKIcon.m */,
-				0FE3F4B31D30D2E2001E5D24 /* FAKIonIcons.h */,
-				0FE3F4B41D30D2E2001E5D24 /* FAKIonIcons.m */,
-				0FE3F4B51D30D2E2001E5D24 /* FAKMaterialIcons.h */,
-				0FE3F4B61D30D2E2001E5D24 /* FAKMaterialIcons.m */,
-				0FE3F4B71D30D2E2001E5D24 /* FAKOcticons.h */,
-				0FE3F4B81D30D2E2001E5D24 /* FAKOcticons.m */,
-				0FE3F4B91D30D2E2001E5D24 /* FAKZocial.h */,
-				0FE3F4BA1D30D2E2001E5D24 /* FAKZocial.m */,
-				0FE3F4BB1D30D2E2001E5D24 /* FontAwesome.otf */,
-				0FE3F4BC1D30D2E2001E5D24 /* FontAwesomeKit.h */,
-				0FE3F4BD1D30D2E2001E5D24 /* foundation-icons.ttf */,
-				0FE3F4BE1D30D2E2001E5D24 /* ionicons.ttf */,
-				0FE3F4BF1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf */,
-				0FE3F4C01D30D2E2001E5D24 /* octicons.ttf */,
-				0FE3F4C11D30D2E2001E5D24 /* zocial-regular-webfont.ttf */,
-			);
-			path = FontAwesomeKit;
-			sourceTree = "<group>";
-		};
 		15DB29FC6442F850A8ED3CEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1104,26 +1044,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4687111FBD87D00019E123 /* octicons.ttf in Resources */,
 				0F5FD1BA1D54A65000432131 /* markdown.js in Resources */,
 				0F5FD1B51D54A65000432131 /* diffindex.html in Resources */,
 				0F5FD1B91D54A65000432131 /* markdown.html in Resources */,
 				0F5FD19B1D54712F00432131 /* YCCommitDetailTableViewCell.xib in Resources */,
 				0F5FD1831D5324E000432131 /* YCPullViewController.xib in Resources */,
-				0FE3F4CA1D30D2E2001E5D24 /* foundation-icons.ttf in Resources */,
-				0FE3F4CE1D30D2E2001E5D24 /* zocial-regular-webfont.ttf in Resources */,
 				0F5FD1BD1D54DE9B00432131 /* diffview.css in Resources */,
 				0F09C04B1D48B1B700687BBA /* YCIssuesDetailTableViewCell.xib in Resources */,
 				0FE3F4851D2D12EB001E5D24 /* YCOAuthViewController.xib in Resources */,
 				0FE3F45B1D2B98E2001E5D24 /* LaunchScreen.storyboard in Resources */,
-				0FE3F4C91D30D2E2001E5D24 /* FontAwesome.otf in Resources */,
 				0F5FD14C1D504B5300432131 /* YCIssuesViewController.xib in Resources */,
-				0FE3F4CD1D30D2E2001E5D24 /* octicons.ttf in Resources */,
 				0F5FD16F1D5202E100432131 /* YCCommitTableViewCell.xib in Resources */,
 				0F5FD1B81D54A65000432131 /* markdown.css in Resources */,
 				0F5FD1881D532E7B00432131 /* YCPullTableViewCell.xib in Resources */,
 				0FE3F3D61D261832001E5D24 /* Assets.xcassets in Resources */,
 				0F5FD1B71D54A65000432131 /* diffview.js in Resources */,
-				0FE3F4CB1D30D2E2001E5D24 /* ionicons.ttf in Resources */,
 				0FD55B9A1D388B5C00091D37 /* YCReposDetailTableViewCell.xib in Resources */,
 				0F5FD1BF1D56393900432131 /* jquery-2.2.4.min.js in Resources */,
 				0FDAACC21D6D40EA007FE68C /* YCLoginViewController.xib in Resources */,
@@ -1139,7 +1075,6 @@
 				0F5FD1901D535C8D00432131 /* YCPullDetailTableViewCell.xib in Resources */,
 				0F5FD1B61D54A65000432131 /* difflib.js in Resources */,
 				0F5FD1D91D5B17B500432131 /* highlight.pack.js in Resources */,
-				0FE3F4CC1D30D2E2001E5D24 /* Material-Design-Iconic-Font.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1158,6 +1093,7 @@
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -1176,6 +1112,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -1244,7 +1181,6 @@
 				0F5FD1601D51E0C500432131 /* YCCommitDetailResult.m in Sources */,
 				0FE3F4A51D30AEB5001E5D24 /* YCNewsTableViewController.m in Sources */,
 				0F5FD1A91D54943300432131 /* YCCommitPatchViewController.m in Sources */,
-				0FE3F4C61D30D2E2001E5D24 /* FAKMaterialIcons.m in Sources */,
 				0F5FD16A1D51E88F00432131 /* YCCommitTableViewController.m in Sources */,
 				0F5FD19A1D54712F00432131 /* YCCommitDetailTableViewCell.m in Sources */,
 				0F09C0381D47470200687BBA /* YCBaseTableViewCell.m in Sources */,
@@ -1280,8 +1216,6 @@
 				0F5FD1C81D5963B400432131 /* YCBranchResult.m in Sources */,
 				0F68E3AC1D334F1C00AD85EE /* YCReposTableViewCell.m in Sources */,
 				0F09C0351D4745FC00687BBA /* YCIssuesBiz.m in Sources */,
-				0FE3F4C71D30D2E2001E5D24 /* FAKOcticons.m in Sources */,
-				0FE3F4C21D30D2E2001E5D24 /* FAKFontAwesome.m in Sources */,
 				0F5FD1CB1D59B3FE00432131 /* YCBranchTableViewController.m in Sources */,
 				0FE3F4731D2C9A9A001E5D24 /* YCOAuthBiz.m in Sources */,
 				0F09C0461D48A7AB00687BBA /* YCCommentResult.m in Sources */,
@@ -1295,14 +1229,12 @@
 				0FE3F4761D2CB58B001E5D24 /* YCUserAccessButton.m in Sources */,
 				0F5FD1761D52FEB000432131 /* YCPullResult.m in Sources */,
 				0F09C04A1D48B1B700687BBA /* YCIssuesDetailTableViewCell.m in Sources */,
-				0FE3F4C31D30D2E2001E5D24 /* FAKFoundationIcons.m in Sources */,
 				0F09C0531D49DDC300687BBA /* YCBaseTableHeaderModelF.m in Sources */,
 				0FCE45BC1D41A53E003BAF87 /* YCProfileTableViewCell.m in Sources */,
 				0FE3F46D1D2BDA73001E5D24 /* YCOAuthParam.m in Sources */,
 				0FE3F49C1D2E3CA6001E5D24 /* YCProfileResult.m in Sources */,
 				0FE3F4A81D30AEC7001E5D24 /* YCEventsTableViewController.m in Sources */,
 				0FE3FA231E36FFC80046FE00 /* YCProfileTableFooterView.m in Sources */,
-				0FE3F4C51D30D2E2001E5D24 /* FAKIonIcons.m in Sources */,
 				0FE3F4461D261A4C001E5D24 /* main.m in Sources */,
 				0F09C0431D4865B900687BBA /* YCIssuesDetailTableViewController.m in Sources */,
 				0F9982CD1D927F1C000AE21C /* YCScannerViewController.m in Sources */,
@@ -1312,13 +1244,11 @@
 				0FD96A371D3C7F99001E66BA /* YCNewsResult.m in Sources */,
 				0FE3F4491D261A4C001E5D24 /* YCTabBarButton.m in Sources */,
 				0F5FD1A61D547BBB00432131 /* YCCommitFileResult.m in Sources */,
-				0FE3F4C41D30D2E2001E5D24 /* FAKIcon.m in Sources */,
 				0F5FD14B1D504B5300432131 /* YCIssuesViewController.m in Sources */,
 				0FE3F4361D261A4C001E5D24 /* YCTabBarController.m in Sources */,
 				0FE3F4841D2D12EB001E5D24 /* YCOAuthViewController.m in Sources */,
 				0F0765F61D4C7A6C00DEBDA7 /* YCCommentTableFooterView.m in Sources */,
 				0F5FD16E1D5202E100432131 /* YCCommitTableViewCell.m in Sources */,
-				0FE3F4C81D30D2E2001E5D24 /* FAKZocial.m in Sources */,
 				0FE3F4791D2CCE88001E5D24 /* YCUserAccessViewController.m in Sources */,
 				0F5FD18F1D535C8D00432131 /* YCPullDetailTableViewCell.m in Sources */,
 				68F4BF6B1FB721CF00A18952 /* YCTableViewController.m in Sources */,

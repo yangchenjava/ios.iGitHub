@@ -7,10 +7,10 @@
 //
 
 #import <DateTools/DateTools.h>
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import <YCHelpKit/NSString+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 
-#import "FontAwesomeKit.h"
 #import "YCProfileResult.h"
 #import "YCReposBiz.h"
 #import "YCReposDetailTableViewCell.h"

@@ -6,11 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
-#import "FontAwesomeKit.h"
 #import "YCBranchTableViewController.h"
 #import "YCCommentResult.h"
 #import "YCCommitDetailTableViewController.h"

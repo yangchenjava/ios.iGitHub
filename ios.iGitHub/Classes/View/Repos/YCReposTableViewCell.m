@@ -6,12 +6,12 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import <YCHelpKit/NSString+Emojize.h>
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 #import <YCHelpKit/UIView+Category.h>
 
-#import "FontAwesomeKit.h"
 #import "YCProfileResult.h"
 #import "YCReposResult.h"
 #import "YCReposTableViewCell.h"

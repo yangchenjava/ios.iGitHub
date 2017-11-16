@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <FontAwesomeKit/FontAwesomeKit.h>
 #import <YCHelpKit/UIView+Category.h>
 
-#import "FontAwesomeKit.h"
 #import "YCContentResult.h"
 #import "YCContentTableViewCell.h"
 
