@@ -14,22 +14,29 @@
 #import "YCNewsTableViewController.h"
 #import "YCProfileTableViewController.h"
 #import "YCReposTableViewController.h"
-#import "YCTabBar.h"
+//#import "YCTabBar.h"
 #import "YCTabBarController.h"
 
-@interface YCTabBarController () <YCTabBarDelegate>
+@interface YCTabBarController () // <YCTabBarDelegate>
 
-@property (nonatomic, weak) YCTabBar *mTabBar;
+//@property (nonatomic, weak) YCTabBar *mTabBar;
 
 @end
 
 @implementation YCTabBarController
 
++ (void)initialize {
+    [super initialize];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : YC_Color_RGB(130, 130, 130)} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : YC_Color_RGB(50, 50, 50)} forState:UIControlStateSelected];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTabBar];
+//    [self setupTabBar];
     [self setupTabBarItem];
 }
+
 // ios10
 //- (void)viewWillAppear:(BOOL)animated {
 //    [super viewWillAppear:animated];
@@ -42,27 +49,27 @@
 //}
 
 // ios11
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    // 清空原有TabBar
-    for (UIView *view in self.tabBar.subviews) {
-        if ([view isKindOfClass:[UIControl class]]) {
-            [view removeFromSuperview];
-        }
-    }
-}
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//    // 清空原有TabBar
+//    for (UIView *view in self.tabBar.subviews) {
+//        if ([view isKindOfClass:[UIControl class]]) {
+//            [view removeFromSuperview];
+//        }
+//    }
+//}
 
 /**
  *  @author yangc, 16-06-23 15:06:32
  *
  *  初始化TabBar
  */
-- (void)setupTabBar {
-    YCTabBar *mTabBar = [[YCTabBar alloc] initWithFrame:self.tabBar.bounds];
-    mTabBar.delegate = self;
-    [self.tabBar addSubview:mTabBar];
-    self.mTabBar = mTabBar;
-}
+//- (void)setupTabBar {
+//    YCTabBar *mTabBar = [[YCTabBar alloc] initWithFrame:self.tabBar.bounds];
+//    mTabBar.delegate = self;
+//    [self.tabBar addSubview:mTabBar];
+//    self.mTabBar = mTabBar;
+//}
 
 /**
  *  @author yangc, 16-06-23 15:06:53
@@ -89,22 +96,21 @@
 
     FAKOcticons *icon = [FAKOcticons iconWithIdentifier:imageName size:25 error:NULL];
     [icon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(130, 130, 130)];
-    // vc.tabBarItem.image = [[icon imageWithSize:CGSizeMake(25, 25)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc.tabBarItem.image = [icon imageWithSize:CGSizeMake(25, 25)];
+    vc.tabBarItem.image = [[icon imageWithSize:CGSizeMake(25, 25)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     FAKOcticons *selectedIcon = [FAKOcticons iconWithIdentifier:selectedImageName size:25 error:NULL];
     [selectedIcon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(50, 50, 50)];
-    vc.tabBarItem.selectedImage = [selectedIcon imageWithSize:CGSizeMake(25, 25)];
+    vc.tabBarItem.selectedImage = [[selectedIcon imageWithSize:CGSizeMake(25, 25)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
     vc.tabBarItem.badgeValue = badgeValue;
     YCNavigationController *navi = [[YCNavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:navi];
 
-    [self.mTabBar addTabBarItem:vc.tabBarItem];
+//    [self.mTabBar addTabBarItem:vc.tabBarItem];
 }
 
-- (void)tabBar:(YCTabBar *)tabBar didClickTabBarButtonFrom:(NSInteger)from to:(NSInteger)to {
-    self.selectedIndex = to;
-}
+//- (void)tabBar:(YCTabBar *)tabBar didClickTabBarButtonFrom:(NSInteger)from to:(NSInteger)to {
+//    self.selectedIndex = to;
+//}
 
 @end
