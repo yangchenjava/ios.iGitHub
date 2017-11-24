@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class YCProfileResult;
 @class YCReposResult;
@@ -14,7 +14,7 @@
 
 typedef enum { NewsTypeForkEvent, NewsTypeIssuesEvent, NewsTypeWatchEvent } NewsType;
 
-@interface YCNewsResult : MTLModel <MTLJSONSerializing>
+@interface YCNewsResult : NSObject
 
 /**
  *  @author yangc, 16-07-10 17:07:00

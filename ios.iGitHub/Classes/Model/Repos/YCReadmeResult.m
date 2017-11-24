@@ -10,8 +10,4 @@
 
 @implementation YCReadmeResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"name" : @"name", @"sha" : @"sha", @"size" : @"size", @"download_url" : @"download_url", @"content" : @"content" };
-}
-
 @end

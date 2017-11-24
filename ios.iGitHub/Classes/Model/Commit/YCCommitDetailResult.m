@@ -10,8 +10,4 @@
 
 @implementation YCCommitDetailResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"author" : @"author", @"committer" : @"committer", @"message" : @"message" };
-}
-
 @end

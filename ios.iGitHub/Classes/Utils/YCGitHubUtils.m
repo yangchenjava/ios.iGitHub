@@ -16,10 +16,10 @@
 #import "YCTabBarController.h"
 #import "YCUserAccessViewController.h"
 
+@implementation YCGitHubUtils
+
 static NSString *oauthPath;
 static NSString *profilePath;
-
-@implementation YCGitHubUtils
 
 + (YCOAuthResult *)oauth {
     static dispatch_once_t onceToken;

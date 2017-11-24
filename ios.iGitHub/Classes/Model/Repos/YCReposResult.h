@@ -6,11 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class YCProfileResult;
 
-@interface YCReposResult : MTLModel <MTLJSONSerializing>
+@interface YCReposResult : NSObject
 
 /**
  *  @author yangc, 16-07-10 17:07:00

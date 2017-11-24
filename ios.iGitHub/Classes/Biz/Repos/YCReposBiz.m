@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCBranchResult.h"
@@ -22,8 +22,8 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                NSArray *results = [MTLJSONAdapter modelsOfClass:[YCReposResult class] fromJSONArray:responseObject error:NULL];
-                success(results.copy);
+                NSArray *results = [YCReposResult mj_objectArrayWithKeyValuesArray:responseObject];
+                success(results);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {
@@ -38,8 +38,8 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCReposResult *result = [MTLJSONAdapter modelOfClass:[YCReposResult class] fromJSONDictionary:responseObject error:NULL];
-                success(result.copy);
+                YCReposResult *result = [YCReposResult mj_objectWithKeyValues:responseObject];
+                success(result);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {
@@ -62,7 +62,7 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                NSArray *results = [MTLJSONAdapter modelsOfClass:[YCBranchResult class] fromJSONArray:responseObject error:NULL];
+                NSArray *results = [YCBranchResult mj_objectArrayWithKeyValuesArray:responseObject];
                 success(results);
             }
         }
@@ -78,7 +78,7 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCReadmeResult *result = [MTLJSONAdapter modelOfClass:[YCReadmeResult class] fromJSONDictionary:responseObject error:NULL];
+                YCReadmeResult *result = [YCReadmeResult mj_objectWithKeyValues:responseObject];
                 success(result);
             }
         }
@@ -97,9 +97,9 @@
             if (success) {
                 id result;
                 if ([responseObject isKindOfClass:[NSArray class]]) {
-                    result = [MTLJSONAdapter modelsOfClass:[YCContentResult class] fromJSONArray:responseObject error:NULL];
+                    result = [YCContentResult mj_objectArrayWithKeyValuesArray:responseObject];
                 } else {
-                    result = [MTLJSONAdapter modelOfClass:[YCContentResult class] fromJSONDictionary:responseObject error:NULL];
+                    result = [YCContentResult mj_objectWithKeyValues:responseObject];
                 }
                 success(result);
             }

@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
-@interface YCBranchResult : MTLModel <MTLJSONSerializing>
+@interface YCBranchResult : NSObject
 
 @property (nonatomic, copy) NSString *name;
 

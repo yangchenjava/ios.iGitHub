@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCProfileBiz.h"
@@ -19,8 +19,8 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCProfileResult *result = [MTLJSONAdapter modelOfClass:[YCProfileResult class] fromJSONDictionary:responseObject error:NULL];
-                success(result.copy);
+                YCProfileResult *result = [YCProfileResult mj_objectWithKeyValues:responseObject];
+                success(result);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {
@@ -35,8 +35,8 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCProfileResult *result = [MTLJSONAdapter modelOfClass:[YCProfileResult class] fromJSONDictionary:responseObject error:NULL];
-                success(result.copy);
+                YCProfileResult *result = [YCProfileResult mj_objectWithKeyValues:responseObject];
+                success(result);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {

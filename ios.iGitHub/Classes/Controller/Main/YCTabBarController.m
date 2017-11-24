@@ -14,6 +14,7 @@
 #import "YCNewsTableViewController.h"
 #import "YCProfileTableViewController.h"
 #import "YCReposTableViewController.h"
+#import "YCTrendingTableViewController.h"
 //#import "YCTabBar.h"
 #import "YCTabBarController.h"
 
@@ -77,6 +78,9 @@
  *  初始化TabBarItem
  */
 - (void)setupTabBarItem {
+    YCTrendingTableViewController *trendingVC = [[YCTrendingTableViewController alloc] init];
+    [self addChildVC:trendingVC title:@"Trending" imageName:@"octicon-pulse" selectedImageName:@"octicon-pulse" badgeValue:nil];
+    
     YCReposTableViewController *reposVC = [[YCReposTableViewController alloc] init];
     [self addChildVC:reposVC title:@"Repos" imageName:@"octicon-repo" selectedImageName:@"octicon-repo" badgeValue:nil];
 
@@ -87,7 +91,7 @@
     [self addChildVC:eventsVC title:@"Events" imageName:@"octicon-rss" selectedImageName:@"octicon-rss" badgeValue:nil];
 
     YCProfileTableViewController *profileVC = [[YCProfileTableViewController alloc] init];
-    [self addChildVC:profileVC title:@"Profiles" imageName:@"octicon-person" selectedImageName:@"octicon-person" badgeValue:nil];
+    [self addChildVC:profileVC title:@"Profile" imageName:@"octicon-person" selectedImageName:@"octicon-person" badgeValue:nil];
 }
 
 - (void)addChildVC:(UIViewController *)vc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName badgeValue:(NSString *)badgeValue {

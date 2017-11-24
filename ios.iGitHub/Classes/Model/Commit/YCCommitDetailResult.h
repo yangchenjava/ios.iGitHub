@@ -6,11 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class YCProfileResult;
 
-@interface YCCommitDetailResult : MTLModel <MTLJSONSerializing>
+@interface YCCommitDetailResult : NSObject
 
 @property (nonatomic, strong) YCProfileResult *author;
 @property (nonatomic, strong) YCProfileResult *committer;

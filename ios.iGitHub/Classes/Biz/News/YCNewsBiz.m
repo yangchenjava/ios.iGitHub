@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCNewsBiz.h"
@@ -19,8 +19,8 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                NSArray *results = [MTLJSONAdapter modelsOfClass:[YCNewsResult class] fromJSONArray:responseObject error:NULL];
-                success(results.copy);
+                NSArray *results = [YCNewsResult mj_objectArrayWithKeyValuesArray:responseObject];
+                success(results);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {

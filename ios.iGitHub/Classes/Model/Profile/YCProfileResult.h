@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
-@interface YCProfileResult : MTLModel <MTLJSONSerializing>
+@interface YCProfileResult : NSObject
 
 /**
  *  @author yangc, 16-07-07 16:07:14

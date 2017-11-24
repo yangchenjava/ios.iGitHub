@@ -6,11 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class YCProfileResult;
 
-@interface YCPullResult : MTLModel <MTLJSONSerializing>
+@interface YCPullResult : NSObject
 
 @property (nonatomic, assign) long ID;
 @property (nonatomic, assign) long number;

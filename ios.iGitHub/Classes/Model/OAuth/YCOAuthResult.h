@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
-@interface YCOAuthResult : MTLModel <MTLJSONSerializing>
+@interface YCOAuthResult : NSObject
 
 @property (nonatomic, copy) NSString *access_token;
 @property (nonatomic, copy) NSString *scope;

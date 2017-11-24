@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCCommentResult.h"
@@ -23,7 +23,7 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                NSArray *results = [MTLJSONAdapter modelsOfClass:[YCIssuesResult class] fromJSONArray:responseObject error:NULL];
+                NSArray *results = [YCIssuesResult mj_objectArrayWithKeyValuesArray:responseObject];
                 success(results);
             }
         }
@@ -39,7 +39,7 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCIssuesResult *result = [MTLJSONAdapter modelOfClass:[YCIssuesResult class] fromJSONDictionary:responseObject error:NULL];
+                YCIssuesResult *result = [YCIssuesResult mj_objectWithKeyValues:responseObject];
                 success(result);
             }
         }
@@ -55,7 +55,7 @@
         params:YC_OAuth
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                NSArray *results = [MTLJSONAdapter modelsOfClass:[YCCommentResult class] fromJSONArray:responseObject error:NULL];
+                NSArray *results = [YCCommentResult mj_objectArrayWithKeyValuesArray:responseObject];
                 success(results);
             }
         }

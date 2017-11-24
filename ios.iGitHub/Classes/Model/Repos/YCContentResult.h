@@ -6,11 +6,11 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 typedef enum { ContentTypeDir, ContentTypeFile } ContentType;
 
-@interface YCContentResult : MTLModel <MTLJSONSerializing>
+@interface YCContentResult : NSObject
 
 @property (nonatomic, assign) ContentType type;
 @property (nonatomic, copy) NSString *encoding;

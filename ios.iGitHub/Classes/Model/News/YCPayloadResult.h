@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class YCReposResult;
 @class YCIssuesResult;
@@ -14,7 +14,7 @@
 
 typedef enum { RefTypeRepository, RefTypeBranch, RefTypeTag } RefType;
 
-@interface YCPayloadResult : MTLModel <MTLJSONSerializing>
+@interface YCPayloadResult : NSObject
 
 @property (nonatomic, copy) NSString *ref;
 @property (nonatomic, assign) RefType ref_type;

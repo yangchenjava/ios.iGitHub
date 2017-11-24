@@ -6,36 +6,39 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <MJExtension/MJExtension.h>
+
 #import "YCEventsResult.h"
 #import "YCGitHubUtils.h"
 
 @implementation YCEventsResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"ID" : @"id", @"type" : @"type", @"actor" : @"actor", @"repo" : @"repo", @"payload" : @"payload", @"pbc" : @"public", @"created_at" : @"created_at" };
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{ @"ID" : @"id", @"pbc" : @"public" };
 }
 
-+ (NSValueTransformer *)typeJSONTransformer {
-    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{
-        @"CommitCommentEvent" : @(EventsTypeCommitCommentEvent),
-        @"CreateEvent" : @(EventsTypeCreateEvent),
-        @"DeleteEvent" : @(EventsTypeDeleteEvent),
-        @"ForkEvent" : @(EventsTypeForkEvent),
-        @"IssueCommentEvent" : @(EventsTypeIssueCommentEvent),
-        @"IssuesEvent" : @(EventsTypeIssuesEvent),
-        @"PullRequestEvent" : @(EventsTypePullRequestEvent),
-        @"PushEvent" : @(EventsTypePushEvent),
-        @"WatchEvent" : @(EventsTypeWatchEvent)
-    }];
-}
-
-+ (NSValueTransformer *)created_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if ([property.name isEqualToString:@"type"]) {
+        static NSDictionary *eventType;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            eventType = @{
+                @"CommitCommentEvent" : @(EventsTypeCommitCommentEvent),
+                @"CreateEvent" : @(EventsTypeCreateEvent),
+                @"DeleteEvent" : @(EventsTypeDeleteEvent),
+                @"ForkEvent" : @(EventsTypeForkEvent),
+                @"IssueCommentEvent" : @(EventsTypeIssueCommentEvent),
+                @"IssuesEvent" : @(EventsTypeIssuesEvent),
+                @"PullRequestEvent" : @(EventsTypePullRequestEvent),
+                @"PushEvent" : @(EventsTypePushEvent),
+                @"WatchEvent" : @(EventsTypeWatchEvent)
+            };
+        });
+        return eventType[oldValue];
+    } else if (property.type.class == [NSDate class]) {
+        return [YCGitHubUtils.dateFormatter dateFromString:oldValue];
     }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
+    return oldValue;
 }
 
 @end

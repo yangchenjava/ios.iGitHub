@@ -10,8 +10,4 @@
 
 @implementation YCBranchResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"name" : @"name" };
-}
-
 @end

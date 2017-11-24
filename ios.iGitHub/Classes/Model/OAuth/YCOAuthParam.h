@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
-@interface YCOAuthParam : MTLModel <MTLJSONSerializing>
+@interface YCOAuthParam : NSObject
 
 /**
  *  @author yangc, 16-07-05 20:07:31

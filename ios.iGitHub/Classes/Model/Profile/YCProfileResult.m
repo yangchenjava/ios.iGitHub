@@ -6,59 +6,24 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <DateTools/DateTools.h>
+#import <MJExtension/MJExtension.h>
 
 #import "YCGitHubUtils.h"
 #import "YCProfileResult.h"
 
 @implementation YCProfileResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-        @"login" : @"login",
-        @"ID" : @"id",
-        @"avatar_url" : @"avatar_url",
-        @"name" : @"name",
-        @"company" : @"company",
-        @"blog" : @"blog",
-        @"location" : @"location",
-        @"email" : @"email",
-        @"bio" : @"bio",
-        @"public_repos" : @"public_repos",
-        @"public_gists" : @"public_gists",
-        @"followers" : @"followers",
-        @"following" : @"following",
-        @"created_at" : @"created_at",
-        @"updated_at" : @"updated_at",
-        @"date" : @"date"
-    };
+MJExtensionCodingImplementation
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{ @"ID" : @"id" };
 }
 
-+ (NSValueTransformer *)created_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if (property.type.class == [NSDate class]) {
+        return [YCGitHubUtils.dateFormatter dateFromString:oldValue];
     }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)updated_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
-    }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)dateJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
-    }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
+    return oldValue;
 }
 
 @end

@@ -6,38 +6,35 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <MJExtension/MJExtension.h>
+
 #import "YCCommitResult.h"
 #import "YCPayloadResult.h"
 
 @implementation YCPayloadResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-        @"ref" : @"ref",
-        @"ref_type" : @"ref_type",
-        @"master_branch" : @"master_branch",
-        @"desc" : @"description",
-        @"pusher_type" : @"pusher_type",
-        @"forkee" : @"forkee",
-        @"push_id" : @"push_id",
-        @"size" : @"size",
-        @"distinct_size" : @"distinct_size",
-        @"head" : @"head",
-        @"before" : @"before",
-        @"commits" : @"commits",
-        @"action" : @"action",
-        @"issue" : @"issue",
-        @"comment" : @"comment",
-        @"pull_request" : @"pull_request"
-    };
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{ @"desc" : @"description" };
 }
 
-+ (NSValueTransformer *)ref_typeJSONTransformer {
-    return [NSValueTransformer mtl_valueMappingTransformerWithDictionary:@{ @"repository" : @(RefTypeRepository), @"branch" : @(RefTypeBranch), @"tag" : @(RefTypeTag) }];
++ (NSDictionary *)mj_objectClassInArray {
+    return @{ @"commits" : [YCCommitResult class] };
 }
 
-+ (NSValueTransformer *)commitsJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[YCCommitResult class]];
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if ([property.name isEqualToString:@"ref_type"]) {
+        static NSDictionary *refType;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            refType = @{
+                @"repository" : @(RefTypeRepository),
+                @"branch" : @(RefTypeBranch),
+                @"tag" : @(RefTypeTag)
+            };
+        });
+        return refType[oldValue];
+    }
+    return oldValue;
 }
 
 @end

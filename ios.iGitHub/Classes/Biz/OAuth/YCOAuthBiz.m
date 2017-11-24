@@ -6,7 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/YCHttpUtils.h>
 
 #import "YCOAuthBiz.h"
@@ -16,13 +16,12 @@
 @implementation YCOAuthBiz
 
 + (void)oauthWithParam:(YCOAuthParam *)param success:(void (^)(YCOAuthResult *))success failure:(void (^)(NSError *))failure {
-    NSDictionary *params = [MTLJSONAdapter JSONDictionaryFromModel:param error:NULL];
     [YCHttpUtils sendPost:@"https://github.com/login/oauth/access_token"
-        params:params
+        params:param.mj_keyValues
         success:^(NSHTTPURLResponse *response, id responseObject) {
             if (success) {
-                YCOAuthResult *result = [MTLJSONAdapter modelOfClass:[YCOAuthResult class] fromJSONDictionary:responseObject error:NULL];
-                success(result.copy);
+                YCOAuthResult *result = [YCOAuthResult mj_objectWithKeyValues:responseObject];
+                success(result);
             }
         }
         failure:^(NSHTTPURLResponse *response, NSError *error) {

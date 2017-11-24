@@ -21,6 +21,10 @@
 		0F09C0531D49DDC300687BBA /* YCBaseTableHeaderModelF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */; };
 		0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */; };
 		0F4687111FBD87D00019E123 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687101FBD87D00019E123 /* octicons.ttf */; };
+		0F4687181FC423700019E123 /* YCTrendingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4687171FC4236F0019E123 /* YCTrendingResult.m */; };
+		0F46871A1FC66C4E0019E123 /* languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687191FC66C4E0019E123 /* languages.plist */; };
+		0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */; };
+		0F4687201FC7C5B10019E123 /* YCTrendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */; };
 		0F5FD14B1D504B5300432131 /* YCIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD1491D504B5300432131 /* YCIssuesViewController.m */; };
 		0F5FD14C1D504B5300432131 /* YCIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */; };
 		0F5FD14F1D50743A00432131 /* YCReadmeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD14E1D50743A00432131 /* YCReadmeResult.m */; };
@@ -151,6 +155,13 @@
 		0F09C0591D4B4E6000687BBA /* YCIssuesBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesBodyTableViewCell.h; sourceTree = "<group>"; };
 		0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesBodyTableViewCell.m; sourceTree = "<group>"; };
 		0F4687101FBD87D00019E123 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
+		0F4687161FC4236F0019E123 /* YCTrendingResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingResult.h; sourceTree = "<group>"; };
+		0F4687171FC4236F0019E123 /* YCTrendingResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingResult.m; sourceTree = "<group>"; };
+		0F4687191FC66C4E0019E123 /* languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = languages.plist; sourceTree = "<group>"; };
+		0F46871B1FC6C1750019E123 /* YCTrendingBiz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingBiz.h; sourceTree = "<group>"; };
+		0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingBiz.m; sourceTree = "<group>"; };
+		0F46871E1FC7C5B10019E123 /* YCTrendingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingTableViewController.h; sourceTree = "<group>"; };
+		0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingTableViewController.m; sourceTree = "<group>"; };
 		0F5FD1481D504B5300432131 /* YCIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesViewController.h; sourceTree = "<group>"; };
 		0F5FD1491D504B5300432131 /* YCIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesViewController.m; sourceTree = "<group>"; };
 		0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCIssuesViewController.xib; sourceTree = "<group>"; };
@@ -402,6 +413,40 @@
 			path = Html;
 			sourceTree = "<group>";
 		};
+		0F4687121FC421EB0019E123 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				0F4687161FC4236F0019E123 /* YCTrendingResult.h */,
+				0F4687171FC4236F0019E123 /* YCTrendingResult.m */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		0F4687131FC422000019E123 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		0F4687141FC4220C0019E123 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				0F46871E1FC7C5B10019E123 /* YCTrendingTableViewController.h */,
+				0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		0F4687151FC422170019E123 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				0F46871B1FC6C1750019E123 /* YCTrendingBiz.h */,
+				0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
 		0F5FD1571D51DE6B00432131 /* Commit */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,10 +691,11 @@
 			isa = PBXGroup;
 			children = (
 				0F09C0541D4A4A5C00687BBA /* Html */,
-				0F4687101FBD87D00019E123 /* octicons.ttf */,
 				0FE3F3D51D261832001E5D24 /* Assets.xcassets */,
 				0FE3F3DA1D261832001E5D24 /* Info.plist */,
+				0F4687191FC66C4E0019E123 /* languages.plist */,
 				0FE3F4591D2B98E1001E5D24 /* LaunchScreen.storyboard */,
+				0F4687101FBD87D00019E123 /* octicons.ttf */,
 				0FE3F44A1D261A8D001E5D24 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
@@ -672,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				0FE3F4621D2BB428001E5D24 /* OAuth */,
+				0F4687151FC422170019E123 /* Trending */,
 				0FE3F48C1D2E32B3001E5D24 /* Repos */,
 				0FE3F48A1D2E32B3001E5D24 /* News */,
 				0FE3F4891D2E32B3001E5D24 /* Events */,
@@ -688,6 +735,7 @@
 			children = (
 				0FE3F3FF1D261A4B001E5D24 /* Main */,
 				0FE3F4631D2BB43C001E5D24 /* OAuth */,
+				0F4687141FC4220C0019E123 /* Trending */,
 				0FE3F4901D2E33BF001E5D24 /* Repos */,
 				0FE3F48E1D2E33BF001E5D24 /* News */,
 				0FE3F48D1D2E33BF001E5D24 /* Events */,
@@ -720,6 +768,7 @@
 			children = (
 				0FD55B871D387CE700091D37 /* TableView */,
 				0FE3F4641D2BB45D001E5D24 /* OAuth */,
+				0F4687121FC421EB0019E123 /* Trending */,
 				0FE3F4991D2E3BEC001E5D24 /* Repos */,
 				0FE3F4971D2E3BEC001E5D24 /* News */,
 				0FE3F4961D2E3BEC001E5D24 /* Events */,
@@ -746,6 +795,7 @@
 			children = (
 				0FE3F42E1D261A4C001E5D24 /* Main */,
 				0FE3F4651D2BB474001E5D24 /* OAuth */,
+				0F4687131FC422000019E123 /* Trending */,
 				0F68E3A81D334EA400AD85EE /* Repos */,
 				0FD96A411D3CAE8E001E66BA /* News */,
 				0FD96A431D3CAECE001E66BA /* Events */,
@@ -1044,6 +1094,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F46871A1FC66C4E0019E123 /* languages.plist in Resources */,
 				0F4687111FBD87D00019E123 /* octicons.ttf in Resources */,
 				0F5FD1BA1D54A65000432131 /* markdown.js in Resources */,
 				0F5FD1B51D54A65000432131 /* diffindex.html in Resources */,
@@ -1096,9 +1147,9 @@
 				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IDMPhotoBrowser/IDMPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MMMarkdown/MMMarkdown.framework",
-				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -1115,9 +1166,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IDMPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMMarkdown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
@@ -1189,9 +1240,11 @@
 				0FE3F49F1D2E4EED001E5D24 /* YCProfileBiz.m in Sources */,
 				0F68E3A51D32597E00AD85EE /* YCReposBiz.m in Sources */,
 				0F0765F91D4C7C9700DEBDA7 /* YCCommentResultF.m in Sources */,
+				0F4687201FC7C5B10019E123 /* YCTrendingTableViewController.m in Sources */,
 				0FE3F4351D261A4C001E5D24 /* YCNavigationController.m in Sources */,
 				0FCE45AA1D3E0DEA003BAF87 /* YCEventsResult.m in Sources */,
 				0F5FD1961D544EE800432131 /* YCCommitDetailTableViewController.m in Sources */,
+				0F4687181FC423700019E123 /* YCTrendingResult.m in Sources */,
 				0F5FD1CE1D59C72400432131 /* YCBranchTableViewCell.m in Sources */,
 				0FE3F4451D261A4C001E5D24 /* AppDelegate.m in Sources */,
 				0FE3F4A21D30AE98001E5D24 /* YCReposTableViewController.m in Sources */,
@@ -1200,6 +1253,7 @@
 				0FCE45B81D40A7E5003BAF87 /* YCEventsResultF.m in Sources */,
 				0FD96A3A1D3C895E001E66BA /* YCPayloadResult.m in Sources */,
 				0FE3F4AB1D30B0D0001E5D24 /* YCProfileTableViewController.m in Sources */,
+				0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */,
 				0FD96A471D3CAF0D001E66BA /* YCNewsTableViewCell.m in Sources */,
 				0F5FD1C21D58C56B00432131 /* YCContentResult.m in Sources */,
 				0FCE45B41D3E6F3F003BAF87 /* YCEventsTableViewCell.m in Sources */,

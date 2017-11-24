@@ -10,8 +10,4 @@
 
 @implementation YCCommitFileResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{ @"sha" : @"sha", @"filename" : @"filename", @"status" : @"status", @"additions" : @"additions", @"deletions" : @"deletions", @"raw_url" : @"raw_url", @"patch" : @"patch" };
-}
-
 @end

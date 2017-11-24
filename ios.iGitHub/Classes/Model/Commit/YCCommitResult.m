@@ -6,34 +6,26 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <MJExtension/MJExtension.h>
+
 #import "YCCommitFileResult.h"
 #import "YCCommitResult.h"
 
 @implementation YCCommitResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
     return @{
-        @"sha" : @"sha",
-        @"commit" : @"commit",
-        @"author" : @"author",
-        @"committer" : @"committer",
-        @"message" : @"message",
-        @"distinct" : @"distinct",
-        @"url" : @"url",
-        @"parents" : @"parents",
         @"total" : @"stats.total",
         @"additions" : @"stats.additions",
-        @"deletions" : @"stats.deletions",
-        @"files" : @"files"
+        @"deletions" : @"stats.deletions"
     };
 }
 
-+ (NSValueTransformer *)parentsJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[YCCommitResult class]];
-}
-
-+ (NSValueTransformer *)filesJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[YCCommitFileResult class]];
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+        @"parents" : [YCCommitResult class],
+        @"files" :[YCCommitFileResult class]
+    };
 }
 
 @end

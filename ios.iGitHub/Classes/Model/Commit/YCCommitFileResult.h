@@ -6,9 +6,9 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
-@interface YCCommitFileResult : MTLModel <MTLJSONSerializing>
+@interface YCCommitFileResult : NSObject
 
 @property (nonatomic, copy) NSString *sha;
 @property (nonatomic, copy) NSString *filename;

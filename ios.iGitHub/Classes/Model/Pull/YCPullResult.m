@@ -6,75 +6,27 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <MJExtension/MJExtension.h>
+
 #import "YCGitHubUtils.h"
 #import "YCProfileResult.h"
 #import "YCPullResult.h"
 
 @implementation YCPullResult
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-        @"ID" : @"id",
-        @"number" : @"number",
-        @"state" : @"state",
-        @"locked" : @"locked",
-        @"title" : @"title",
-        @"user" : @"user",
-        @"body" : @"body",
-        @"created_at" : @"created_at",
-        @"updated_at" : @"updated_at",
-        @"closed_at" : @"closed_at",
-        @"merged_at" : @"merged_at",
-        @"assignee" : @"assignee",
-        @"assignees" : @"assignees",
-        @"merged" : @"merged",
-        @"merged_by" : @"merged_by",
-        @"comments" : @"comments",
-        @"commits" : @"commits",
-        @"additions" : @"additions",
-        @"deletions" : @"deletions",
-        @"changed_files" : @"changed_files"
-    };
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{ @"ID" : @"id" };
 }
 
-+ (NSValueTransformer *)created_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
++ (NSDictionary *)mj_objectClassInArray {
+    return @{ @"assignees" : [YCProfileResult class] };
+}
+
+- (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
+    if (property.type.class == [NSDate class]) {
+        return [YCGitHubUtils.dateFormatter dateFromString:oldValue];
     }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)updated_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
-    }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)closed_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
-    }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)merged_atJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *dateString, BOOL *success, NSError *__autoreleasing *error) {
-        return [YCGitHubUtils.dateFormatter dateFromString:dateString];
-    }
-        reverseBlock:^id(NSDate *date, BOOL *success, NSError *__autoreleasing *error) {
-            return [YCGitHubUtils.dateFormatter stringFromDate:date];
-        }];
-}
-
-+ (NSValueTransformer *)assigneesJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[YCProfileResult class]];
+    return oldValue;
 }
 
 @end
