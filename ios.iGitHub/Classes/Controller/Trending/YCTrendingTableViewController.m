@@ -11,6 +11,7 @@
 #import "YCTrendingTableViewController.h"
 #import "YCTrendingBiz.h"
 #import "YCTrendingResult.h"
+#import "YCTrendingTableViewHeaderFooterView.h"
 
 @interface YCTrendingTableViewController ()
 
@@ -32,6 +33,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 设置不透明，去掉下边黑线
+    UINavigationBar *naviBar = self.navigationController.navigationBar;
+    naviBar.barTintColor = YC_Color_RGB(50, 50, 50);
+    naviBar.translucent = NO;
+    [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [naviBar setShadowImage:[[UIImage alloc] init]];
     // 动态控制cell高度
     self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -76,17 +83,13 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
-    header.backgroundColor = YC_Color_RGB(50, 50, 50);
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, tableView.bounds.size.width, 20)];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor redColor];
-    label.textColor = [UIColor whiteColor];
-    label.text = self.trendingTitleArray[section];
-    [header addSubview:label];
-    
-    return header;
+    YCTrendingTableViewHeaderFooterView *view = [YCTrendingTableViewHeaderFooterView viewWithTableView:tableView];
+    view.title = self.trendingTitleArray[section];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return [YCTrendingTableViewHeaderFooterView height];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
