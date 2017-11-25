@@ -11,12 +11,17 @@
 #import "YCTrendingTableViewController.h"
 #import "YCTrendingBiz.h"
 #import "YCTrendingResult.h"
+#import "YCTrendingLanguageButton.h"
 #import "YCTrendingTableViewHeaderFooterView.h"
+#import "YCTrendingTableViewCell.h"
 
 @interface YCTrendingTableViewController ()
 
+@property (nonatomic, weak) YCTrendingLanguageButton *button;
+
 @property (nonatomic, strong, readonly) NSArray <NSString *> *trendingTitleArray;
 @property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSArray *> *trendingDictionary;
+@property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSString *> *avatarDictionary;
 @property (nonatomic, copy) NSString *language;
 
 @end
@@ -27,18 +32,32 @@
     if (self = [super init]) {
         _trendingTitleArray = @[ @"Daily", @"Weekly", @"Monthly" ];
         _trendingDictionary = [NSMutableDictionary dictionaryWithCapacity:_trendingTitleArray.count];
+        _avatarDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNavi];
+    [self setupTableView];
+}
+
+- (void)setupNavi {
     // 设置不透明，去掉下边黑线
     UINavigationBar *naviBar = self.navigationController.navigationBar;
     naviBar.barTintColor = YC_Color_RGB(50, 50, 50);
     naviBar.translucent = NO;
     [naviBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [naviBar setShadowImage:[[UIImage alloc] init]];
+    // 设置navi button
+    YCTrendingLanguageButton *button = [YCTrendingLanguageButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake(0, 0, 200, YC_NavigationBarHeight);
+    self.navigationItem.titleView = button;
+    self.button = button;
+}
+
+- (void)setupTableView {
     // 动态控制cell高度
     self.tableView.estimatedRowHeight = YC_CellDefaultHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -93,13 +112,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"YCTrendingTableViewController";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.textLabel.text = [self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row] repo];
+    YCTrendingTableViewCell *cell = [YCTrendingTableViewCell cellWithTableView:tableView];
+    cell.avatarDictionary = self.avatarDictionary;
+    cell.trending = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

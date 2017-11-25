@@ -127,6 +127,9 @@
 		59435DFF0C44FAD03D611562 /* Pods_ios_iGitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021721A21B80967DADEB24EB /* Pods_ios_iGitHub.framework */; };
 		68F4BF6B1FB721CF00A18952 /* YCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */; };
 		68F4BF711FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF701FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.m */; };
+		68F4BF751FC8609200A18952 /* YCTrendingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF731FC8609200A18952 /* YCTrendingTableViewCell.m */; };
+		68F4BF761FC8609200A18952 /* YCTrendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68F4BF741FC8609200A18952 /* YCTrendingTableViewCell.xib */; };
+		68F4BF791FC9217700A18952 /* YCTrendingLanguageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F4BF781FC9217700A18952 /* YCTrendingLanguageButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -340,6 +343,11 @@
 		68F4BF6A1FB721CF00A18952 /* YCTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTableViewController.m; sourceTree = "<group>"; };
 		68F4BF6F1FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		68F4BF701FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		68F4BF721FC8609200A18952 /* YCTrendingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingTableViewCell.h; sourceTree = "<group>"; };
+		68F4BF731FC8609200A18952 /* YCTrendingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingTableViewCell.m; sourceTree = "<group>"; };
+		68F4BF741FC8609200A18952 /* YCTrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YCTrendingTableViewCell.xib; sourceTree = "<group>"; };
+		68F4BF771FC9217700A18952 /* YCTrendingLanguageButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingLanguageButton.h; sourceTree = "<group>"; };
+		68F4BF781FC9217700A18952 /* YCTrendingLanguageButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingLanguageButton.m; sourceTree = "<group>"; };
 		F4D1D231327DBD1DA0C60B13 /* Pods-ios.iGitHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.iGitHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios.iGitHub/Pods-ios.iGitHub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -430,6 +438,11 @@
 			children = (
 				68F4BF6F1FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.h */,
 				68F4BF701FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.m */,
+				68F4BF721FC8609200A18952 /* YCTrendingTableViewCell.h */,
+				68F4BF731FC8609200A18952 /* YCTrendingTableViewCell.m */,
+				68F4BF741FC8609200A18952 /* YCTrendingTableViewCell.xib */,
+				68F4BF771FC9217700A18952 /* YCTrendingLanguageButton.h */,
+				68F4BF781FC9217700A18952 /* YCTrendingLanguageButton.m */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -1122,6 +1135,7 @@
 				0FCE45BD1D41A53E003BAF87 /* YCProfileTableViewCell.xib in Resources */,
 				0F5FD1A01D54721300432131 /* YCCommitBodyTableViewCell.xib in Resources */,
 				0F5FD1D81D5B17B500432131 /* highlight.html in Resources */,
+				68F4BF761FC8609200A18952 /* YCTrendingTableViewCell.xib in Resources */,
 				0F68E3AD1D334F1C00AD85EE /* YCReposTableViewCell.xib in Resources */,
 				0FD96A481D3CAF0D001E66BA /* YCNewsTableViewCell.xib in Resources */,
 				0F5FD1B41D54A65000432131 /* app.js in Resources */,
@@ -1271,12 +1285,14 @@
 				0FE3F4481D261A4C001E5D24 /* YCTabBar.m in Sources */,
 				0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */,
 				0F68E3A21D32362200AD85EE /* YCReposResult.m in Sources */,
+				68F4BF751FC8609200A18952 /* YCTrendingTableViewCell.m in Sources */,
 				0F09C0321D4745BD00687BBA /* YCIssuesResult.m in Sources */,
 				68F4BF711FC84A2F00A18952 /* YCTrendingTableViewHeaderFooterView.m in Sources */,
 				0F5FD1C81D5963B400432131 /* YCBranchResult.m in Sources */,
 				0F68E3AC1D334F1C00AD85EE /* YCReposTableViewCell.m in Sources */,
 				0F09C0351D4745FC00687BBA /* YCIssuesBiz.m in Sources */,
 				0F5FD1CB1D59B3FE00432131 /* YCBranchTableViewController.m in Sources */,
+				68F4BF791FC9217700A18952 /* YCTrendingLanguageButton.m in Sources */,
 				0FE3F4731D2C9A9A001E5D24 /* YCOAuthBiz.m in Sources */,
 				0F09C0461D48A7AB00687BBA /* YCCommentResult.m in Sources */,
 				0FDAACC11D6D40EA007FE68C /* YCLoginViewController.m in Sources */,

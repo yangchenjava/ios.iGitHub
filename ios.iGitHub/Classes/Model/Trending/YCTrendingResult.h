@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *repo;
 @property (nonatomic, copy) NSString *desc;
-@property (nonatomic, assign) long stars;
-@property (nonatomic, assign) long forks;
+@property (nonatomic, copy) NSString *stars;
+@property (nonatomic, copy) NSString *forks;
 
 @end
