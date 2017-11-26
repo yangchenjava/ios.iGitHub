@@ -47,7 +47,7 @@
 - (void)dealloc {
     [self.captureSession stopRunning];
     [self.scannerView stopAnimation];
-    NSLog(@"dealloc - YCScanViewController");
+    YCLog(@"dealloc - YCScanViewController");
 }
 
 - (AVCaptureSession *)captureSession {
@@ -110,7 +110,7 @@
         [self.scannerView stopAnimation];
 
         AVMetadataMachineReadableCodeObject *metadataObject = metadataObjects.lastObject;
-        NSLog(@"%@", metadataObject.stringValue);
+        YCLog(@"%@", metadataObject.stringValue);
         self.success(self, metadataObject.stringValue);
     }
 }
@@ -130,7 +130,7 @@
                                        [self.scannerView stopAnimation];
 
                                        CIQRCodeFeature *feature = features.lastObject;
-                                       NSLog(@"%@", feature.messageString);
+                                       YCLog(@"%@", feature.messageString);
                                        self.success(self, feature.messageString);
                                    } else {
                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该图片不包含二维码" message:nil preferredStyle:UIAlertControllerStyleAlert];

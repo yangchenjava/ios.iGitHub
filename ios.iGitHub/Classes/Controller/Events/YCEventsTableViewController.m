@@ -7,6 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 
 #import "YCEventsBiz.h"
 #import "YCEventsResult.h"
@@ -58,7 +59,8 @@
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
+            [self.tableView.mj_header endRefreshing];
         }];
 }
 
@@ -82,7 +84,8 @@
             }
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
+            [self.tableView.mj_footer endRefreshing];
         }];
 }
 

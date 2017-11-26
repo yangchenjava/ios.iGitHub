@@ -7,6 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 
 #import "YCTrendingTableViewController.h"
 #import "YCTrendingBiz.h"
@@ -73,7 +74,8 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
+        [MBProgressHUD showError:error.localizedDescription];
+        [self.tableView.mj_header endRefreshing];
     }];
     // 周
     [YCTrendingBiz trendingWeeklyWithLanguage:self.language success:^(NSArray *results) {
@@ -81,7 +83,8 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
+        [MBProgressHUD showError:error.localizedDescription];
+        [self.tableView.mj_header endRefreshing];
     }];
     // 月
     [YCTrendingBiz trendingMonthlyWithLanguage:self.language success:^(NSArray *results) {
@@ -89,7 +92,8 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
+        [MBProgressHUD showError:error.localizedDescription];
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 

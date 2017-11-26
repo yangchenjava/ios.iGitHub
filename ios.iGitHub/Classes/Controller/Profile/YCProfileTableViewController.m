@@ -8,6 +8,7 @@
 
 #import <DateTools/DateTools.h>
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIAlertController+Category.h>
 
 #import "YCBaseTableHeaderModel.h"
@@ -89,7 +90,8 @@
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
+            [self.tableView.mj_header endRefreshing];
         }];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 
 #import "YCBaseTableHeaderModel.h"
@@ -60,7 +61,7 @@
             [self setupRepos];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
             [self setupRepos];
         }];
 }
@@ -83,7 +84,8 @@
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
+            [self.tableView.mj_header endRefreshing];
         }];
 }
 

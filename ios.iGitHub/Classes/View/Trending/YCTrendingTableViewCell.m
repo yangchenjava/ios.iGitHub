@@ -62,7 +62,7 @@
             [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:result.avatar_url] placeholderImage:self.avatarImageView.image];
             [self.avatarDictionary setValue:result.avatar_url forKey:userName];
         } failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            YCLog(@"%@", error.localizedDescription);
         }];
     }
     

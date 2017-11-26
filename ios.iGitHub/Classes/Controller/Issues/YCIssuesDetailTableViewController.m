@@ -7,6 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
@@ -82,7 +83,8 @@
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
+            [self.tableView.mj_header endRefreshing];
         }];
     [YCIssuesBiz issuesCommentsWithUsername:self.username
         reposname:self.reposname
@@ -99,7 +101,7 @@
             }
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            [MBProgressHUD showError:error.localizedDescription];
         }];
 }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
@@ -59,7 +60,7 @@
                 [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", error.localizedDescription);
+                [MBProgressHUD showError:error.localizedDescription];
             }];
     }
 }

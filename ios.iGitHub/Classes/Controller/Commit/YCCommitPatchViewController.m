@@ -50,7 +50,7 @@
         self.patch = [self.patch stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
         [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"patch(\"%@\");", self.patch]];
     } else if ([URLString hasPrefix:@"app://comment"]) {
-        NSLog(@"%@", URLString);
+        YCLog(@"%@", URLString);
     }
     return YES;
 }

@@ -58,7 +58,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSString *url = request.URL.absoluteString;
-    NSLog(@"%@", url);
+    YCLog(@"%@", url);
     NSRange range = [url rangeOfString:@"code="];
     if (range.location != NSNotFound) {
         [MBProgressHUD showMessage:@"后台小弟拼命加载中..." mask:YES];
@@ -74,7 +74,7 @@
                 [MBProgressHUD hideHUD];
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", [error localizedDescription]);
+                YCLog(@"%@", [error localizedDescription]);
                 [MBProgressHUD hideHUD];
             }];
         return NO;

@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yangc. All rights reserved.
 //
 
+#import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIImage+Category.h>
 #import <YCHelpKit/UIImageView+SDWebImageCategory.h>
 
@@ -59,7 +60,7 @@
                                            }];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", [error localizedDescription]);
+            [MBProgressHUD showError:error.localizedDescription];
         }];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <MJRefresh/MJRefresh.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 
 #import "YCCommitBiz.h"
 #import "YCCommitDetailTableViewController.h"
@@ -49,7 +50,8 @@
                 [self.tableView.mj_header endRefreshing];
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", error.localizedDescription);
+                [MBProgressHUD showError:error.localizedDescription];
+                [self.tableView.mj_header endRefreshing];
             }];
     } else {
         [YCCommitBiz commitWithUsername:self.username
@@ -61,7 +63,8 @@
                 [self.tableView.mj_header endRefreshing];
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", error.localizedDescription);
+                [MBProgressHUD showError:error.localizedDescription];
+                [self.tableView.mj_header endRefreshing];
             }];
     }
 }
@@ -82,7 +85,8 @@
                 }
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", error.localizedDescription);
+                [MBProgressHUD showError:error.localizedDescription];
+                [self.tableView.mj_footer endRefreshing];
             }];
     } else {
         [YCCommitBiz commitWithUsername:self.username
@@ -98,7 +102,8 @@
                 }
             }
             failure:^(NSError *error) {
-                NSLog(@"%@", error.localizedDescription);
+                [MBProgressHUD showError:error.localizedDescription];
+                [self.tableView.mj_footer endRefreshing];
             }];
     }
 }

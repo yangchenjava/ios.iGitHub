@@ -88,7 +88,7 @@
             self.branchLabel.text = [NSString stringWithFormat:@"%ld Branches", results.count];
         }
         failure:^(NSError *error) {
-            NSLog(@"%@", error.localizedDescription);
+            YCLog(@"%@", error.localizedDescription);
         }];
 
     // Date
