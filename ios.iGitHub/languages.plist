@@ -4,6 +4,12 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>All Languages</string>
+		<key>value</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>1C Enterprise</string>
 		<key>value</key>
 		<string>1c-enterprise</string>
@@ -304,9 +310,9 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Cap'n Proto</string>
+		<string>Cap&apos;n Proto</string>
 		<key>value</key>
-		<string>cap'n-proto</string>
+		<string>cap&apos;n-proto</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -2122,9 +2128,9 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Ren'Py</string>
+		<string>Ren&apos;Py</string>
 		<key>value</key>
-		<string>ren'py</string>
+		<string>ren&apos;py</string>
 	</dict>
 	<dict>
 		<key>name</key>

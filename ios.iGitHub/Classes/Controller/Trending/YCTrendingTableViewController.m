@@ -9,9 +9,13 @@
 #import <MJRefresh/MJRefresh.h>
 #import <YCHelpKit/MBProgressHUD+Category.h>
 
+#import "YCNavigationController.h"
 #import "YCTrendingTableViewController.h"
+#import "YCTrendingLanguageTableViewController.h"
+#import "YCReposDetailTableViewController.h"
 #import "YCTrendingBiz.h"
 #import "YCTrendingResult.h"
+#import "YCTrendingLanguageResult.h"
 #import "YCTrendingLanguageButton.h"
 #import "YCTrendingTableViewHeaderFooterView.h"
 #import "YCTrendingTableViewCell.h"
@@ -23,7 +27,7 @@
 @property (nonatomic, strong, readonly) NSArray <NSString *> *trendingTitleArray;
 @property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSArray *> *trendingDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSString *> *avatarDictionary;
-@property (nonatomic, copy) NSString *language;
+@property (nonatomic, strong) YCTrendingLanguageResult *trendingLanguage;
 
 @end
 
@@ -53,9 +57,22 @@
     [naviBar setShadowImage:[[UIImage alloc] init]];
     // 设置navi button
     YCTrendingLanguageButton *button = [YCTrendingLanguageButton buttonWithType:UIButtonTypeCustom];
-    button.bounds = CGRectMake(0, 0, 200, YC_NavigationBarHeight);
+    [button setTitle:@"All Languages" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(clickLanguageButton) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = button;
     self.button = button;
+}
+
+- (void)clickLanguageButton {
+    YCTrendingLanguageTableViewController *vc = [[YCTrendingLanguageTableViewController alloc] init];
+    vc.language = self.trendingLanguage.name;
+    vc.callback = ^(YCTrendingLanguageResult *trendingLanguage) {
+        [_avatarDictionary removeAllObjects];
+        _trendingLanguage = trendingLanguage;
+        [self.button setTitle:_trendingLanguage.name forState:UIControlStateNormal];
+        [self.tableView.mj_header beginRefreshing];
+    };
+    [self presentViewController:[[YCNavigationController alloc] initWithRootViewController:vc] animated:YES completion:nil];
 }
 
 - (void)setupTableView {
@@ -69,7 +86,7 @@
 
 - (void)setupTrending {
     // 日
-    [YCTrendingBiz trendingDailyWithLanguage:self.language success:^(NSArray *results) {
+    [YCTrendingBiz trendingDailyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[0]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -78,7 +95,7 @@
         [self.tableView.mj_header endRefreshing];
     }];
     // 周
-    [YCTrendingBiz trendingWeeklyWithLanguage:self.language success:^(NSArray *results) {
+    [YCTrendingBiz trendingWeeklyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[1]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -87,7 +104,7 @@
         [self.tableView.mj_header endRefreshing];
     }];
     // 月
-    [YCTrendingBiz trendingMonthlyWithLanguage:self.language success:^(NSArray *results) {
+    [YCTrendingBiz trendingMonthlyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[2]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -124,6 +141,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    YCTrendingResult *trending = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
+    NSArray *array = [trending.repo componentsSeparatedByString:@"/"];
+    
+    YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
+    vc.username = array[0];
+    vc.reposname = array[1];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

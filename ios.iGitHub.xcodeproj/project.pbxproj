@@ -25,6 +25,8 @@
 		0F46871A1FC66C4E0019E123 /* languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687191FC66C4E0019E123 /* languages.plist */; };
 		0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */; };
 		0F4687201FC7C5B10019E123 /* YCTrendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */; };
+		0F4687231FCBC0760019E123 /* YCTrendingLanguageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4687221FCBC0760019E123 /* YCTrendingLanguageTableViewController.m */; };
+		0F4687261FCBE5960019E123 /* YCTrendingLanguageResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4687251FCBE5960019E123 /* YCTrendingLanguageResult.m */; };
 		0F5FD14B1D504B5300432131 /* YCIssuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD1491D504B5300432131 /* YCIssuesViewController.m */; };
 		0F5FD14C1D504B5300432131 /* YCIssuesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */; };
 		0F5FD14F1D50743A00432131 /* YCReadmeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FD14E1D50743A00432131 /* YCReadmeResult.m */; };
@@ -166,6 +168,10 @@
 		0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingBiz.m; sourceTree = "<group>"; };
 		0F46871E1FC7C5B10019E123 /* YCTrendingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingTableViewController.h; sourceTree = "<group>"; };
 		0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingTableViewController.m; sourceTree = "<group>"; };
+		0F4687211FCBC0760019E123 /* YCTrendingLanguageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingLanguageTableViewController.h; sourceTree = "<group>"; };
+		0F4687221FCBC0760019E123 /* YCTrendingLanguageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingLanguageTableViewController.m; sourceTree = "<group>"; };
+		0F4687241FCBE5960019E123 /* YCTrendingLanguageResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingLanguageResult.h; sourceTree = "<group>"; };
+		0F4687251FCBE5960019E123 /* YCTrendingLanguageResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingLanguageResult.m; sourceTree = "<group>"; };
 		0F5FD1481D504B5300432131 /* YCIssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesViewController.h; sourceTree = "<group>"; };
 		0F5FD1491D504B5300432131 /* YCIssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesViewController.m; sourceTree = "<group>"; };
 		0F5FD14A1D504B5300432131 /* YCIssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCIssuesViewController.xib; sourceTree = "<group>"; };
@@ -429,6 +435,8 @@
 			children = (
 				0F4687161FC4236F0019E123 /* YCTrendingResult.h */,
 				0F4687171FC4236F0019E123 /* YCTrendingResult.m */,
+				0F4687241FCBE5960019E123 /* YCTrendingLanguageResult.h */,
+				0F4687251FCBE5960019E123 /* YCTrendingLanguageResult.m */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -452,6 +460,8 @@
 			children = (
 				0F46871E1FC7C5B10019E123 /* YCTrendingTableViewController.h */,
 				0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */,
+				0F4687211FCBC0760019E123 /* YCTrendingLanguageTableViewController.h */,
+				0F4687221FCBC0760019E123 /* YCTrendingLanguageTableViewController.m */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -1252,6 +1262,7 @@
 				0FE3F4A51D30AEB5001E5D24 /* YCNewsTableViewController.m in Sources */,
 				0F5FD1A91D54943300432131 /* YCCommitPatchViewController.m in Sources */,
 				0F5FD16A1D51E88F00432131 /* YCCommitTableViewController.m in Sources */,
+				0F4687261FCBE5960019E123 /* YCTrendingLanguageResult.m in Sources */,
 				0F5FD19A1D54712F00432131 /* YCCommitDetailTableViewCell.m in Sources */,
 				0F09C0381D47470200687BBA /* YCBaseTableViewCell.m in Sources */,
 				0FD55B941D38887D00091D37 /* YCBaseTableHeaderView.m in Sources */,
@@ -1317,6 +1328,7 @@
 				0F5FD1D11D5A2B6D00432131 /* YCContentTableViewCell.m in Sources */,
 				0FE3F4701D2BDEB0001E5D24 /* YCOAuthResult.m in Sources */,
 				0F5FD1DD1D5B1FB500432131 /* YCSourceViewController.m in Sources */,
+				0F4687231FCBC0760019E123 /* YCTrendingLanguageTableViewController.m in Sources */,
 				0FD96A371D3C7F99001E66BA /* YCNewsResult.m in Sources */,
 				0FE3F4491D261A4C001E5D24 /* YCTabBarButton.m in Sources */,
 				0F5FD1A61D547BBB00432131 /* YCCommitFileResult.m in Sources */,
