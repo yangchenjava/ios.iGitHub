@@ -36,27 +36,12 @@
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state {
     [super setTitle:title forState:state];
+    
     CGFloat width = [title sizeWithFont:self.titleLabel.font size:CGSizeMake(MAXFLOAT, YC_NavigationBarHeight)].width;
-    YCLog(@"%f", width);
-    self.bounds = CGRectMake(0, 0, width + 5 + kImageWidth, YC_NavigationBarHeight);
-}
-
-// 布局按钮上的图片
-- (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    CGFloat x = contentRect.size.width - kImageWidth;
-    CGFloat y = 0;
-    CGFloat width = kImageWidth;
-    CGFloat height = contentRect.size.height;
-    return CGRectMake(x, y, width, height);
-}
-
-// 布局按钮上的文字
-- (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    CGFloat x = 0;
-    CGFloat y = 0;
-    CGFloat width = contentRect.size.width - 4 - kImageWidth;
-    CGFloat height = contentRect.size.height;
-    return CGRectMake(x, y, width, height);
+    self.frame = CGRectMake(0, 0, width + kImageWidth, YC_NavigationBarHeight);
+    CGFloat interval = 1.0;
+    self.imageEdgeInsets = UIEdgeInsetsMake(0, width + interval, 0, - (width + interval));
+    self.titleEdgeInsets = UIEdgeInsetsMake(0, - (kImageWidth + interval), 0, kImageWidth + interval);
 }
 
 @end

@@ -67,9 +67,9 @@
     YCTrendingLanguageTableViewController *vc = [[YCTrendingLanguageTableViewController alloc] init];
     vc.language = self.trendingLanguage.name;
     vc.callback = ^(YCTrendingLanguageResult *trendingLanguage) {
-        [_avatarDictionary removeAllObjects];
-        _trendingLanguage = trendingLanguage;
-        [self.button setTitle:_trendingLanguage.name forState:UIControlStateNormal];
+        [self.avatarDictionary removeAllObjects];
+        self.trendingLanguage = trendingLanguage;
+        [self.button setTitle:self.trendingLanguage.name forState:UIControlStateNormal];
         [self.tableView.mj_header beginRefreshing];
     };
     [self presentViewController:[[YCNavigationController alloc] initWithRootViewController:vc] animated:YES completion:nil];
