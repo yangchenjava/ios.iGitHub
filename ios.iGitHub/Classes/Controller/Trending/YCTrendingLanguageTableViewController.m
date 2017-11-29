@@ -7,8 +7,10 @@
 //
 
 #import <MJExtension/MJExtension.h>
+#import <YCHelpKit/MBProgressHUD+Category.h>
 
 #import "YCTrendingLanguageTableViewController.h"
+#import "YCTrendingBiz.h"
 #import "YCTrendingLanguageResult.h"
 
 @interface YCTrendingLanguageTableViewController ()
@@ -19,16 +21,15 @@
 
 @implementation YCTrendingLanguageTableViewController
 
-- (NSArray<YCTrendingLanguageResult *> *)trendingLanguageArray {
-    if (_trendingLanguageArray == nil) {
-        _trendingLanguageArray = [YCTrendingLanguageResult mj_objectArrayWithFilename:@"languages.plist"];
-    }
-    return _trendingLanguageArray;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissVC)];
+    [YCTrendingBiz trendingLanguageWithSuccess:^(NSArray *results) {
+        self.trendingLanguageArray = results;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showError:error.localizedDescription];
+    }];
 }
 
 - (void)dismissVC {
@@ -47,7 +48,7 @@
         cell.tintColor = YC_Color_RGB(50, 50, 50);
     }
     cell.textLabel.text = self.trendingLanguageArray[indexPath.row].name;
-    if ([cell.textLabel.text isEqualToString:self.language] || (self.language == nil && indexPath.row == 0)) {
+    if ([cell.textLabel.text isEqualToString:self.language]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;

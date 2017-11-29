@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class YCTrendingResult;
+@class YCReposResult;
 
 @interface YCTrendingTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSMutableDictionary <NSString *, NSString *> *avatarDictionary;
-@property (nonatomic, strong) YCTrendingResult *trending;
+@property (nonatomic, strong) YCReposResult *repos;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

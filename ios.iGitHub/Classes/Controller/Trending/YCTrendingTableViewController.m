@@ -14,7 +14,8 @@
 #import "YCTrendingLanguageTableViewController.h"
 #import "YCReposDetailTableViewController.h"
 #import "YCTrendingBiz.h"
-#import "YCTrendingResult.h"
+#import "YCReposResult.h"
+#import "YCProfileResult.h"
 #import "YCTrendingLanguageResult.h"
 #import "YCTrendingLanguageButton.h"
 #import "YCTrendingTableViewHeaderFooterView.h"
@@ -25,8 +26,7 @@
 @property (nonatomic, weak) YCTrendingLanguageButton *button;
 
 @property (nonatomic, strong, readonly) NSArray <NSString *> *trendingTitleArray;
-@property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSArray *> *trendingDictionary;
-@property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSString *> *avatarDictionary;
+@property (nonatomic, strong, readonly) NSMutableDictionary <NSString *, NSArray <YCReposResult *> *> *trendingDictionary;
 @property (nonatomic, strong) YCTrendingLanguageResult *trendingLanguage;
 
 @end
@@ -37,7 +37,6 @@
     if (self = [super init]) {
         _trendingTitleArray = @[ @"Daily", @"Weekly", @"Monthly" ];
         _trendingDictionary = [NSMutableDictionary dictionaryWithCapacity:_trendingTitleArray.count];
-        _avatarDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -65,9 +64,8 @@
 
 - (void)clickLanguageButton {
     YCTrendingLanguageTableViewController *vc = [[YCTrendingLanguageTableViewController alloc] init];
-    vc.language = self.trendingLanguage.name;
+    vc.language = self.button.titleLabel.text;
     vc.callback = ^(YCTrendingLanguageResult *trendingLanguage) {
-        [self.avatarDictionary removeAllObjects];
         self.trendingLanguage = trendingLanguage;
         [self.button setTitle:self.trendingLanguage.name forState:UIControlStateNormal];
         [self.tableView.mj_header beginRefreshing];
@@ -86,7 +84,7 @@
 
 - (void)setupTrending {
     // 日
-    [YCTrendingBiz trendingDailyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
+    [YCTrendingBiz trendingDailyWithLanguage:self.trendingLanguage.slug success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[0]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -95,7 +93,7 @@
         [self.tableView.mj_header endRefreshing];
     }];
     // 周
-    [YCTrendingBiz trendingWeeklyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
+    [YCTrendingBiz trendingWeeklyWithLanguage:self.trendingLanguage.slug success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[1]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -104,7 +102,7 @@
         [self.tableView.mj_header endRefreshing];
     }];
     // 月
-    [YCTrendingBiz trendingMonthlyWithLanguage:self.trendingLanguage.value success:^(NSArray *results) {
+    [YCTrendingBiz trendingMonthlyWithLanguage:self.trendingLanguage.slug success:^(NSArray *results) {
         [self.trendingDictionary setValue:results forKey:self.trendingTitleArray[2]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -134,20 +132,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YCTrendingTableViewCell *cell = [YCTrendingTableViewCell cellWithTableView:tableView];
-    cell.avatarDictionary = self.avatarDictionary;
-    cell.trending = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
+    cell.repos = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    YCTrendingResult *trending = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
-    NSArray *array = [trending.repo componentsSeparatedByString:@"/"];
+    YCReposResult *repos = self.trendingDictionary[self.trendingTitleArray[indexPath.section]][indexPath.row];
     
     YCReposDetailTableViewController *vc = [[YCReposDetailTableViewController alloc] init];
-    vc.username = array[0];
-    vc.reposname = array[1];
+    vc.username = repos.owner.login;
+    vc.reposname = repos.name;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

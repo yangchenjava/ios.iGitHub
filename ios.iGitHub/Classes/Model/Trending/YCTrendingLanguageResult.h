@@ -11,6 +11,8 @@
 @interface YCTrendingLanguageResult : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *value;
+@property (nonatomic, copy) NSString *slug;
+
+- (instancetype)initWithName:(NSString *)name slug:(NSString *)slug;
 
 @end

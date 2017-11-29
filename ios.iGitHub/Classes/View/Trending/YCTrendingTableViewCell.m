@@ -13,8 +13,7 @@
 #import <YCHelpKit/UIView+Category.h>
 
 #import "YCTrendingTableViewCell.h"
-#import "YCProfileBiz.h"
-#import "YCTrendingResult.h"
+#import "YCReposResult.h"
 #import "YCProfileResult.h"
 
 @interface YCTrendingTableViewCell ()
@@ -47,29 +46,15 @@
     [self setSeparatorInset:UIEdgeInsetsMake(0, self.nameLabel.x, 0, 0)];
 }
 
-- (void)setTrending:(YCTrendingResult *)trending {
-    _trending = trending;
-    
-    NSArray *array = [self.trending.repo componentsSeparatedByString:@"/"];
-    NSString *userName = array[0], *name = array[1];
+- (void)setRepos:(YCReposResult *)repos {
+    _repos = repos;
     
     UIImage *image = [UIImage imageNamed:@"avatar"];
-    self.avatarImageView.image = [image imageWithCircle:image.size];
-    if (self.avatarDictionary[userName].length) {
-        [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:self.avatarDictionary[userName]] placeholderImage:self.avatarImageView.image];
-    } else {
-        [YCProfileBiz profileWithUserName:userName success:^(YCProfileResult *result) {
-            [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:result.avatar_url] placeholderImage:self.avatarImageView.image];
-            [self.avatarDictionary setValue:result.avatar_url forKey:userName];
-        } failure:^(NSError *error) {
-            YCLog(@"%@", error.localizedDescription);
-        }];
-    }
+    [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:self.repos.owner.avatar_url] placeholderImage:[image imageWithCircle:image.size]];
+    self.nameLabel.text = self.repos.name;
     
-    self.nameLabel.text = name;
-    
-    if (self.trending.desc.length) {
-        self.descLabel.text = [self.trending.desc emojizedString];
+    if (self.repos.desc.length) {
+        self.descLabel.text = [self.repos.desc emojizedString];
     } else {
         self.descLabel.text = @"";
     }
@@ -78,19 +63,19 @@
     [starIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor]];
     self.starImageView.image = [starIcon imageWithSize:self.starImageView.size];
     
-    self.starCountLabel.text = self.trending.stars;
+    self.starCountLabel.text = [NSString stringWithFormat:@"%ld", self.repos.stargazers_count];
     
     FAKOcticons *forkIcon = [FAKOcticons repoForkedIconWithSize:MIN(self.forkImageView.width, self.forkImageView.height)];
     [forkIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor]];
     self.forkImageView.image = [forkIcon imageWithSize:self.forkImageView.size];
     
-    self.forkCountLabel.text = self.trending.forks;
+    self.forkCountLabel.text = [NSString stringWithFormat:@"%ld", self.repos.forks_count];
     
     FAKOcticons *personIcon = [FAKOcticons personIconWithSize:MIN(self.userImageView.width, self.userImageView.height)];
     [personIcon addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor]];
     self.userImageView.image = [personIcon imageWithSize:self.userImageView.size];
     
-    self.userNameLabel.text = userName;
+    self.userNameLabel.text = self.repos.owner.login;
 }
 
 @end

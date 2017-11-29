@@ -21,8 +21,6 @@
 		0F09C0531D49DDC300687BBA /* YCBaseTableHeaderModelF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C0521D49DDC300687BBA /* YCBaseTableHeaderModelF.m */; };
 		0F09C05B1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */; };
 		0F4687111FBD87D00019E123 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687101FBD87D00019E123 /* octicons.ttf */; };
-		0F4687181FC423700019E123 /* YCTrendingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4687171FC4236F0019E123 /* YCTrendingResult.m */; };
-		0F46871A1FC66C4E0019E123 /* languages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687191FC66C4E0019E123 /* languages.plist */; };
 		0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */; };
 		0F4687201FC7C5B10019E123 /* YCTrendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */; };
 		0F4687231FCBC0760019E123 /* YCTrendingLanguageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4687221FCBC0760019E123 /* YCTrendingLanguageTableViewController.m */; };
@@ -161,9 +159,6 @@
 		0F09C0591D4B4E6000687BBA /* YCIssuesBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIssuesBodyTableViewCell.h; sourceTree = "<group>"; };
 		0F09C05A1D4B4E6000687BBA /* YCIssuesBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIssuesBodyTableViewCell.m; sourceTree = "<group>"; };
 		0F4687101FBD87D00019E123 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
-		0F4687161FC4236F0019E123 /* YCTrendingResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingResult.h; sourceTree = "<group>"; };
-		0F4687171FC4236F0019E123 /* YCTrendingResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingResult.m; sourceTree = "<group>"; };
-		0F4687191FC66C4E0019E123 /* languages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = languages.plist; sourceTree = "<group>"; };
 		0F46871B1FC6C1750019E123 /* YCTrendingBiz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingBiz.h; sourceTree = "<group>"; };
 		0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingBiz.m; sourceTree = "<group>"; };
 		0F46871E1FC7C5B10019E123 /* YCTrendingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingTableViewController.h; sourceTree = "<group>"; };
@@ -433,8 +428,6 @@
 		0F4687121FC421EB0019E123 /* Trending */ = {
 			isa = PBXGroup;
 			children = (
-				0F4687161FC4236F0019E123 /* YCTrendingResult.h */,
-				0F4687171FC4236F0019E123 /* YCTrendingResult.m */,
 				0F4687241FCBE5960019E123 /* YCTrendingLanguageResult.h */,
 				0F4687251FCBE5960019E123 /* YCTrendingLanguageResult.m */,
 			);
@@ -721,7 +714,6 @@
 				0F09C0541D4A4A5C00687BBA /* Html */,
 				0FE3F3D51D261832001E5D24 /* Assets.xcassets */,
 				0FE3F3DA1D261832001E5D24 /* Info.plist */,
-				0F4687191FC66C4E0019E123 /* languages.plist */,
 				0FE3F4591D2B98E1001E5D24 /* LaunchScreen.storyboard */,
 				0F4687101FBD87D00019E123 /* octicons.ttf */,
 				0FE3F44A1D261A8D001E5D24 /* PrefixHeader.pch */,
@@ -1122,7 +1114,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F46871A1FC66C4E0019E123 /* languages.plist in Resources */,
 				0F4687111FBD87D00019E123 /* octicons.ttf in Resources */,
 				0F5FD1BA1D54A65000432131 /* markdown.js in Resources */,
 				0F5FD1B51D54A65000432131 /* diffindex.html in Resources */,
@@ -1274,7 +1265,6 @@
 				0FE3F4351D261A4C001E5D24 /* YCNavigationController.m in Sources */,
 				0FCE45AA1D3E0DEA003BAF87 /* YCEventsResult.m in Sources */,
 				0F5FD1961D544EE800432131 /* YCCommitDetailTableViewController.m in Sources */,
-				0F4687181FC423700019E123 /* YCTrendingResult.m in Sources */,
 				0F5FD1CE1D59C72400432131 /* YCBranchTableViewCell.m in Sources */,
 				0FE3F4451D261A4C001E5D24 /* AppDelegate.m in Sources */,
 				0FE3F4A21D30AE98001E5D24 /* YCReposTableViewController.m in Sources */,

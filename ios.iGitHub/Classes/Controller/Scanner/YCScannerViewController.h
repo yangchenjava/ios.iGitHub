@@ -10,8 +10,6 @@
 
 @interface YCScannerViewController : UIViewController
 
-@property (nonatomic, copy) void (^success)(YCScannerViewController *vc, NSString *result);
-
 + (BOOL)isAvailable;
 
 @end

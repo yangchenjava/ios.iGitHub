@@ -7,6 +7,8 @@
 //
 
 #import <AVFoundation/AVFoundation.h>
+#import <YCHelpKit/SVModalWebViewController.h>
+#import <YCHelpKit/UIAlertController+Category.h>
 
 #import "YCScannerView.h"
 #import "YCScannerViewController.h"
@@ -57,8 +59,7 @@
         AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
         [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         // 原点在右上角
-        output.rectOfInterest = CGRectMake((YC_ScreenHeight - kScannerSize.height) * 0.5 / YC_ScreenHeight, (YC_ScreenWidth - kScannerSize.width) * 0.5 / YC_ScreenWidth,
-                                           kScannerSize.height / YC_ScreenHeight, kScannerSize.width / YC_ScreenWidth);
+        output.rectOfInterest = CGRectMake((YC_ScreenHeight - kScannerSize.height) * 0.5 / YC_ScreenHeight, (YC_ScreenWidth - kScannerSize.width) * 0.5 / YC_ScreenWidth, kScannerSize.height / YC_ScreenHeight, kScannerSize.width / YC_ScreenWidth);
 
         _captureSession = [[AVCaptureSession alloc] init];
         _captureSession.sessionPreset = AVCaptureSessionPresetHigh;
@@ -111,7 +112,7 @@
 
         AVMetadataMachineReadableCodeObject *metadataObject = metadataObjects.lastObject;
         YCLog(@"%@", metadataObject.stringValue);
-        self.success(self, metadataObject.stringValue);
+        [self showMessage:metadataObject.stringValue];
     }
 }
 
@@ -122,22 +123,33 @@
     }
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
 
-    [picker dismissViewControllerAnimated:YES
-                               completion:^{
-                                   NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
-                                   if (features.count) {
-                                       [self.captureSession stopRunning];
-                                       [self.scannerView stopAnimation];
+    [picker dismissViewControllerAnimated:YES completion:^{
+        NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
+        if (features.count) {
+            [self.captureSession stopRunning];
+            [self.scannerView stopAnimation];
+            
+            CIQRCodeFeature *feature = features.lastObject;
+            YCLog(@"%@", feature.messageString);
+            [self showMessage:feature.messageString];
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该图片不包含二维码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
+}
 
-                                       CIQRCodeFeature *feature = features.lastObject;
-                                       YCLog(@"%@", feature.messageString);
-                                       self.success(self, feature.messageString);
-                                   } else {
-                                       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该图片不包含二维码" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                       [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-                                       [self presentViewController:alert animated:YES completion:nil];
-                                   }
-                               }];
+- (void)showMessage:(NSString *)message {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    UIViewController *vc;
+    if ([message hasPrefix:@"http"]) {
+        vc = [[SVModalWebViewController alloc] initWithURL:[NSURL URLWithString:message]];
+    } else {
+        vc = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert alertActions:nil];
+    }
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 @end

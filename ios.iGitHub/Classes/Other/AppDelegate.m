@@ -8,7 +8,6 @@
 
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <SDWebImage/SDImageCache.h>
-#import <YCHelpKit/SVModalWebViewController.h>
 #import <YCHelpKit/UIAlertController+Category.h>
 
 #import "AppDelegate.h"
@@ -89,13 +88,13 @@ static NSString *const kShortcutItemType = @"ios.iGitHub.scan";
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIViewController *rootViewController = self.window.rootViewController;
                 if ([YCScannerViewController isAvailable]) {
+                    UINavigationController *navi;
                     if ([rootViewController isKindOfClass:[UINavigationController class]]) {
-                        UINavigationController *navi = (UINavigationController *) rootViewController;
-                        [navi pushViewController:[self scannerViewControllerWithNavigationController:navi] animated:YES];
+                        navi = (UINavigationController *) rootViewController;
                     } else if ([rootViewController isKindOfClass:[UITabBarController class]]) {
-                        UINavigationController *navi = (UINavigationController *) ((UITabBarController *) rootViewController).selectedViewController;
-                        [navi pushViewController:[self scannerViewControllerWithNavigationController:navi] animated:YES];
+                        navi = (UINavigationController *) ((UITabBarController *) rootViewController).selectedViewController;
                     }
+                    [navi pushViewController:[[YCScannerViewController alloc] init] animated:YES];
                 } else {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"该设备不支持二维码扫描" message:nil preferredStyle:UIAlertControllerStyleAlert alertActions:nil];
                     [rootViewController presentViewController:alert animated:YES completion:nil];
@@ -103,24 +102,6 @@ static NSString *const kShortcutItemType = @"ios.iGitHub.scan";
             });
         });
     }
-}
-
-- (YCScannerViewController *)scannerViewControllerWithNavigationController:(UINavigationController *)navigationController {
-    // 循环引用 window -> rootVC(tarbarVC -> naviVC, naviVC) -> scannerVC -> block(success) -> naviVC
-    YCWeakSelf(navigationController);
-    YCScannerViewController *scannerVC = [[YCScannerViewController alloc] init];
-    scannerVC.success = ^(YCScannerViewController *scannerVC, NSString *result) {
-        [scannerVC.navigationController popViewControllerAnimated:YES];
-
-        UIViewController *vc;
-        if ([result hasPrefix:@"http"]) {
-            vc = [[SVModalWebViewController alloc] initWithURL:[NSURL URLWithString:result]];
-        } else {
-            vc = [UIAlertController alertControllerWithTitle:result message:nil preferredStyle:UIAlertControllerStyleAlert alertActions:nil];
-        }
-        [weaknavigationController presentViewController:vc animated:YES completion:nil];
-    };
-    return scannerVC;
 }
 
 @end

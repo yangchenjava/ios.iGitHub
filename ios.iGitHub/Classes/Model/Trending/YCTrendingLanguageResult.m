@@ -10,4 +10,12 @@
 
 @implementation YCTrendingLanguageResult
 
+- (instancetype)initWithName:(NSString *)name slug:(NSString *)slug {
+    if (self = [super init]) {
+        self.name = name;
+        self.slug = slug;
+    }
+    return self;
+}
+
 @end

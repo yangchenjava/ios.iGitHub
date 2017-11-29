@@ -16,4 +16,6 @@
 
 + (void)trendingMonthlyWithLanguage:(NSString *)language success:(void (^)(NSArray *results))success failure:(void (^)(NSError *error))failure;
 
++ (void)trendingLanguageWithSuccess:(void (^)(NSArray *results))success failure:(void (^)(NSError *error))failure;
+
 @end
