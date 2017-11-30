@@ -14,6 +14,12 @@
 // 按钮中图文比例
 #define kImageWidth 15
 
+@interface YCTrendingLanguageButton ()
+
+@property(nonatomic, assign) CGSize intrinsicContentSize;
+
+@end
+
 @implementation YCTrendingLanguageButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -37,11 +43,12 @@
 - (void)setTitle:(NSString *)title forState:(UIControlState)state {
     [super setTitle:title forState:state];
     
-    CGFloat width = [title sizeWithFont:self.titleLabel.font size:CGSizeMake(MAXFLOAT, YC_NavigationBarHeight)].width;
+    CGFloat width = [title sizeWithFont:self.titleLabel.font size:CGSizeMake(MAXFLOAT, YC_NavigationBarHeight)].width + 5;
     self.frame = CGRectMake(0, 0, width + kImageWidth, YC_NavigationBarHeight);
-    CGFloat interval = 1.0;
-    self.imageEdgeInsets = UIEdgeInsetsMake(0, width + interval, 0, - (width + interval));
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, - (kImageWidth + interval), 0, kImageWidth + interval);
+    self.intrinsicContentSize = self.frame.size;
+    self.imageEdgeInsets = UIEdgeInsetsMake(0, width, 0, -width);
+    self.titleEdgeInsets = UIEdgeInsetsMake(0, -kImageWidth, 0, kImageWidth);
+    [self layoutIfNeeded];
 }
 
 @end

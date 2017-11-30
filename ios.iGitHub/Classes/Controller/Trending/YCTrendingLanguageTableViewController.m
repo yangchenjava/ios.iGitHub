@@ -6,7 +6,6 @@
 //  Copyright © 2017年 yangc. All rights reserved.
 //
 
-#import <MJExtension/MJExtension.h>
 #import <YCHelpKit/MBProgressHUD+Category.h>
 
 #import "YCTrendingLanguageTableViewController.h"
@@ -23,10 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Languages";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissVC)];
     [YCTrendingBiz trendingLanguageWithSuccess:^(NSArray *results) {
         self.trendingLanguageArray = results;
+        NSUInteger row = [self.trendingLanguageArray indexOfObjectPassingTest:^BOOL(YCTrendingLanguageResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj.name isEqualToString:self.language];
+        }];
         [self.tableView reloadData];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
     } failure:^(NSError *error) {
         [MBProgressHUD showError:error.localizedDescription];
     }];
