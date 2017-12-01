@@ -12,9 +12,12 @@
 #import "YCTrendingBiz.h"
 #import "YCTrendingLanguageResult.h"
 
-@interface YCTrendingLanguageTableViewController ()
+@interface YCTrendingLanguageTableViewController () <UISearchResultsUpdating>
+
+@property (nonatomic, strong) UISearchController *searchController;
 
 @property (nonatomic, strong) NSArray <YCTrendingLanguageResult *> *trendingLanguageArray;
+@property (nonatomic, strong) NSArray <YCTrendingLanguageResult *> *searchTrendingLanguageArray;
 
 @end
 
@@ -22,8 +25,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupNavi];
+    [self setupSearch];
+    [self setupTrendingLanguage];
+}
+
+- (void)setupNavi {
     self.navigationItem.title = @"Languages";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissVC)];
+}
+
+- (void)setupSearch {
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    searchController.searchResultsUpdater = self;
+    searchController.dimsBackgroundDuringPresentation = NO;
+    searchController.hidesNavigationBarDuringPresentation = NO;
+    self.searchController = searchController;
+    self.definesPresentationContext = YES;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+}
+
+- (void)setupTrendingLanguage {
     [YCTrendingBiz trendingLanguageWithSuccess:^(NSArray *results) {
         self.trendingLanguageArray = results;
         NSUInteger row = [self.trendingLanguageArray indexOfObjectPassingTest:^BOOL(YCTrendingLanguageResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -36,12 +58,18 @@
     }];
 }
 
-- (void)dismissVC {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (NSArray <YCTrendingLanguageResult *> *)dataArray {
+    return (self.searchController.active && self.searchController.searchBar.text.length) ? self.searchTrendingLanguageArray : self.trendingLanguageArray;
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name contains[cd] %@", searchController.searchBar.text];
+    self.searchTrendingLanguageArray = [self.trendingLanguageArray filteredArrayUsingPredicate:predicate];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.trendingLanguageArray.count;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -51,7 +79,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.tintColor = YC_Color_RGB(50, 50, 50);
     }
-    cell.textLabel.text = self.trendingLanguageArray[indexPath.row].name;
+    cell.textLabel.text = self.dataArray[indexPath.row].name;
     if ([cell.textLabel.text isEqualToString:self.language]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
@@ -62,8 +90,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.callback(self.trendingLanguageArray[indexPath.row]);
+    self.callback(self.dataArray[indexPath.row]);
     [self dismissVC];
+}
+
+- (void)dismissVC {
+    if (self.searchController.active) {
+        [self.searchController dismissViewControllerAnimated:NO completion:nil];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
