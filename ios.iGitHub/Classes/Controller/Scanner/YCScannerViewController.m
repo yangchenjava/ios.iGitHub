@@ -81,11 +81,12 @@
 }
 
 - (void)setupScanner {
-    self.captureVideoPreviewLayer.frame = self.view.bounds;
+    CGRect frame = CGRectMake(0, 0, YC_ScreenWidth, YC_ScreenHeight - YC_StatusBarHeight - YC_NavigationBarHeight);
+    self.captureVideoPreviewLayer.frame = frame;
     [self.view.layer insertSublayer:self.captureVideoPreviewLayer atIndex:0];
     [self.captureSession startRunning];
 
-    YCScannerView *scannerView = [[YCScannerView alloc] initWithFrame:self.view.bounds];
+    YCScannerView *scannerView = [[YCScannerView alloc] initWithFrame:frame];
     [self.view addSubview:scannerView];
     self.scannerView = scannerView;
 
