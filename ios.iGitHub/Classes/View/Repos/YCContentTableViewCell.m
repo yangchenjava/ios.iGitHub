@@ -7,6 +7,7 @@
 //
 
 #import <FontAwesomeKit/FontAwesomeKit.h>
+#import <YCHelpKit/NSString+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 
 #import "YCContentResult.h"
@@ -18,7 +19,7 @@
     static NSString *ID = @"YCContentTableViewCell";
     YCContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[YCContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[YCContentTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
     return cell;
 }
@@ -37,8 +38,10 @@
     FAKOcticons *icon;
     if (self.content.type == ContentTypeDir) {
         icon = [FAKOcticons fileDirectoryIconWithSize:25];
+        self.detailTextLabel.text = nil;
     } else {
         icon = [FAKOcticons fileCodeIconWithSize:25];
+        self.detailTextLabel.text = [NSString fileSizeUnit:self.content.size];
     }
     [icon addAttribute:NSForegroundColorAttributeName value:YC_Color_RGB(91, 97, 101)];
     self.imageView.image = [icon imageWithSize:CGSizeMake(25, 25)];
