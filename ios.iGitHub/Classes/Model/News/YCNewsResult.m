@@ -17,6 +17,10 @@
     return @{ @"ID" : @"id", @"pbc" : @"public" };
 }
 
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[ @"attrURL" ];
+}
+
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
     if ([property.name isEqualToString:@"type"]) {
         static NSDictionary *newsType;

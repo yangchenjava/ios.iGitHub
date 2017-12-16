@@ -17,6 +17,10 @@
     return @{ @"ID" : @"id", @"pbc" : @"public" };
 }
 
++ (NSArray *)mj_ignoredPropertyNames {
+    return @[ @"attrURL" ];
+}
+
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
     if ([property.name isEqualToString:@"type"]) {
         static NSDictionary *eventType;
@@ -35,7 +39,7 @@
             };
         });
         return eventType[oldValue];
-    } else if (property.type.class == [NSDate class]) {
+    } else if (property.type.typeClass == [NSDate class]) {
         return [YCGitHubUtils.dateFormatter dateFromString:oldValue];
     }
     return oldValue;

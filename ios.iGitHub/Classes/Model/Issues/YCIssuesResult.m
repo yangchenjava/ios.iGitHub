@@ -23,7 +23,7 @@
 }
 
 - (id)mj_newValueFromOldValue:(id)oldValue property:(MJProperty *)property {
-    if (property.type.class == [NSDate class]) {
+    if (property.type.typeClass == [NSDate class] && ![oldValue isEqual:[NSNull null]]) {
         return [YCGitHubUtils.dateFormatter dateFromString:oldValue];
     }
     return oldValue;
