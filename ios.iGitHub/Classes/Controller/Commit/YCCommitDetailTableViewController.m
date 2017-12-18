@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.sectionHeaderHeight = 20;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupCommit)];

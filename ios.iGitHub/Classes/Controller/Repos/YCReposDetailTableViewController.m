@@ -61,7 +61,7 @@
             [self setupRepos];
         }
         failure:^(NSError *error) {
-            [MBProgressHUD showError:error.localizedDescription];
+            YCLog(@"readme = %@", error.localizedDescription);
             [self setupRepos];
         }];
 }
