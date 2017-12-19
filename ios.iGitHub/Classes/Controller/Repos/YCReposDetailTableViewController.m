@@ -9,6 +9,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import <YCHelpKit/MBProgressHUD+Category.h>
 #import <YCHelpKit/UIView+Category.h>
+#import <YCHelpKit/UIViewController+Category.h>
 
 #import "YCBaseTableHeaderModel.h"
 #import "YCBaseTableViewCell.h"
@@ -164,8 +165,19 @@
                                                              }];
     YCBaseTableViewCellGroup *group_2 = [[YCBaseTableViewCellGroup alloc] init];
     group_2.itemArray = @[ item_2_0, item_2_1, item_2_2 ];
+    
+    NSMutableArray *groupArray = [NSMutableArray arrayWithObjects:group_0, group_1, group_2, nil];
+    if (self.repos.homepage.length) {
+        YCBaseTableViewCellItem *item_3_0 = [YCBaseTableViewCellItem itemWithTitle:@"Website" icon:@"octicon-globe" subtitle:nil];
+        item_3_0.operation = ^(YCBaseTableViewCellItem *item) {
+            [self presentWebViewControllerWithURL:[NSURL URLWithString:self.repos.homepage] animated:YES completion:nil];
+        };
+        YCBaseTableViewCellGroup *group_3 = [[YCBaseTableViewCellGroup alloc] init];
+        group_3.itemArray = @[ item_3_0 ];
+        [groupArray addObject:group_3];
+    }
 
-    self.groupArray = @[ group_0, group_1, group_2 ];
+    self.groupArray = groupArray;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
