@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,16 +26,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-NQ-IP9" userLabel="name">
-                        <rect key="frame" x="51" y="8" width="261" height="21"/>
+                        <rect key="frame" x="51" y="8" width="261" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="dfU-7e-EVO"/>
+                            <constraint firstAttribute="height" constant="20" id="dfU-7e-EVO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <color key="textColor" red="0.25490196078431371" green="0.51764705882352935" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8B-4i-IDH" userLabel="desc">
-                        <rect key="frame" x="51" y="37" width="261" height="11"/>
+                        <rect key="frame" x="51" y="36" width="261" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,12 +70,13 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="TBN-3F-rJa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KCE-NQ-IP9" secondAttribute="bottom" priority="750" id="6wf-qW-w37"/>
                     <constraint firstItem="i8B-4i-IDH" firstAttribute="leading" secondItem="KCE-NQ-IP9" secondAttribute="leading" id="8Qn-7o-S9T"/>
                     <constraint firstItem="KCE-NQ-IP9" firstAttribute="leading" secondItem="lw6-4b-Gac" secondAttribute="trailing" constant="8" id="8pz-nW-XVG"/>
                     <constraint firstAttribute="trailing" secondItem="KCE-NQ-IP9" secondAttribute="trailing" constant="8" id="EOw-rH-qa3"/>
                     <constraint firstItem="4yY-RC-3rs" firstAttribute="bottom" secondItem="TBN-3F-rJa" secondAttribute="bottom" id="GWp-qp-Fgr"/>
                     <constraint firstItem="cIu-FA-0Nj" firstAttribute="leading" secondItem="4yY-RC-3rs" secondAttribute="trailing" constant="8" id="IdG-xE-qEg"/>
-                    <constraint firstItem="TBN-3F-rJa" firstAttribute="top" secondItem="i8B-4i-IDH" secondAttribute="bottom" constant="8" id="Md4-9m-aNr"/>
+                    <constraint firstItem="TBN-3F-rJa" firstAttribute="top" secondItem="i8B-4i-IDH" secondAttribute="bottom" priority="999" constant="8" id="Md4-9m-aNr"/>
                     <constraint firstItem="4yY-RC-3rs" firstAttribute="top" secondItem="TBN-3F-rJa" secondAttribute="top" id="N8Q-xm-aGy"/>
                     <constraint firstItem="4yY-RC-3rs" firstAttribute="leading" secondItem="TBN-3F-rJa" secondAttribute="trailing" constant="8" id="Niq-oS-Wti"/>
                     <constraint firstItem="KCE-NQ-IP9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Nq1-aI-NzB"/>
@@ -96,13 +97,15 @@
             <connections>
                 <outlet property="avatarImageView" destination="lw6-4b-Gac" id="vbk-aE-M1f"/>
                 <outlet property="descLabel" destination="i8B-4i-IDH" id="nEN-7z-Krb"/>
+                <outlet property="descStarLayoutConstraint" destination="Md4-9m-aNr" id="dst-h2-ooT"/>
                 <outlet property="forkCountLabel" destination="Yv2-Yn-553" id="b2S-bQ-hCr"/>
                 <outlet property="forkImageView" destination="cIu-FA-0Nj" id="cHe-iD-ITQ"/>
                 <outlet property="nameLabel" destination="KCE-NQ-IP9" id="TjS-8U-7Pe"/>
+                <outlet property="nameStarLayoutConstraint" destination="6wf-qW-w37" id="1OF-7h-4BP"/>
                 <outlet property="starCountLabel" destination="4yY-RC-3rs" id="Uq5-9k-i3Q"/>
                 <outlet property="starImageView" destination="TBN-3F-rJa" id="DxN-4m-bvi"/>
             </connections>
-            <point key="canvasLocation" x="-89" y="-15"/>
+            <point key="canvasLocation" x="-154" y="-22"/>
         </tableViewCell>
     </objects>
     <resources>

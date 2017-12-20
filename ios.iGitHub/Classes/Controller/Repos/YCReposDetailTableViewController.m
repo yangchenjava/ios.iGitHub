@@ -8,6 +8,7 @@
 
 #import <MJRefresh/MJRefresh.h>
 #import <YCHelpKit/MBProgressHUD+Category.h>
+#import <YCHelpKit/UIAlertController+Category.h>
 #import <YCHelpKit/UIView+Category.h>
 #import <YCHelpKit/UIViewController+Category.h>
 
@@ -39,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(clickRightBarButtonItem)];
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupReadme)];
     [self.tableView.mj_header beginRefreshing];
@@ -52,6 +54,16 @@
         tableHeaderModel.name = self.reposname;
         self.tableHeaderModel = tableHeaderModel;
     }
+}
+
+- (void)clickRightBarButtonItem {
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Show in GitHub" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.repos.html_url.length) {
+            [self presentWebViewControllerWithURL:[NSURL URLWithString:self.repos.html_url] animated:YES completion:nil];
+        }
+    }];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet alertActions:@[ alertAction ]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)setupReadme {
@@ -169,8 +181,9 @@
     NSMutableArray *groupArray = [NSMutableArray arrayWithObjects:group_0, group_1, group_2, nil];
     if (self.repos.homepage.length) {
         YCBaseTableViewCellItem *item_3_0 = [YCBaseTableViewCellItem itemWithTitle:@"Website" icon:@"octicon-globe" subtitle:nil];
+        YCWeakSelf(self);
         item_3_0.operation = ^(YCBaseTableViewCellItem *item) {
-            [self presentWebViewControllerWithURL:[NSURL URLWithString:self.repos.homepage] animated:YES completion:nil];
+            [weakself presentWebViewControllerWithURL:[NSURL URLWithString:weakself.repos.homepage] animated:YES completion:nil];
         };
         YCBaseTableViewCellGroup *group_3 = [[YCBaseTableViewCellGroup alloc] init];
         group_3.itemArray = @[ item_3_0 ];

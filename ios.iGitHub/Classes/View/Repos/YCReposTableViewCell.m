@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *forkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *forkCountLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameStarLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *descStarLayoutConstraint;
+
 @end
 
 @implementation YCReposTableViewCell
@@ -50,11 +53,17 @@
     UIImage *image = [UIImage imageNamed:@"avatar"];
     [self.avatarImageView sd_setImageCircleWithURL:[NSURL URLWithString:self.repos.owner.avatar_url] placeholderImage:[image imageWithCircle:image.size]];
     self.nameLabel.text = self.repos.name;
-
+    
     if (self.repos.desc.length) {
         self.descLabel.text = [self.repos.desc emojizedString];
+        self.descLabel.hidden = NO;
+        self.descStarLayoutConstraint.priority = 999;
+        self.nameStarLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
     } else {
-        self.descLabel.text = @"";
+        self.descLabel.text = nil;
+        self.descLabel.hidden = YES;
+        self.descStarLayoutConstraint.priority = UILayoutPriorityDefaultHigh;
+        self.nameStarLayoutConstraint.priority = 999;
     }
 
     FAKOcticons *starIcon = [FAKOcticons starIconWithSize:MIN(self.starImageView.width, self.starImageView.height)];

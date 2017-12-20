@@ -28,7 +28,7 @@
 + (void)setupNaviTitleStyle {
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset = CGSizeZero; // 去掉阴影
-    NSDictionary *titleTextAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor], NSShadowAttributeName : shadow};
+    NSDictionary *titleTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor whiteColor], NSShadowAttributeName : shadow };
 
     UINavigationBar *naviBar = [UINavigationBar appearance];
     // title样式
@@ -53,7 +53,7 @@
  *  初始化导航按钮样式
  */
 + (void)setupNaviBarButtonItemStyle {
-    NSDictionary *titleTextAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [UIColor whiteColor]};
+    NSDictionary *titleTextAttributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:16], NSForegroundColorAttributeName : [UIColor whiteColor] };
 
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
     [barButtonItem setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];
