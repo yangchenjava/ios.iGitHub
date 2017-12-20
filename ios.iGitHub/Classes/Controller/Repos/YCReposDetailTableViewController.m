@@ -40,7 +40,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(clickRightBarButtonItem)];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(clickRightBarButtonItem)];
+    rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     // 刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(setupReadme)];
     [self.tableView.mj_header beginRefreshing];
@@ -58,9 +60,7 @@
 
 - (void)clickRightBarButtonItem {
     UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"Show in GitHub" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if (self.repos.html_url.length) {
-            [self presentWebViewControllerWithURL:[NSURL URLWithString:self.repos.html_url] animated:YES completion:nil];
-        }
+        [self presentWebViewControllerWithURL:[NSURL URLWithString:self.repos.html_url] animated:YES completion:nil];
     }];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet alertActions:@[ alertAction ]];
     [self presentViewController:alertController animated:YES completion:nil];
@@ -92,8 +92,8 @@
             self.tableHeaderModel = tableHeaderModel;
 
             [self setupGroupArray];
-
             [self.tableView reloadData];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
             [self.tableView.mj_header endRefreshing];
         }
         failure:^(NSError *error) {
