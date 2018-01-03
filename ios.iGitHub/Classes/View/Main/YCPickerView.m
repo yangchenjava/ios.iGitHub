@@ -35,11 +35,11 @@
         [done addTarget:self action:@selector(clickDone) forControlEvents:UIControlEventTouchUpInside];
         [toolBar addSubview:done];
         
-        UIPickerView *pickView = [[UIPickerView alloc] init];
-        pickView.dataSource = self;
-        pickView.delegate = self;
-        [self addSubview:pickView];
-        self.pickerView = pickView;
+        UIPickerView *pickerView = [[UIPickerView alloc] init];
+        pickerView.dataSource = self;
+        pickerView.delegate = self;
+        [self addSubview:pickerView];
+        self.pickerView = pickerView;
         
         [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.mas_top);
@@ -55,7 +55,7 @@
             make.height.mas_equalTo(YC_CellDefaultHeight);
         }];
         
-        [pickView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(toolBar.mas_bottom);
             make.leading.mas_equalTo(self.mas_leading);
             make.trailing.mas_equalTo(self.mas_trailing);

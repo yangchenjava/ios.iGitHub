@@ -21,7 +21,7 @@
 @interface YCSourceViewController () <UIWebViewDelegate, YCPickerViewDelegate>
 
 @property (nonatomic, weak) UIWebView *webView;
-@property (nonatomic, weak) YCPickerView *pickView;
+@property (nonatomic, weak) YCPickerView *pickerView;
 
 @property (nonatomic, strong) YCContentResult *content;
 @property (nonatomic, assign, getter=isRaw) BOOL raw;
@@ -40,13 +40,13 @@
 - (void)clickRightBarButtonItem {
     self.navigationItem.rightBarButtonItem.enabled = NO;
     NSArray <NSString *> *styles = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"styles" ofType:@"plist"]];
-    YCPickerView *pickView = [[YCPickerView alloc] initWithFrame:CGRectMake(0, YC_ScreenHeight, YC_ScreenWidth, 350) defaultSelectRows:@[ @([styles indexOfObject:[YCGitHubUtils profile].highlighter]) ]];
-    pickView.delegate = self;
-    pickView.components = @[ styles ];
-    [self.view addSubview:pickView];
-    self.pickView = pickView;
+    YCPickerView *pickerView = [[YCPickerView alloc] initWithFrame:CGRectMake(0, YC_ScreenHeight, YC_ScreenWidth, 350) defaultSelectRows:@[ @([styles indexOfObject:[YCGitHubUtils profile].highlighter]) ]];
+    pickerView.delegate = self;
+    pickerView.components = @[ styles ];
+    [self.view addSubview:pickerView];
+    self.pickerView = pickerView;
     [UIView animateWithDuration:0.2 animations:^{
-        self.pickView.y = YC_ScreenHeight - self.pickView.height;
+        self.pickerView.y = YC_ScreenHeight - self.pickerView.height;
     }];
 }
 
@@ -56,11 +56,11 @@
 
 - (void)pickerView:(YCPickerView *)pickerView didClickDoneRows:(NSArray<NSNumber *> *)rows titles:(NSArray<NSString *> *)titles {
     [UIView animateWithDuration:0.2 animations:^{
-        self.pickView.y = YC_ScreenHeight;
+        self.pickerView.y = YC_ScreenHeight;
     } completion:^(BOOL finished) {
         if (finished) {
             self.navigationItem.rightBarButtonItem.enabled = YES;
-            [self.pickView removeFromSuperview];
+            [self.pickerView removeFromSuperview];
             
             YCProfileResult *result = [YCGitHubUtils profile];
             result.highlighter = titles[0];
