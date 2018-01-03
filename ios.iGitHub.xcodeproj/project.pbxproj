@@ -107,6 +107,7 @@
 		0F3CD3FD1FF4D1B600E68EDF /* marked.css in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CD3FA1FF4D1B600E68EDF /* marked.css */; };
 		0F3CD3FE1FF4D1B600E68EDF /* marked.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CD3FB1FF4D1B600E68EDF /* marked.min.js */; };
 		0F3CD3FF1FF4D1B600E68EDF /* readme.html in Resources */ = {isa = PBXBuildFile; fileRef = 0F3CD3FC1FF4D1B600E68EDF /* readme.html */; };
+		0F3CD4021FFB7EE300E68EDF /* YCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3CD4011FFB7EE300E68EDF /* YCPickerView.m */; };
 		0F4687111FBD87D00019E123 /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F4687101FBD87D00019E123 /* octicons.ttf */; };
 		0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */; };
 		0F4687201FC7C5B10019E123 /* YCTrendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46871F1FC7C5B10019E123 /* YCTrendingTableViewController.m */; };
@@ -326,6 +327,8 @@
 		0F3CD3FA1FF4D1B600E68EDF /* marked.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = marked.css; sourceTree = "<group>"; };
 		0F3CD3FB1FF4D1B600E68EDF /* marked.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = marked.min.js; sourceTree = "<group>"; };
 		0F3CD3FC1FF4D1B600E68EDF /* readme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = readme.html; sourceTree = "<group>"; };
+		0F3CD4001FFB7EE300E68EDF /* YCPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCPickerView.h; sourceTree = "<group>"; };
+		0F3CD4011FFB7EE300E68EDF /* YCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCPickerView.m; sourceTree = "<group>"; };
 		0F4687101FBD87D00019E123 /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
 		0F46871B1FC6C1750019E123 /* YCTrendingBiz.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCTrendingBiz.h; sourceTree = "<group>"; };
 		0F46871C1FC6C1750019E123 /* YCTrendingBiz.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCTrendingBiz.m; sourceTree = "<group>"; };
@@ -1082,6 +1085,8 @@
 		0FE3F42E1D261A4C001E5D24 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0F3CD4001FFB7EE300E68EDF /* YCPickerView.h */,
+				0F3CD4011FFB7EE300E68EDF /* YCPickerView.m */,
 				0FE3F42F1D261A4C001E5D24 /* YCBadgeButton.h */,
 				0FE3F4301D261A4C001E5D24 /* YCBadgeButton.m */,
 				0FE3F4311D261A4C001E5D24 /* YCTabBar.h */,
@@ -1604,6 +1609,7 @@
 				0F5FD1521D50826D00432131 /* YCReadmeViewController.m in Sources */,
 				0FCE45B81D40A7E5003BAF87 /* YCEventsResultF.m in Sources */,
 				0FD96A3A1D3C895E001E66BA /* YCPayloadResult.m in Sources */,
+				0F3CD4021FFB7EE300E68EDF /* YCPickerView.m in Sources */,
 				0FE3F4AB1D30B0D0001E5D24 /* YCProfileTableViewController.m in Sources */,
 				0F46871D1FC6C1750019E123 /* YCTrendingBiz.m in Sources */,
 				0FD96A471D3CAF0D001E66BA /* YCNewsTableViewCell.m in Sources */,

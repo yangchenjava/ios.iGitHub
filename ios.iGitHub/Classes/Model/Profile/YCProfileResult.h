@@ -107,4 +107,6 @@
  */
 @property (nonatomic, strong) NSDate *date;
 
+@property (nonatomic, strong) NSString *highlighter;
+
 @end

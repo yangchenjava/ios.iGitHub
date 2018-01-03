@@ -26,4 +26,8 @@ MJExtensionCodingImplementation
     return oldValue;
 }
 
+- (NSString *)highlighter {
+    return _highlighter.length ? _highlighter : @"default";
+}
+
 @end
