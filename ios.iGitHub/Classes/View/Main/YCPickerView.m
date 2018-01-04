@@ -10,6 +10,8 @@
 
 #import "YCPickerView.h"
 
+#define kPickerViewFrame CGRectMake(0, YC_ScreenHeight * 3 / 5 , YC_ScreenWidth, YC_ScreenHeight * 2 / 5)
+
 @interface YCPickerView () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, strong) NSArray<NSNumber *> *defaultSelectRows;
@@ -19,14 +21,18 @@
 
 @implementation YCPickerView
 
-- (instancetype)initWithFrame:(CGRect)frame defaultSelectRows:(NSArray<NSNumber *> *)defaultSelectRows {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithDefaultSelectRows:(NSArray<NSNumber *> *)defaultSelectRows {
+    if (self = [super initWithFrame:CGRectMake(0, YC_ScreenHeight, YC_ScreenWidth, YC_ScreenHeight)]) {
         self.defaultSelectRows = defaultSelectRows;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
+        
+        UIView *view = [[UIView alloc] initWithFrame:kPickerViewFrame];
+        view.backgroundColor = YC_Color_RGB(245, 245, 245);
+        [self addSubview:view];
         
         UIView *toolBar = [[UIView alloc] init];
-        toolBar.backgroundColor = YC_Color_RGB(240, 240, 240);
-        [self addSubview:toolBar];
+        toolBar.backgroundColor = YC_Color_RGB(220, 220, 220);
+        [view addSubview:toolBar];
         
         UIButton *done = [UIButton buttonWithType:UIButtonTypeCustom];
         [done setTitle:@"Done" forState:UIControlStateNormal];
@@ -38,13 +44,13 @@
         UIPickerView *pickerView = [[UIPickerView alloc] init];
         pickerView.dataSource = self;
         pickerView.delegate = self;
-        [self addSubview:pickerView];
+        [view addSubview:pickerView];
         self.pickerView = pickerView;
         
         [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.mas_top);
-            make.leading.mas_equalTo(self.mas_leading);
-            make.trailing.mas_equalTo(self.mas_trailing);
+            make.top.mas_equalTo(view.mas_top);
+            make.leading.mas_equalTo(view.mas_leading);
+            make.trailing.mas_equalTo(view.mas_trailing);
             make.height.mas_equalTo(YC_CellDefaultHeight);
         }];
         
@@ -52,17 +58,38 @@
             make.top.mas_equalTo(toolBar.mas_top);
             make.trailing.mas_equalTo(toolBar.mas_trailing);
             make.width.mas_equalTo(80);
-            make.height.mas_equalTo(YC_CellDefaultHeight);
+            make.height.mas_equalTo(toolBar.mas_height);
         }];
         
         [pickerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(toolBar.mas_bottom);
-            make.leading.mas_equalTo(self.mas_leading);
-            make.trailing.mas_equalTo(self.mas_trailing);
-            make.bottom.mas_equalTo(self.mas_bottom).mas_offset(-100);
+            make.leading.mas_equalTo(view.mas_leading);
+            make.trailing.mas_equalTo(view.mas_trailing);
+            make.bottom.mas_equalTo(view.mas_bottom).mas_offset(-YC_TabBarBottomSafeMargin);
         }];
     }
     return self;
+}
+
+- (void)show {
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = self.frame;
+        frame.origin.y = 0;
+        self.frame = frame;
+    }];
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+}
+
+- (void)dismiss {
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = self.frame;
+        frame.origin.y = YC_ScreenHeight;
+        self.frame = frame;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self removeFromSuperview];
+        }
+    }];
 }
 
 - (void)setComponents:(NSArray<NSArray<NSString *> *> *)components {
@@ -72,6 +99,13 @@
         for (NSInteger component = 0; component < self.defaultSelectRows.count; component++) {
             [self.pickerView selectRow:self.defaultSelectRows[component].integerValue inComponent:component animated:NO];
         }
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    if (!CGRectContainsPoint(kPickerViewFrame, [touches.anyObject locationInView:self])) {
+        [self dismiss];
     }
 }
 

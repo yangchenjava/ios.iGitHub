@@ -23,6 +23,8 @@
 @property (nonatomic, weak) id<YCPickerViewDelegate> delegate;
 @property (nonatomic, strong) NSArray <NSArray <NSString *> *> *components;
 
-- (instancetype)initWithFrame:(CGRect)frame defaultSelectRows:(NSArray <NSNumber *> *)defaultSelectRows;
+- (instancetype)initWithDefaultSelectRows:(NSArray <NSNumber *> *)defaultSelectRows;
+- (void)show;
+- (void)dismiss;
 
 @end

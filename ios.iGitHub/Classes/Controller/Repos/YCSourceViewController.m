@@ -32,22 +32,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"SH" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarButtonItem)];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"SH" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarButtonItem)];
+    rightBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupWebView];
 }
 
 - (void)clickRightBarButtonItem {
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     NSArray <NSString *> *styles = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"styles" ofType:@"plist"]];
-    YCPickerView *pickerView = [[YCPickerView alloc] initWithFrame:CGRectMake(0, YC_ScreenHeight, YC_ScreenWidth, 350) defaultSelectRows:@[ @([styles indexOfObject:[YCGitHubUtils profile].highlighter]) ]];
+    YCPickerView *pickerView = [[YCPickerView alloc] initWithDefaultSelectRows:@[ @([styles indexOfObject:[YCGitHubUtils profile].highlighter]) ]];
     pickerView.delegate = self;
     pickerView.components = @[ styles ];
-    [self.view addSubview:pickerView];
+    [pickerView show];
     self.pickerView = pickerView;
-    [UIView animateWithDuration:0.2 animations:^{
-        self.pickerView.y = YC_ScreenHeight - self.pickerView.height;
-    }];
 }
 
 - (void)pickerView:(YCPickerView *)pickerView didSelectComponent:(NSInteger)component row:(NSInteger)row title:(NSString *)title {
@@ -55,18 +53,11 @@
 }
 
 - (void)pickerView:(YCPickerView *)pickerView didClickDoneRows:(NSArray<NSNumber *> *)rows titles:(NSArray<NSString *> *)titles {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.pickerView.y = YC_ScreenHeight;
-    } completion:^(BOOL finished) {
-        if (finished) {
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-            [self.pickerView removeFromSuperview];
-            
-            YCProfileResult *result = [YCGitHubUtils profile];
-            result.highlighter = titles[0];
-            [YCGitHubUtils setProfile:result];
-        }
-    }];
+    [self.pickerView dismiss];
+    
+    YCProfileResult *result = [YCGitHubUtils profile];
+    result.highlighter = titles[0];
+    [YCGitHubUtils setProfile:result];
 }
 
 - (void)setupWebView {
@@ -113,6 +104,7 @@
                          [NSString stringWithFormat:@"$(\"body\").html($(\"<video src='%@' controls autobuffer width='100%%' height='100%%' style='margin: 45%% 0'></video>\"));", self.download_url]];
         }
     } else {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         // 根据扩展名定义样式
         if ([extension isEqualToString:@"m"]) {
             extension = @"objectivec";
